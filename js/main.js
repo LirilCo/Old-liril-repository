@@ -23,7 +23,7 @@ $(document).on("ready",function(){
 
 	})
 
-	setInterval(function(){$("#example_video_1").height($(document).height() - $("header").height() - 7);
+	setInterval(function(){$("#example_video_1").height($(window).height() - $("header").height() - 7);
 		if($("#profileSettings").hasClass("open") || $("#Store").hasClass("open")){
 			$('.knob').trigger(
         		'configure',
