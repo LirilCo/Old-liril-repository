@@ -6,20 +6,32 @@ $(document).on("ready",function(){
 		$(".indexMenuItem").toggleClass("fadeInDown");
 		$(".indexMenuItem").toggleClass("fadeOutUp");
 		$(".indexMenuItem").toggleClass("open");
-	})
-	setInterval(function(){$("#example_video_1").height($(document).height() - $("header").height() - 7);}, 100);
 
-	$("#profileTrigger").on("click",function(){
-		$("#right-menu .index-arrow").toggleClass("open");
-		$("#profileSettings").toggleClass("open");
-		if($("#profileSettings").hasClass("open")){
+	})
+	$("#store").on("click",function(){
+		$("#Store").toggleClass("open");
+		$("#index-trigger").children().toggleClass("openedStore");
+		$("#right-menu #dots").children().toggleClass("openedStore");
+		if(!player.paused() && $("#Store").hasClass("open")){
+			player.pause();
+			wasPlaying = true;
+		}
+		if(player.paused() && !$("#Store").hasClass("open") && wasPlaying == true){
+			player.play();
+			wasPlaying = false;
+		}
+
+	})
+
+	setInterval(function(){$("#example_video_1").height($(document).height() - $("header").height() - 7);
+		if($("#profileSettings").hasClass("open") || $("#Store").hasClass("open")){
 			$('.knob').trigger(
         		'configure',
         		{   
         		    "fgColor":"#2ecc71"
         		}
     		);
-		}else{
+		}if(!$("#profileSettings").hasClass("open") && !$("#Store").hasClass("open")){
 			$('.knob').trigger(
         		'configure',
         		{   
@@ -27,6 +39,12 @@ $(document).on("ready",function(){
         		}
     		);
 		}
+	}, 50);
+
+	$("#profileTrigger").on("click",function(){
+		$("#right-menu .index-arrow").toggleClass("open");
+		$("#profileSettings").toggleClass("open");
+		
 	})
 	
 	jump("#start",0);

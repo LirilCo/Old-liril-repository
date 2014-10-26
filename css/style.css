@@ -54,7 +54,7 @@ header {
 		padding-right: 46px;
 		position: absolute;
 		top: 3px;
-		z-index: 1;
+		z-index: 2;
 	 }
 	header nav ul li#right-menu .index-arrow
 	{
@@ -139,7 +139,7 @@ z-index: 1;
 			position: absolute;
 			top: 3px;
 			height: 40px;
-			z-index: 2;
+			z-index: 3;
 		 }
 
 		header nav ul li#index #index-menu {
@@ -195,7 +195,7 @@ header nav ul li#index span:first-child.open {color: #2ecc71;}
 			top: 0;
 			opacity: 1;
 			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-			z-index: 1;
+			z-index: 2;
 		 }
 
 		header nav ul li.index .text {
@@ -214,6 +214,7 @@ header nav ul li#index span:first-child.open {color: #2ecc71;}
 			header nav  .index-arrow:before {content: "\e605";}
 
 			header nav  .index-arrow.open:before {content: "\e604";color: #2ecc71}
+
 
 input {
 	background-color: #2ecc71;
@@ -240,6 +241,21 @@ input {
 #example_video_1{
 	width: 100%;
 }
-
+#Store{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	z-index: 1;
+	display: none;
+}
+#Store.open{
+	display: block;
+}
+.openedStore{
+	color: #2ecc71 !important;
+}
 /*sombra #27ae60
 normal #2ecc71*/

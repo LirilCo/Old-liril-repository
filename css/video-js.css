@@ -457,9 +457,8 @@ easily in the skin designer. http://designer.videojs.com/
   display: block;
   
  position: fixed;
-top: -19px;
-left: 150px;
-  text-align: center;
+top: -20px;
+left: 240px;  text-align: center;
   vertical-align: middle;
   cursor: pointer;
   opacity: 1;
@@ -517,7 +516,7 @@ left: 150px;
      to the same as the button height */
 
   line-height: 2.6em;
-
+  font-size: 30px;
   text-align: center /* Needed for IE8 */;
   position: absolute;
   left: 0;
