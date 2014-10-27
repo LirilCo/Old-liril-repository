@@ -25,6 +25,7 @@ $(document).on("ready",function(){
 
 	})
 
+<<<<<<< HEAD
 	setInterval(function(){
 		$("#example_video_1").height($(window).height() - $("header").height() - 7);
 		$("#Store #actualStore").height($(window).height() - $("header").height() - 21);
@@ -32,6 +33,9 @@ $(document).on("ready",function(){
 		$("#Store #actualStore #storeSection").height($("#Store #actualStore").height() - 80);
 
 
+=======
+	setInterval(function(){$("#example_video_1").height($(window).height() - $("header").height() - 7);
+>>>>>>> origin/master
 		if($("#profileSettings").hasClass("open") || $("#Store").hasClass("open")){
 			$('.knob').trigger(
         		'configure',
