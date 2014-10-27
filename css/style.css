@@ -22,7 +22,7 @@
 header {
 	background-color: #2ecc71;
 	box-shadow: 0 6px 0 #27ae60;
-	height: 40px;
+	height: 41px;
 	width: 100%;
 	font-size: 24px;
  }
@@ -53,16 +53,16 @@ header {
 		right: 0;
 		padding-right: 46px;
 		position: absolute;
-		top: 3px;
+		top: 0;
 		z-index: 2;
 	 }
 	header nav ul li#right-menu .index-arrow
 	{
 		position: absolute;
-		top: 3px;
+		top: 0;
 		right: 5px;
 	}
-		header nav ul li#right-menu #dots-text {margin-right: 55px;}
+		header nav ul li#right-menu #dots {margin-right: 55px;height: 41px;padding-left: 35px;}
 
 		header nav ul li#right-menu #dots-icon:before {
 			font-size: 16px;
@@ -72,7 +72,7 @@ header {
 
 		header nav ul li#right-menu #profile {
 			position: absolute;
-			top: 0;
+			top: 3px;
 			right: 30px;
 		 }
 
@@ -111,15 +111,17 @@ header {
 			 }
 			 header nav ul li#right-menu #profileTrigger {
 				position: absolute;
-top: -3px;
+top: 0;
 right: 0;
 width: 80px;
-height: 40px;
+height: 41px;
 z-index: 1;
 
 			 }
 
-		header nav ul li#right-menu #store {margin-right: 12px;}
+		header nav ul li#right-menu #store {margin-right: 12px;position: absolute;
+left: 0;
+top: -5px;}
 
 			header nav ul li#right-menu #store:before {
 				margin-right: 2px;
@@ -137,11 +139,24 @@ z-index: 1;
 		header nav ul li#index #index-trigger {
 			cursor: pointer;
 			position: absolute;
-			top: 3px;
-			height: 40px;
+			top: 0;
+			height: 41px;
 			z-index: 3;
-		 }
+			width: 100%
 
+		 }
+		header nav ul li#index #index-trigger #index-text{
+			position: absolute;
+top: 0;
+left: 35px;
+
+		 }
+		 	header nav ul li#index #index-trigger .index-arrow{
+			position: absolute;
+			top: 0;
+
+		 }
+		 
 		header nav ul li#index #index-menu {
 			background-color: #fff;
 			height: 0;
@@ -165,6 +180,7 @@ z-index: 1;
 				display: none;
 				text-overflow: ellipsis;
 				white-space: nowrap;
+
 			
 			 }
 			 header nav ul li#index #index-menu ul li.open {
@@ -187,9 +203,9 @@ cursor: pointer;
 header nav ul li#index span:first-child.open {color: #2ecc71;}
 
 		header nav ul li#index #index-menu.open {
-			padding-top: 46px;
+			padding-top: 41px;
 			display: block;
-			height: 140px;
+			height: 149px;
 			left: 0;
 			position: absolute;
 			top: 0;
@@ -247,7 +263,7 @@ input {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: #fff;
+	background-color: #ecf0f1;
 	z-index: 1;
 	display: none;
 }
@@ -257,5 +273,47 @@ input {
 .openedStore{
 	color: #2ecc71 !important;
 }
+#Store #storeHeader{
+	width: 100%;
+	border-bottom: solid 7px #ddd;
+	height: 41px;
+	background-color: #fff;
+}
+#Store #actualStore{
+	width: 100%;
+	background-color: #ecf0f1;
+	position: absolute;
+	bottom: 7px;
+}
+#Store #actualStore #storeList{
+	width: 20%;
+	background-color: #fff;
+	height: 100%;
+	display:inline-block;
+}
+#Store #actualStore #storeSection{
+	width: 70%;
+	background-color: #fff;
+	height: 100%;
+	float: right;
+	display: inline-block;
+	padding: 40px;
+}
+#Store #actualStore #storeList ul li{
+	color: #afafaf;
+	list-style: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 25px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	width: 100%;
+	display: block;
+	cursor: pointer;
+}
+
+
+
 /*sombra #27ae60
 normal #2ecc71*/

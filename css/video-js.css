@@ -437,6 +437,7 @@ display: none;
   position: fixed;
 top: -2px;
 left: 540px;
+display: none;
 }
 .vjs-default-skin .vjs-fullscreen-control:before {
   content: "\e606";

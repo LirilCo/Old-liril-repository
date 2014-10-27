@@ -8,10 +8,12 @@ $(document).on("ready",function(){
 		$(".indexMenuItem").toggleClass("open");
 
 	})
-	$("#store").on("click",function(){
+	var wasPlaying = false;
+	$("#dots").on("click",function(){
 		$("#Store").toggleClass("open");
 		$("#index-trigger").children().toggleClass("openedStore");
 		$("#right-menu #dots").children().toggleClass("openedStore");
+		$("#right-menu").children().toggleClass("openedStore");
 		if(!player.paused() && $("#Store").hasClass("open")){
 			player.pause();
 			wasPlaying = true;
@@ -23,7 +25,13 @@ $(document).on("ready",function(){
 
 	})
 
-	setInterval(function(){$("#example_video_1").height($(document).height() - $("header").height() - 7);
+	setInterval(function(){
+		$("#example_video_1").height($(window).height() - $("header").height() - 7);
+		$("#Store #actualStore").height($(window).height() - $("header").height() - 21);
+		$("#Store #actualStore #storeSection").width($(window).width() - $("#Store #actualStore #storeList").width() - 87);
+		$("#Store #actualStore #storeSection").height($("#Store #actualStore").height() - 80);
+
+
 		if($("#profileSettings").hasClass("open") || $("#Store").hasClass("open")){
 			$('.knob').trigger(
         		'configure',
