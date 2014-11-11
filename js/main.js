@@ -7,7 +7,7 @@ $(document).on("ready",function(){
 		$(".indexMenuItem").toggleClass("fadeOutUp");
 		$(".indexMenuItem").toggleClass("open");
 
-	})
+	});
 	var wasPlaying = false;
 	$("#dots").on("click",function(){
 		$("#Store").toggleClass("open");
@@ -18,28 +18,28 @@ $(document).on("ready",function(){
 			player.pause();
 			wasPlaying = true;
 		}
-		if(player.paused() && !$("#Store").hasClass("open") && wasPlaying == true){
+		if(player.paused() && !$("#Store").hasClass("open") && wasPlaying === true){
 			player.play();
 			wasPlaying = false;
 		}
 
-	})
+	});
 
 	setInterval(function(){
-		$("#example_video_1").height($(window).height() - $("header").height() - 7);
+		$("#example_video_1").height($(window).height() - $("header").height() - 12);
 		$("#Store #actualStore").height($(window).height() - $("header").height() - 21);
 		$("#Store #actualStore #storeSection").width($(window).width() - $("#Store #actualStore #storeList").width() - 87);
 		$("#Store #actualStore #storeSection").height($("#Store #actualStore").height() - 80);
 
 
-		if($("#profileSettings").hasClass("open") || $("#Store").hasClass("open")){
+		if($("#profileSettings").hasClass("open")){
 			$('.knob').trigger(
         		'configure',
         		{   
         		    "fgColor":"#2ecc71"
         		}
     		);
-		}if(!$("#profileSettings").hasClass("open") && !$("#Store").hasClass("open")){
+		}if(!$("#profileSettings").hasClass("open") && $("#Store").hasClass("open")){
 			$('.knob').trigger(
         		'configure',
         		{   
@@ -47,13 +47,22 @@ $(document).on("ready",function(){
         		}
     		);
 		}
-	}, 50);
+        if(!$("#profileSettings").hasClass("open") && !$("#Store").hasClass("open")){
+			$('.knob').trigger(
+        		'configure',
+        		{   
+        		    "fgColor":"#2ecc71"
+        		}
+    		);
+		}
+        
+	}, 10);
 
 	$("#profileTrigger").on("click",function(){
 		$("#right-menu .index-arrow").toggleClass("open");
 		$("#profileSettings").toggleClass("open");
 		
-	})
+	});
 	
 	jump("#start",0);
 	jump("#second",10);
@@ -99,10 +108,10 @@ $(".vjs-captions-button.vjs-menu-button.vjs-control ").css({
 	});
 
 
-})
+});
 
 function jump(s,t){
 		$(s).on("click",function(){
 		player.currentTime(t);
-	})
+	});
 }

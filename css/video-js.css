@@ -579,6 +579,7 @@ left: 240px;  text-align: center;
 */
 .vjs-loading-spinner {
   /* Should be hidden by default */
+  color:#fff;
   display: none;
   position: absolute;
   top: 50%;
