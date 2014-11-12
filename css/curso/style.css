@@ -52,6 +52,21 @@ header nav ul {
     padding: 0;
     vertical-align: middle;
 }
+header nav ul li#controls span {
+    cursor: pointer;
+    position:absolute;
+    top:0;
+}
+header nav ul li#controls #play {
+    font-family: "icomoon";
+    font-size: 40px;
+}
+header nav ul li#controls #play:before {
+     content: "\e603"
+}
+header nav ul li#controls #play.playing:before {
+     content: "\e602"
+}
 header nav ul li.index .text {
     left: 28px;
     padding-left: 7px;
@@ -293,3 +308,4 @@ input:focus {
 }
 /*sombra #ccc
 normal #fff*/
+
