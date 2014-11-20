@@ -160,6 +160,12 @@ header nav ul li#index {
     position: relative;
     width: 130px;
 }
+header nav ul li#index #index-menu .sub {
+    font-family: "icomoon";
+}
+header nav ul li#index #index-menu .sub:before {
+    content:"\e603"
+}
 header nav ul li#index #index-menu.open {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     display: block;
@@ -209,7 +215,7 @@ header nav ul li#index #index-menu ul li.open {
     padding-bottom: 5px;
     padding-right: 5px;
     padding-top: 5px;
-    width: 100%;
+    width: 85%;
 }
 header nav ul li#index #index-menu ul li {
     color: #afafaf;

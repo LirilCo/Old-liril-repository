@@ -26,6 +26,8 @@ $(document).on("ready",function(){
 	});
 
 	setInterval(function(){
+        $("#index-menu.open").height(32* $("#index-menu.open > ul > a").length);
+
         if(player.paused()){
             $("#play").removeClass("playing")
         }else{
@@ -76,10 +78,7 @@ $(document).on("ready",function(){
 		}
 	});
 	
-	jump("#start",0);
-	jump("#second",10);
-	jump("#third",20);
-	jump("#fourth",35);
+
 	$(".vjs-play-control.vjs-control").css({
 		"display": "none"
 	});

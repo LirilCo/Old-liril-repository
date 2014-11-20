@@ -113,7 +113,7 @@ header nav ul li#right-menu #profileSettings {
     z-index: -1;
 }
 header nav ul li#right-menu #profileTrigger {
-    height: 41px;
+    height: 47px;
     position: absolute;
     right: 0;
     top: 0;
@@ -166,14 +166,14 @@ header nav ul li#index #index-menu.open {
     height: 130px;
     left: 0;
     opacity: 1;
-    padding-top: 41px;
+    padding-top: 47px;
     position: absolute;
     top: 0;
     z-index: 2;
 }
 header nav ul li#index #index-trigger {
     cursor: pointer;
-    height: 41px;
+    height: 47px;
     position: absolute;
     top: 0;
     width: 100%;
@@ -297,7 +297,7 @@ input:focus {
 #Store #storeHeader {
     background-color: #2ecc71;
     border-bottom: solid 7px #27ae60;
-    height: 41px;
+    height: 47px;
     width: 100%;
 }
 #Store.open {
