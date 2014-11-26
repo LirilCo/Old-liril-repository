@@ -7,10 +7,14 @@
     src: url('../resources/fonts/icomoon.eot?4v3ev0');
     src: url('../resources/fonts/icomoon.eot?#iefix4v3ev0') format('embedded-opentype'), url('../resources/fonts/icomoon.woff?4v3ev0') format('woff'), url('../resources/fonts/icomoon.ttf?4v3ev0') format('truetype'), url('../resources/fonts/icomoon.svg?4v3ev0#icomoon') format('svg');
 }
+
 * {
     color: #2ecc71;
     font-family: "Open Sans", sans-serif;
 }
+a{
+    text-decoration: none;
+    }
 html,
 body {
     height: 100%;
@@ -20,8 +24,11 @@ header {
     background-color: #fff;
     border-bottom: solid 6px #ccc;
     font-size: 24px;
-    height: 47px;
+    height: 40px;
     width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
 }
 header>nav>ul>li {
     display: table-cell;
@@ -122,7 +129,7 @@ header nav ul li#right-menu #profileSettings {
     top: -3px;
     transition: height 100ms ease-in-out, box-shadow 100ms ease-in-out, opacity 100ms ease-in-out;
     width: 80px;
-    z-index: -1;
+    z-index: 3;
 }
 header nav ul li#right-menu #profileTrigger {
     height: 47px;
@@ -272,7 +279,7 @@ input:focus {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
 }
 #Store #actualStore {
     background-color: #ecf0f1;
@@ -307,11 +314,12 @@ input:focus {
     white-space: nowrap;
     width: 100%;
 }
-#Store #storeHeader {
+header.open {
     background-color: #2ecc71;
-    border-bottom: solid 7px #27ae60;
-    height: 47px;
+    border-bottom: solid 6px #27ae60;
+    height: 40px;
     width: 100%;
+    z-index: 3;
 }
 #Store.open {
     display: block
@@ -321,4 +329,220 @@ input:focus {
 }
 /*sombra #ccc
 normal #fff*/
+#feed
+{
+ width: 80%;
+    margin: 60px auto 0 auto;
 
+}
+#feed  .story{
+    width: 500px;
+    background-color: #fff;
+    border-radius: 3px;
+    margin: 10px auto;
+    padding: 10px
+}
+.info{
+    width: 100%;
+    height: 4em;
+    position: relative;
+     padding: 0;
+    margin: 0;
+
+}
+.story .info
+{
+    height: 40px;
+ }   
+.info  img{
+    height: 40px !important;
+    width: 40px!important;
+    position: absolute;
+    cursor: pointer;
+}
+.info  p{
+    color: #666;
+    font-size: 15px;
+    display: inline-block;
+    margin: 0 ;
+    position: absolute;
+    top: 0;
+    left: 45px;
+}
+.info  .time {
+    color: #aaa;
+    font-size: 13px;
+    margin: 0;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+}
+.story .info  .time {
+   left: 45px
+}
+.info  p a{
+  font-weight: bold;
+    text-decoration: none;
+}
+#feed  .story .title{
+ font-size: 20px;
+    color: #666;
+    margin: 10px 0
+}
+#feed  .story .more {
+text-align: center;
+    margin: 0;
+   
+    padding: 15px 0;
+}
+#feed  .story .more a{
+text-align: right;
+text-decoration: none;
+
+}
+#feed  .story img{
+width: 100%;
+cursor: pointer
+}
+#wrapper
+{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: #000;
+    opacity: 0.9;
+    z-index: 3;
+}   
+.theater
+{
+    display:none;
+}
+#theater
+{
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    position: fixed;
+    height: 500px;
+    background-color: #fff;
+    z-index: 3;
+    top: 20px;
+
+}
+#theater img
+{
+    
+    max-width: 100%;
+
+    height: 100%
+
+}
+#theater .title
+{
+    
+  color: #666;
+    font-weight: bold
+
+}
+#theater .more
+{
+  color: #666;
+  font-size: 15px;
+    margin: 0;
+    overflow: hidden
+}
+.options
+{
+    
+    height: 50px;
+}
+.options ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 50px;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+} 
+#theater .options ul
+{
+   
+    line-height: 70px;
+    
+} 
+.options ul li
+{
+display: inline-block;
+    width: 30%;;
+    margin: 0;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    font-family: "icomoon";
+    line-height:50px;
+    font-size: 30px;
+    cursor: pointer;
+    
+    
+} 
+.options ul li.bookmark:after
+{
+content: "\e619"
+} 
+.options ul li.bookmark.true:after
+{
+content: "\e61a"
+} 
+.options ul li.star:after
+{
+content: "\e61b"
+} 
+.options ul li.star.true:after
+{
+content: "\e61c"
+} 
+.options ul li.read:after
+{
+content: "\e618"
+} 
+#theater .comments
+{
+    width: 300px;
+    display: inline-block;
+     padding: 20px;
+    position: absolute;
+top: 0;
+right: 0;
+}
+#theater .comments #close
+{
+    text-align: right;
+    font-size: 9px;
+    color: #bbb;
+    margin: 5px 5px;
+    font-family: "icomoon";
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px;
+    cursor: pointer
+    
+}
+
+#theater .comments #close:before
+{
+    content: "\e60e"
+}
+#sidebar{
+    position: fixed;
+    right: 0;
+    top: 40px;
+    width: 205px;
+    background-color: #fff;
+    z-index: 1;
+}

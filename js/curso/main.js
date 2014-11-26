@@ -47,6 +47,7 @@ $(document).on("ready",function(){
         		}
     		);
 		}if(!$("#profileSettings").hasClass("open") && $("#Store").hasClass("open")){
+            debugger;
 			$('.knob').trigger(
         		'configure',
         		{   
