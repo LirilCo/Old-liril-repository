@@ -15,14 +15,17 @@
     <link rel="stylesheet" href="css/house/style.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/video-js.css">
-   
+   <link rel="stylesheet" href="css/jquery-ui.min.css">
     
     <script src="js/jquery.js"></script>
     <script src="js/house/main.js"></script>
     <script src="js/jquery.dotdotdot.min.js" type="text/javascript"></script>
-  
-    <script src="js/house/modernizr.custom.js"></script>
 
+
+  <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="js/house/modernizr.custom.js"></script>
+<script src="js/jquery-ui.min.js"
+></script>
  <script src="js/jquery.knob.js">
     </script>
 
@@ -191,11 +194,11 @@
         <p class="more">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet varius lectus, congue rutrum urna. Suspendisse in ultrices enim. In hac habitasse platea dictumst. Praesent aliquet, nisi nec euismod vulputate, odio velit porta erat, ut semper lacus erat ac nulla. Aenean ex libero, volutpat vel sem et, blandit dictum dui. Duis suscipit sed nisi finibus vestibulum. Quisque finibus porttitor nisl, nec consequat metus. Quisque commodo, libero nec volutpat suscipit, quam urna volutpat turpis, quis rhoncus magna dui sit amet lacus. Donec pellentesque aliquam turpis nec commodo. Aliquam lobortis facilisis auctor. Sed libero nisi, scelerisque et porttitor vel, accumsan sed lacus. Pellentesque at tortor pellentesque, vestibulum turpis at, iaculiuisque finibus porttitor nisl, nec consequat metus. Quisque commodo, libero nec volutpat suscipit, quam urna volutpat turpis, quis rhoncus magna dui sit amet lacus. Donec pellentesque aliquam turpis nec commodo. Aliquam lobortis facilisis auctor. Sed libero nisi, scelerisque et porttitor vel, accumsan sed lacus. Pellentesque at tortor pellentesque, vestibulum turpis at, iaculis nibh.
         </p>
-        <div class="options">
+        <div class="options button">
         <ul>
             <li class="bookmark"></li>
             <li class="star"></li>
-            <li class="read"></li>
+            <a><li class="read"></li></a>
         </ul></div>
         <p id="close"></p>
         </aside>
@@ -211,11 +214,11 @@
             </div>
             <p class="title">Nuevo ad</p>
             <img class="pic" src="resources/images/grid/3.jpg" alt="" class="big">
-            <div class="options">
+            <div class="options button">
             <ul>
                 <li class="bookmark"></li>
                 <li class="star"></li>
-                <li class="read"></li>
+                <a href=""><li class="read"></li></a>
             </ul>
         </div>
 
@@ -229,11 +232,11 @@
             </div>
             <p class="title">Novedades en Adobe Photoshop CC</p>
             <img class="pic" src="resources/images/photoshop.jpg" alt="" class="big">
-        <div class="options">
+        <div class="options button">
             <ul>
                 <li class="bookmark"></li>
                 <li class="star"></li>
-                <li class="read"></li>
+                <a href="article.html"><li class="read"></li></a>
             </ul>
         </div>
            
@@ -246,17 +249,19 @@
             </div>
             <p class="title">Nuevos conceptos de diseño por <a href="#">Walter White</a></p>
             <img class="pic" src="resources/images/grid/2.jpg" alt="" class="big">
-        <div class="options">
+        <div class="options button">
             <ul>
                 <li class="bookmark"></li>
                 <li class="star"></li>
-                <li class="read"></li>
-            </ul>
+                <a href=""><li class="read"></li></a>   
+             </ul>
         </div>
            
         </section>
         <section class="story friends">
             <div class="info">
+                   
+                   
                     <img src="resources/images/white.jpg" alt="">
                     <p class="username"><a href="#">Walter White</a> hizo un commit a <a href="#">eBay</a></p>
                     <p class="time">Ayer a las 3:30 pm</p>
@@ -279,7 +284,109 @@
     </aside>	
 	
     <aside id="sidebar">
+     <div id="container">
+      <div id="resizeBottom">
+       <div id="chat">
+        <ul>
+            <li class="button connected"><img src="resources/images/white.jpg" alt=""><p>Andrés García</p><span ></span></li>
+            <li class="button connected"><img src="resources/images/white.jpg" alt=""><p>Carlos Rodríguez</p><span></span></li>
+            <li class="button connected"><img src="resources/images/white.jpg" alt=""><p>Andrea Cifuentes</p><span></span></li>
+            <li class="button connected"><img src="resources/images/white.jpg" alt=""><p>John McGonagall</p><span></span></li>
+            <li class="button connected"><img src="resources/images/white.jpg" alt=""><p>Rodrigo Cardona</p><span></span></li>
+            <li class="button connected"><img src="resources/images/white.jpg" alt=""><p>Carlos Cifuentes</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luis Colmenares</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Lina Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Carolina García Cardona</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Karina Echeverri</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Fernando Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luisa Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Villamil</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Camilo Molina</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Santiago Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>José Serna</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Yepes</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Freddy Guarín</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luis Colmenares</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Lina Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Carolina García Cardona</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Karina Echeverri</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Fernando Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luisa Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Villamil</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Camilo Molina</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Santiago Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>José Serna</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Yepes</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Freddy Guarín</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luis Colmenares</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Lina Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Carolina García Cardona</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Karina Echeverri</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Fernando Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luisa Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Villamil</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Camilo Molina</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Santiago Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>José Serna</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Yepes</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Freddy Guarín</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luis Colmenares</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Lina Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Carolina García Cardona</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Karina Echeverri</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Fernando Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luisa Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Villamil</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Camilo Molina</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Santiago Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>José Serna</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Yepes</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Freddy Guarín</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luis Colmenares</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Lina Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Carolina García Cardona</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Karina Echeverri</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Fernando Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luisa Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Villamil</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Camilo Molina</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Santiago Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>José Serna</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Yepes</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Freddy Guarín</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luis Colmenares</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Lina Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Carolina García Cardona</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Karina Echeverri</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Fernando Sánchez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Luisa Gaviria</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Villamil</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Camilo Molina</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Santiago Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Andrés Jiménez</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>José Serna</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Isabel Yepes</p><span></span></li>
+            <li class="button"><img src="resources/images/white.jpg" alt=""><p>Freddy Guarín</p><span></span></li>
+        </ul>
         
+        </div>
+        </div>
+        </div>
+        <section id="search">
+            <i id="searchIcon"></i>
+           <input type="text" placeholder="Buscar">
+        </section>
     </aside>
     <section id="Store" class="button">
             
@@ -318,6 +425,17 @@
         </aside>
        
     </section>
-		
+		<script>
+        $('#chat').slimscroll({
+             wheelStep: 5,
+  height: 'auto'
+});
+    </script>
+    <script>
+        $( "#resizeBottom" ).resizable({ handles: "n",maxHeight: ($(window).height()-$("#sidebar #search").outerHeight() - 51),minHeight: 50 }).bind("resize", function (e, ui) {
+            $(this).css("top", "auto");
+        });;
+
+    </script>
 </body>
 </html>

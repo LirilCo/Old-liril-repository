@@ -1,8 +1,5 @@
 var $this
 $(document).on("ready",function(){
-    $("li").prop("title", function(){ 
-    return $(this).find("p").text();
-});
     function closeModal(){
         if( $('.theater .comments .options .bookmark').hasClass("true")){
             $this.find('.options .bookmark').addClass("true");
@@ -29,8 +26,26 @@ $(document).on("ready",function(){
     $(".star").on("click",function(){
 		 $(this).toggleClass("true")
 	});
-     $(".bookmark").on("click",function(){
+    $(".bookmark").on("click",function(){
 		 $(this).toggleClass("true")
+	});
+    
+     $(".options.first .bookmark").on("click",function(){
+        $('.options.ending .bookmark').toggleClass("true")
+          
+	});
+    $(".options.ending .bookmark").on("click",function(){
+        $('.options.first .bookmark').toggleClass("true")
+          
+	});
+    
+     $(".options.first .star").on("click",function(){
+        $('.options.ending .star').toggleClass("true")
+          
+	});
+    $(".options.ending .star").on("click",function(){
+        $('.options.first .star').toggleClass("true")
+          
 	});
     
 	$("#dots").on("click",function(){
@@ -68,7 +83,7 @@ $(".story .pic").on("click",function(){
         var pic = $(this).parent().find(".info img").attr('src');
         $('.theater .comments .info #pic').attr('src', pic);
 		
-    var ref = $(this).parent().find(".options ul a").attr('href');
+        var ref = $(this).parent().find(".options ul a").attr('href');
          $('.theater .comments .options ul a').attr('href', ref);
     
         $("#theater").addClass("animated fadeIn ")
@@ -91,16 +106,15 @@ $(".story .pic").on("click",function(){
             closeModal()        
         }
     };
- $("#sidebar").height($(window).height() - 46);
-        $("#sidebar #container").height(($(window).height()-$("#sidebar #search").outerHeight() - 46));
-     $("#sidebar #chat").height(($(window).height()-$("#sidebar #search").outerHeight() - 46));
 	setInterval(function(){
-       
+        
+        $("#article").width($(window).width()- $("#sidebar").outerWidth(true) );
         $("#theater .comments").height($("#theater").height()- 40 );
         $("#theater .comments .more").height($("#theater .comments").height()- $("#theater .info").outerHeight(true)  - $("#theater .comments .title").outerHeight(true) -  $("#theater .comments .options").outerHeight(true));
         $("#theater").width($("#theater .comments").width()+ 40 + $("#theater img").width() );
         $("#theater").height($(window).height()-40);
 		$("#Store #actualStore").height($(window).height() - $("header").height() - 21);
+        $("#sidebar").height($(window).height() - 46);
 		$("#Store #actualStore #storeSection").width($(window).width() - $("#Store #actualStore #storeList").width() - 87);
 		$("#Store #actualStore #storeSection").height($("#Store #actualStore").height() - 80);
         if($("#profileSettings").hasClass("open")){

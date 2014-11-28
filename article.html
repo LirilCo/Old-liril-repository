@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>
+      Liril
+    </title>
+    <link rel="shortcut icon" type="image/ico" href="resources/icons/favicon.ico"  />
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,600,700' rel='stylesheet' type='text/css'>
+      
+     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/article/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/video-js.css">
+    
+    <script src="js/article/modernizr.custom.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/article/main.js"></script>
+        <script src="js/main.js"></script> <!-- Resource jQuery -->
+
+  
+
+ <script src="js/jquery.knob.js">
+    </script>
+
+   <script>
+        $(function ($) {
+
+            $(".knob").knob({
+                change: function (value) {
+                    //console.log("change : " + value);
+                },
+                release: function (value) {
+                    //console.log(this.$.attr('value'));
+                    console.log("release : " + value);
+                },
+                cancel: function () {
+                    console.log("cancel : ", this);
+                },
+                /*format : function (value) {
+                  return value + '%';
+                  }
+                  ,*/
+                draw: function () {
+
+                    // "tron" case
+                    if (this.$.data('skin') == 'tron') {
+
+                        this.cursorExt = 0.3;
+
+                        var a = this.arc(this.cv) // Arc
+                            ,
+                            pa // Previous arc
+                            , r = 1;
+
+                        this.g.lineWidth = this.lineWidth;
+
+                        if (this.o.displayPrevious) {
+                            pa = this.arc(this.v);
+                            this.g.beginPath();
+                            this.g.strokeStyle = this.pColor;
+                            this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
+                            this.g.stroke();
+                        }
+
+                        this.g.beginPath();
+                        this.g.strokeStyle = r ? this.o.fgColor : this.fgColor;
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+                        this.g.stroke();
+
+                        this.g.lineWidth = 2;
+                        this.g.beginPath();
+                        this.g.strokeStyle = this.o.fgColor;
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                        this.g.stroke();
+
+                        return false;
+                    }
+                }
+            });
+
+            // Example of infinite knob, iPod click wheel
+            var v, up = 0,
+                down = 0,
+                i = 0,
+                $idir = $("div.idir"),
+                $ival = $("div.ival"),
+                incr = function () {
+                    i++;
+                    $idir.show().html("+").fadeOut();
+                    $ival.html(i);
+                },
+                decr = function () {
+                    i--;
+                    $idir.show().html("-").fadeOut();
+                    $ival.html(i);
+                };
+            $("input.infinite").knob({
+                min: 0,
+                max: 20,
+                stopper: false,
+                change: function () {
+                    if (v > this.cv) {
+                        if (up) {
+                            decr();
+                            up = 0;
+                        } else {
+                            up = 1;
+                            down = 0;
+                        }
+                    } else {
+                        if (v < this.cv) {
+                            if (down) {
+                                incr();
+                                down = 0;
+                            } else {
+                                down = 1;
+                                up = 0;
+                            }
+                        }
+                    }
+                    v = this.cv;
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li id="index">
+                    <a href="house.html"><section id="index-trigger">
+                        <span class="back-arrow button">
+              </span>
+                        <span id="index-text" class="text button">
+                feed
+              </span>
+                    </section></a>
+
+                </li>
+               
+                <li id="Options">
+                <div class="options first button">
+                    <ul>
+                        <li class="star"></li>
+                         <li class="bookmark"></li>
+
+                    </ul>
+                </div>
+                </li>
+                
+                <li id="right-menu" class="button">
+                    <section id="dots" class="button">
+                        <span id="store" class="button">
+              </span>
+                        <span id="dots-icon" class="button">
+              </span>
+                        <span id="dots-text" class="button">
+                6'000.600
+              </span>
+
+                    </section>
+                    <section id="profileTrigger">
+                    </section>
+                    <div id="profile" class="button">
+                        <img id="profile-pic" src="resources/images/white.jpg" alt="Walter White">
+                        <input class="knob button" data-width="35" data-fgColor="#2ecc71" data-bgColor="rgba(0,0,0,0)" data-displayInput=false data-thickness=".15" readonly value="75">
+                    </div>
+                    <span class="index-arrow button">
+              </span>
+
+                    <section id="profileSettings">
+                    </section>
+                </li>
+
+                <li>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="wrapper" class="theater"></section>
+    
+    <section id="theater" class="theater">
+    
+        <img id="bigPic" alt="">
+        <aside class="comments">
+        <div class="info">
+                    <img id="pic" alt="">
+                    <p class="username"><a href="#"></a></p>
+                    <p class="time"></p>
+        </div>
+        <p class="title"></p>
+        <p class="more">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet varius lectus, congue rutrum urna. Suspendisse in ultrices enim. In hac habitasse platea dictumst. Praesent aliquet, nisi nec euismod vulputate, odio velit porta erat, ut semper lacus erat ac nulla. Aenean ex libero, volutpat vel sem et, blandit dictum dui. Duis suscipit sed nisi finibus vestibulum. Quisque finibus porttitor nisl, nec consequat metus. Quisque commodo, libero nec volutpat suscipit, quam urna volutpat turpis, quis rhoncus magna dui sit amet lacus. Donec pellentesque aliquam turpis nec commodo. Aliquam lobortis facilisis auctor. Sed libero nisi, scelerisque et porttitor vel, accumsan sed lacus. Pellentesque at tortor pellentesque, vestibulum turpis at, iaculiuisque finibus porttitor nisl, nec consequat metus. Quisque commodo, libero nec volutpat suscipit, quam urna volutpat turpis, quis rhoncus magna dui sit amet lacus. Donec pellentesque aliquam turpis nec commodo. Aliquam lobortis facilisis auctor. Sed libero nisi, scelerisque et porttitor vel, accumsan sed lacus. Pellentesque at tortor pellentesque, vestibulum turpis at, iaculis nibh.
+        </p>
+       <div class="options button">
+        <ul>
+            <li class="bookmark"></li>
+            <li class="star"></li>
+            <a><li class="read"></li></a>
+        </ul></div>
+        <p id="close"></p>
+        </aside>
+
+    </section>
+    
+    <section id="article">
+       
+        <aside id="title">
+            Novedades en Adobe Photoshop CC
+        </aside>
+        <img src="resources/images/article/avatar.jpg" alt=""> 
+       <aside id="text">
+              
+           
+<p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man. </p>
+          <h2>Lorem </h2>
+
+<p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass. </p>
+<figure class="cd-image-container">
+		<img src="resources/images/article/img-original.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original"></span>
+
+		<div class="cd-resize-img"> <!-- the resizable image on top -->
+			<img src="resources/images/article/img-modified.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified"></span>
+		</div>
+
+		<span class="cd-handle"></span>
+	</figure>
+<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
+<h2>Samuel L. Jackson</h2>
+<p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing. </p>
+
+	
+           
+       </aside>
+        <div class="options ending button">
+        <ul>
+            <li class="star"></li>
+             <li class="bookmark"></li>
+
+        </ul></div>
+    </section>
+    <aside id="sidebar">
+        <section class="story project">
+            <div class="info">
+                    <img src="resources/images/white.jpg" alt="">
+                    <p class="username"><a href="#">Walter White</a> </p>
+                    <p class="time">Ayer a las 3:30 pm</p>
+                    
+            </div>
+            <p class="title">Lorem ipsum!</p>
+            <img class="pic" src="resources/images/grid/3.jpg" alt="" class="big">
+            <div class="options button">
+            <ul>
+                <li class="bookmark"></li>
+                <li class="star"></li>
+                <a href=""><li class="read"></li></a>
+            </ul>
+        </div>
+
+        </section>
+        
+        <section class="story news">
+            <div class="info">
+                    <img src="resources/images/white.jpg" alt="">
+                    <p class="username"><a href="#">Walter White</a></p>
+                    <p class="time">24 de Octubre a las 0:30 am</p>
+            </div>
+            <p class="title">Novedades en Adobe Photoshop CC</p>
+            <img class="pic" src="resources/images/photoshop.jpg" alt="" class="big">
+        <div class="options button">
+            <ul>
+                <li class="bookmark"></li>
+                <li class="star"></li>
+                <a href="article.html"><li class="read"></li></a>
+            </ul>
+        </div>
+           
+        </section>
+        <section class="story news">
+            
+            <p class="title">Nuevos conceptos de diseño por <a href="#">Walter White</a></p>
+            <img class="pic" src="resources/images/grid/2.jpg" alt="" class="big">
+        <div class="options button">
+            <ul>
+                <li class="bookmark"></li>
+                <li class="star"></li>
+                <a href=""><li class="read"></li></a>   
+             </ul>
+        </div>
+           
+        </section>
+        
+    </aside>
+    <section id="Store" class="button">
+            
+        <aside id="actualStore" class="button">
+            <aside id="storeList" class="button">
+                <ul>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                </ul>
+            </aside>
+            <aside id="storeSection">
+                
+            </aside>
+        </aside>
+       
+    </section>
+		
+</body>
+</html>
