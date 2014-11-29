@@ -450,12 +450,13 @@ cursor: pointer
   color: #666;
   font-size: 15px;
     margin: 0;
-    overflow: hidden
 }
 .options
 {
     
-    height: 50px;
+    height: 60px;
+    
+
 }
 .options ul
 {
@@ -467,11 +468,25 @@ cursor: pointer
     vertical-align: middle;
     text-align: center;
 } 
+#theater .options
+{
+   
+    bottom: 0;
+position: absolute;
+width: 100%;
+left: 0;
+    
+} 
 #theater .options ul
 {
    
-    line-height: 70px;
+    line-height: 0;
     
+} 
+#theater .options ul li
+{
+   
+font-size: 40px    
 } 
 .options ul li
 {

@@ -75,6 +75,10 @@ $(".story .pic").on("click",function(){
         $(".theater").css({
             "display":"block"
         })
+        $('.more').slimscroll({
+             wheelStep: 5,
+  height: 'auto'
+});
 	});
     
     $("#close").on("click",function(){

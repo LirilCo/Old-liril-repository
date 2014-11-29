@@ -1,4 +1,7 @@
 $(document).on("ready",function(){
+    $(".indexMenuItem ").prop("title", function(){ 
+    return $(this).text();
+});
 	$("#index-trigger").on("click",function(){
 		$("#index-menu").toggleClass("open");
 		$("#index-text").toggleClass("open");
