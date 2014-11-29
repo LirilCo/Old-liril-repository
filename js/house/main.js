@@ -95,7 +95,7 @@ $(".story .pic").on("click",function(){
         $("#sidebar #container").height(($(window).height()-$("#sidebar #search").outerHeight() - 46));
      $("#sidebar #chat").height(($(window).height()-$("#sidebar #search").outerHeight() - 46));
 	setInterval(function(){
-       
+        $("#sidebar #container #resizeTop").height( $("#sidebar").height() - $("#sidebar #container #resizeBottom").height() - 36);
         $("#theater .comments").height($("#theater").height()- 40 );
         $("#theater .comments .more").height($("#theater .comments").height()- $("#theater .info").outerHeight(true)  - $("#theater .comments .title").outerHeight(true) -  $("#theater .comments .options").outerHeight(true));
         $("#theater").width($("#theater .comments").width()+ 40 + $("#theater img").width() );

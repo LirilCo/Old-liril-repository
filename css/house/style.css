@@ -561,13 +561,29 @@ right: 0;
     bottom: 0;
     height: 50%;
     width: 100%;
+    background-color: #fff;
 }
 #sidebar  #container #resizeBottom #chat
 {
     padding: 0;
     height: 100% !important;
 }
-.ui-resizable-handle{width:0;height:7px !important; background-color: #ccc}
+#sidebar  #container #resizeTop{
+    position: absolute;
+    top: 0;
+    height: 50%;
+    width: 100%;
+}
+#sidebar  #container #resizeTop #notifications
+{
+    padding: 0;
+    height: 100% !important;
+}
+.ui-resizable-handle{
+    width:0;
+    height:7px !important; 
+    background-color: #ccc;
+}
 #sidebar #search
 {
     position: absolute;
