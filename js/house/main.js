@@ -91,10 +91,17 @@ $(".story .pic").on("click",function(){
             closeModal()        
         }
     };
- $("#sidebar").height($(window).height() - 46);
-        $("#sidebar #container").height(($(window).height()-$("#sidebar #search").outerHeight() - 46));
+    $("#sidebar").height($(window).height() - 46);
+    $("#sidebar #container").height(($(window).height()-$("#sidebar #search").outerHeight() - 46));
      $("#sidebar #chat").height(($(window).height()-$("#sidebar #search").outerHeight() - 46));
+    
 	setInterval(function(){
+        if(parseInt($(window).width() - $("#sidebar").outerWidth()) <= 600){
+            $("#feed .story").css({"width" : "90%", "padding": 0, "marginLeft": "auto", "marginRight":"auto"})
+        }else{
+             $("#feed .story").css({"width" : "500px"})
+        }
+        $("#feed").width($(window).width() -  $("#sidebar").outerWidth());
         $("#sidebar #container #resizeTop").height( $("#sidebar").height() - $("#sidebar #container #resizeBottom").height() - 36);
         $("#theater .comments").height($("#theater").height()- 40 );
         $("#theater .comments .more").height($("#theater .comments").height()- $("#theater .info").outerHeight(true)  - $("#theater .comments .title").outerHeight(true) -  $("#theater .comments .options").outerHeight(true));
