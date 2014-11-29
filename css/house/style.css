@@ -579,6 +579,39 @@ right: 0;
     padding: 0;
     height: 100% !important;
 }
+#sidebar  #container #resizeTop #notifications .info 
+{
+       position: static;
+    height: auto;
+    padding-bottom: 15px;
+        cursor: pointer;
+}
+
+#sidebar  #container #resizeTop #notifications .info:first-child
+{
+    
+    margin-top: 5px !important
+}
+
+#sidebar  #container #resizeTop #notifications .info b
+{
+    color: #666;
+}
+
+#sidebar  #container #resizeTop #notifications .info img
+{
+    position: static;
+    display: inline-block;
+}
+#sidebar  #container #resizeTop #notifications .info p
+{
+    margin: 0;
+    position: static;
+   font-size: 13px ;
+    display: inline-block;
+    width:  140px;
+    vertical-align: top;
+}
 .ui-resizable-handle{
     width:0;
     height:7px !important; 
