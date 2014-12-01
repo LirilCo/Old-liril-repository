@@ -1,5 +1,7 @@
 var $this
+
 $(document).on("ready",function(){
+
     function closeModal(){
         if( $('.theater .comments .options .bookmark').hasClass("true")){
             $this.find('.options .bookmark').addClass("true");
@@ -107,7 +109,9 @@ $(".story .pic").on("click",function(){
         }
     };
 	setInterval(function(){
-        
+        $(".code-filler").width(function () {
+    return $(this).parent().next().find("code").outerWidth()
+});
         $("#article").width($(window).width()- $("#sidebar").outerWidth(true) );
         $("#theater .comments").height($("#theater").height()- 40 );
         $("#theater .comments .more").height($("#theater .comments").height()- $("#theater .info").outerHeight(true)  - $("#theater .comments .title").outerHeight(true) -  $("#theater .comments .options").outerHeight(true));

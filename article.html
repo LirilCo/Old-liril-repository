@@ -17,11 +17,14 @@
     <link rel="stylesheet" href="css/video-js.css">
     <link rel="stylesheet" href="css/prism.css">
     
-    <script src="js/article/modernizr.custom.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/article/main.js"></script>
-        <script src="js/main.js"></script> <!-- Resource jQuery -->
-        <script src="js/prism.js"></script>
+    <script src="js/main.js"></script> <!-- Resource jQuery -->
+    <script src="js/prism.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="js/index/modernizr.custom.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/sticky-kit.min.js"></script>
 
   
 
@@ -237,7 +240,11 @@
 
 		<span class="cd-handle"></span>
 	</figure>
-	<pre><code class="language-markup">&#60!DOCTYPE html&#62
+	
+	
+	<section class="code">
+	    <div class="code-scroll code-1-scroll"><div class="code-filler code-1-filler"></div></div>
+	    <pre id="code-1"><code class="language-markup" >&#60!DOCTYPE html&#62
 &#60html lang="en"&#62
 &#60head&#62
 
@@ -300,10 +307,15 @@
 
 &#60/body&#62
 &#60/html&#62</code></pre>
-
+    </section>
+    
+    
 <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
 <h2>Samuel L. Jackson</h2>
 <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing. </p>
+    <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
+    <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
+    <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
 
 	
            
@@ -404,6 +416,15 @@
         </aside>
        
     </section>
-		
+		<script>
+    $('.code-1-scroll').on('scroll', function () {
+        $('#code-1').scrollLeft($(this).scrollLeft());
+    });
+    $('#code-1').on('scroll', function () {
+        $('.code-1-scroll').scrollLeft($(this).scrollLeft());
+    });
+    $(".code-scroll").stick_in_parent({recalc_every: 1 })
+
+    </script>
 </body>
 </html>
