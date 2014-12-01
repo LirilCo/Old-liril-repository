@@ -243,7 +243,7 @@
 	
 	
 	<section class="code">
-	    <div class="code-scroll code-1-scroll"><div class="code-filler code-1-filler"></div></div>
+	    <div class="code-scroll"><div class="code-filler"></div></div>
 	    <pre id="code-1"><code class="language-markup" >&#60!DOCTYPE html&#62
 &#60html lang="en"&#62
 &#60head&#62
@@ -308,7 +308,108 @@
 &#60/body&#62
 &#60/html&#62</code></pre>
     </section>
+    <section class="code">
+	    <div class="code-scroll"><div class="code-filler"></div></div>
+	    <pre id="code-1"><code class="language-css" >@font-face
+
+{
+    font-family: 'icomoon';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../resources/fonts/icomoon.eot?4v3ev0');
+    src: url('../resources/fonts/icomoon.eot?#iefix4v3ev0') format('embedded-opentype'), url('../resources/fonts/icomoon.woff?4v3ev0') format('woff'), url('../resources/fonts/icomoon.ttf?4v3ev0') format('truetype'), url('../resources/fonts/icomoon.svg?4v3ev0#icomoon') format('svg');
+}
+
+* {
+    color: #2ecc71;
+    font-family: "Open Sans", sans-serif;
+}
+a{
+    text-decoration: none;
+    }
+html,
+body {
+    height: 100%;
+}
+header {
+    background-color: #fff;
+    border-bottom: solid 6px #ccc;
+    font-size: 24px;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+header #Options{
+    float: right;
+    margin-right: 250px;
+    height: 46px;
+    padding: 0;
+}
+header #Options .options li{
+    width: 50%;
+    margin: 0;
+    line-height: 32px;
+    top: 0;
+    font-size: 35px;
+}
+header.open #Options .options li{
+   
+    color: #fff;
+
+}
+header>nav>ul>li {
+    display: table-cell;
+    list-style-type: none;
+    padding: 0 10px 0 5px;
+    vertical-align: middle;
+}
+header nav {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+header nav .back-arrow {
+    font-family: "icomoon";
+    padding-left: 5px;
+    transform: rotate(90deg);
+        
+}
+header nav .index-arrow {
+    font-family: "icomoon";
+    padding-left: 5px; 
+    position: absolute;
+    right: 4px;
+    top: 7px;
+
+}
+header nav .back-arrow:before, header nav .index-arrow:before {
+    content: "\e605"
     
+}
+header nav .index-arrow.open:before {
+    color: #2ecc71;
+    content: "\e604";
+}
+header nav ul {
+    display: table-row;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+header>nav>ul>li#controls span {
+    cursor: pointer;
+    position:absolute;
+    top:0;
+}
+header>nav>ul>li#controls #play {
+    font-family: "icomoon";
+    font-size: 40px;
+}</code></pre>
+    </section>
     
 <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
 <h2>Samuel L. Jackson</h2>
@@ -417,12 +518,14 @@
        
     </section>
 		<script>
-    $('.code-1-scroll').on('scroll', function () {
-        $('#code-1').scrollLeft($(this).scrollLeft());
+    $('.code-scroll').on('scroll', function () {
+        $(this).siblings("pre").scrollLeft($(this).scrollLeft());
     });
-    $('#code-1').on('scroll', function () {
-        $('.code-1-scroll').scrollLeft($(this).scrollLeft());
+    $('.code pre').on('scroll', function () {
+        $(this).siblings(".code-scroll").scrollLeft($(this).scrollLeft());
+        
     });
+
     $(".code-scroll").stick_in_parent({recalc_every: 1 })
 
     </script>

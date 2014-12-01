@@ -110,7 +110,7 @@ $(".story .pic").on("click",function(){
     };
 	setInterval(function(){
         $(".code-filler").width(function () {
-    return $(this).parent().next().find("code").outerWidth()
+    return $(this).parent().siblings("pre").find("code").width() + parseInt($(this).parent().siblings("pre").css("padding-left"))+ parseInt($(this).parent().siblings("pre").css("padding-right")) - 1
 });
         $("#article").width($(window).width()- $("#sidebar").outerWidth(true) );
         $("#theater .comments").height($("#theater").height()- 40 );
