@@ -15,11 +15,13 @@
     <link rel="stylesheet" href="css/article/style.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/video-js.css">
+    <link rel="stylesheet" href="css/prism.css">
     
     <script src="js/article/modernizr.custom.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/article/main.js"></script>
         <script src="js/main.js"></script> <!-- Resource jQuery -->
+        <script src="js/prism.js"></script>
 
   
 
@@ -235,6 +237,70 @@
 
 		<span class="cd-handle"></span>
 	</figure>
+	<pre><code class="language-markup">&#60!DOCTYPE html&#62
+&#60html lang="en"&#62
+&#60head&#62
+
+&#60meta charset="utf-8" /&#62
+&#60link rel="shortcut icon" href="favicon.png" /&#62
+&#60title&#62File Highlight ▲ Prism plugins&#60/title&#62
+&#60base href="../.." /&#62
+&#60link rel="stylesheet" href="style.css" /&#62
+&#60link rel="stylesheet" href="themes/prism.css" data-noprefix /&#62
+&#60script src="prefixfree.min.js"&#62&#60/script&#62
+
+&#60script&#62var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];&#60/script&#62
+&#60script src="http://www.google-analytics.com/ga.js" async&#62&#60/script&#62
+&#60/head&#62
+&#60body&#62
+
+&#60header&#62
+	&#60div class="intro" data-src="templates/header-plugins.html" data-type="text/html"&#62&#60/div&#62
+
+	&#60h2&#62File Highlight&#60/h2&#62
+	&#60p&#62Fetch external files and highlight them with Prism. Used on the Prism website itself.&#60/p&#62
+&#60/header&#62
+
+&#60section class="language-markup"&#62
+	&#60h1&#62How to use&#60/h1&#62
+	
+	&#60p&#62Use the &#60code&#62data-src&#60/code&#62 attribute on empty &#60code&#62&lt;pre&#62&#60/code&#62 elements, like so:&#60/p&#62
+	
+	&#60pre&#62&#60code&#62&lt;pre data-src="myfile.js"&#62&lt;/pre&#62&#60/code&#62&#60/pre&#62
+	
+	&#60p&#62You don’t need to specify the language, it’s automatically determined by the file extension.
+	If, however, the language cannot be determined from the file extension or the file extension is incorrect, you may specify a language as well (with the usual class name way).&#60/p&#62
+	
+	&#60p&#62Please note that the files are fetched with XMLHttpRequest. This means that if the file is on a different origin, fetching it will fail, unless CORS is enabled on that website.&#60/p&#62
+&#60/section&#62
+
+&#60section&#62
+	&#60h1&#62Examples&#60/h1&#62
+	
+	&#60p&#62The plugin’s JS code:&#60/p&#62
+	&#60pre data-src="plugins/file-highlight/prism-file-highlight.js"&#62&#60/pre&#62
+	
+	&#60p&#62This page:&#60/p&#62
+	&#60pre data-src="plugins/file-highlight/index.html"&#62&#60/pre&#62
+	
+	&#60p&#62File that doesn’t exist:&#60/p&#62
+	&#60pre data-src="foobar.js"&#62&#60/pre&#62
+	
+	&#60p&#62For more examples, browse around the Prism website. Most large code samples are actually files fetched with this plugin.&#60/p&#62
+&#60/section&#62
+
+&#60footer data-src="templates/footer.html" data-type="text/html"&#62&#60/footer&#62
+
+&#60script src="prism.js"&#62&#60/script&#62
+&#60script src="plugins/file-highlight/prism-file-highlight.js"&#62&#60/script&#62
+&#60script src="utopia.js"&#62&#60/script&#62
+&#60script src="components.js"&#62&#60/script&#62
+&#60script src="code.js"&#62&#60/script&#62
+
+
+&#60/body&#62
+&#60/html&#62</code></pre>
+
 <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
 <h2>Samuel L. Jackson</h2>
 <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing. </p>
