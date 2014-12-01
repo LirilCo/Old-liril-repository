@@ -33,7 +33,12 @@ function openModal(a) {
     var ref = a.closest('.story').find(".options ul a").attr('href');
     $('.theater .comments .options ul a').attr('href', ref);
 
-    
+    if($("#bigPic").width()<=$("#bigPic").height()){
+        $("#bigPic").css({"height":"100%"})
+    }else{
+                $("#bigPic").css({"height":"auto"})
+
+    }
     $('.more').slimscroll({
         wheelStep: 5,
         height: 'auto'
