@@ -437,13 +437,22 @@ cursor: pointer
     background-color: #fff;
     z-index: 3;
     top: 20px;
-
+    max-width: 90%;
 }
-#theater img
+#theater #picContainer
 {
-    
-    max-width: 100%;
-    height: 100%
+    position: relative;
+    height: 100%;
+    background-color: #000
+} 
+#theater #bigPic
+{
+   position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+
+margin: auto ;
 
 }
 
