@@ -1,8 +1,56 @@
-var $this
-$(document).on("ready",function(){
-    $("li").prop("title", function(){ 
-    return $(this).find("p").text();
+function isVisible(elem)
+{
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((docViewTop < elTop) && (docViewBottom > elBottom));
+}
+
+
+function openModal(a){
+     $("#theater").addClass("animated fadeIn ")
+        $(".theater").css({
+            "display":"block"
+        })
+         $this = a.closest('.story')
+        var source = a.attr('src');
+        $('.theater #bigPic').attr('src', source);
+
+        var user = a.closest('.story').find(".username").html();
+        $('.theater .comments .info .username').html(user);
+    
+        var time = a.closest('.story').find(".time").html();
+        $('.theater .comments .info .time').html(time);
+    
+        var title = a.closest('.story').find(".title").html();
+        $('.theater .comments .title').html(title);
+        
+         if(a.closest('.story').find(".options .bookmark").hasClass("true")){
+            $('.theater .comments .options .bookmark').addClass("true");
+         }else{
+             $('.theater .comments .options .bookmark').removeClass("true");
+             } 
+        if(a.closest('.story').find(".options .star").hasClass("true")){
+            $('.theater .comments .options .star').addClass("true");
+         }else{
+             $('.theater .comments .options .star').removeClass("true");
+             }
+    
+        var pic = a.closest('.story').find(".info img").attr('src');
+        $('.theater .comments .info #pic').attr('src', pic);
+		
+    var ref = a.closest('.story').find(".options ul a").attr('href');
+         $('.theater .comments .options ul a').attr('href', ref);
+    
+       
+        $('.more').slimscroll({
+             wheelStep: 5,
+  height: 'auto'
 });
+    }
     function closeModal(){
         if( $('.theater .comments .options .bookmark').hasClass("true")){
             $this.find('.options .bookmark').addClass("true");
@@ -18,6 +66,60 @@ $(document).on("ready",function(){
             "display":"none"
         })
         }
+$(document).keypress(function(e){
+    
+    if (e.keyCode == 108) {
+        $(".current").find('.options .star').toggleClass("true");
+  }
+    if (e.keyCode == 98) {
+        $(".current").find('.options .bookmark').toggleClass("true");
+  }
+     if (e.keyCode == 102) {
+        openModal($(".current .pic"))
+  }
+  var forward;
+  if (e.keyCode == 106) {
+    forward = true;
+  } else if (e.keyCode == 107) {
+    forward = false;
+  } else {
+    return true;
+  }
+  
+  
+  if (!$(".story.current").length) {
+    $(".story:first").addClass("current");
+  }
+  
+  if ($(".story.current").length) {
+    var current = $(".story.current");
+    var next;
+    if (forward) {
+      next = current.next(".story")
+    } else {
+      next = current.prev(".story");
+    }
+    if (next.length) {
+      current.removeClass("current");
+      next.addClass("current");
+    } else {
+      loadMore();
+    }
+  }
+  
+  $("html, body").animate({ scrollTop: $(".current").offset().top - 56}, 400);
+});
+var $this
+$(window).on("load",function(){
+
+    $(".story").on("click", function(){
+        $(".current").removeClass("current");
+        $(this).addClass("current")
+    })
+    $("li").prop("title", function(){ 
+    return $(this).find("p").text();
+});
+    
 		$('.knob').trigger(
         		'configure',
         		{   
@@ -39,46 +141,9 @@ $(document).on("ready",function(){
 		$("#right-menu #dots").children().toggleClass("openedStore");
 		$("#right-menu").children().toggleClass("openedStore");
 	});
-$(".story .pic").on("click",function(){
-    $this = $(this).parent();
-        
-        var source = $(this).attr('src');
-        $('.theater #bigPic').attr('src', source);
 
-        var user = $(this).parent().find(".username").html();
-        $('.theater .comments .info .username').html(user);
-    
-        var time = $(this).parent().find(".time").html();
-        $('.theater .comments .info .time').html(time);
-    
-        var title = $(this).parent().find(".title").html();
-        $('.theater .comments .title').html(title);
-        
-         if($(this).parent().find(".options .bookmark").hasClass("true")){
-            $('.theater .comments .options .bookmark').addClass("true");
-         }else{
-             $('.theater .comments .options .bookmark').removeClass("true");
-             } 
-        if($(this).parent().find(".options .star").hasClass("true")){
-            $('.theater .comments .options .star').addClass("true");
-         }else{
-             $('.theater .comments .options .star').removeClass("true");
-             }
-    
-        var pic = $(this).parent().find(".info img").attr('src');
-        $('.theater .comments .info #pic').attr('src', pic);
-		
-    var ref = $(this).parent().find(".options ul a").attr('href');
-         $('.theater .comments .options ul a').attr('href', ref);
-    
-        $("#theater").addClass("animated fadeIn ")
-        $(".theater").css({
-            "display":"block"
-        })
-        $('.more').slimscroll({
-             wheelStep: 5,
-  height: 'auto'
-});
+$(".story .pic").on("click",function(){
+   openModal($(this))
 	});
     
     $("#close").on("click",function(){
@@ -95,15 +160,22 @@ $(".story .pic").on("click",function(){
             closeModal()        
         }
     };
-    $("#sidebar").height($(window).height() - 46);
-    $("#sidebar #container").height(($(window).height()-$("#sidebar #search").outerHeight() - 46));
-     $("#sidebar #chat").height(($(window).height()-$("#sidebar #search").outerHeight() - 46));
     
 	setInterval(function(){
+        
+            $("#sidebar").height($(window).height() - 46);
+    $("#sidebar #container").height(($(window).height()-$("#sidebar #search").outerHeight() - 46));
+     $("#sidebar #chat").height(($(window).height()-$("#sidebar #search").outerHeight() - 46));
+    $( "#resizeBottom" ).resizable( "option", "maxHeight", ($(window).height()-$("#sidebar #search").outerHeight() - 51) );
+        if($("#resizeBottom").height() > ($(window).height()-$("#sidebar #search").outerHeight() - 51)){
+            $("#resizeBottom").css({"height":"50%"})
+        }
+        
         if(parseInt($(window).width() - $("#sidebar").outerWidth()) <= 600){
             $("#feed .story").css({"width" : "90%", "padding": 0, "marginLeft": "auto", "marginRight":"auto"})
+            
         }else{
-             $("#feed .story").css({"width" : "500px"})
+             $("#feed .story").css({"width" : "500px","padding": "10px"})
         }
         $("#feed").width($(window).width() -  $("#sidebar").outerWidth());
         $("#sidebar #container #resizeTop").height( $("#sidebar").height() - $("#sidebar #container #resizeBottom").height() - 36);
