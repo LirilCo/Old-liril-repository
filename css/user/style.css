@@ -353,6 +353,7 @@ normal #fff*/
 {
 width: 80%;
 margin: 0 auto;
+    position: relative;
 }
 
 #biography #content #cover
@@ -362,9 +363,31 @@ margin: 0 auto;
     width: 100%;
     position: relative;
 }
+#biography #content #cover #rol
+{
+    position: absolute;
+    bottom: 0;
+    right: 1em;
+    color: #777;
+    font-size: 20px
+}
+#biography #content #cover #rol b
+{
+    color: #777
+}
 #biography #content #cover #profilePic div
 {
-    bottom: -100px;
+    position: absolute;
+    bottom: -97px;
+    left: 43px;
+    z-index: 1
+}
+#biography #content #cover .line
+{
+    position: absolute;
+    width: 100%;
+    border-bottom: 4px solid #f1c40f;
+    cursor: pointer;
 }
 #biography #content #cover #profilePic figcaption
 {
@@ -373,14 +396,107 @@ margin: 0 auto;
     font-size: 25px;
     left: 250px;
 position: absolute;
+    
+}
+.ui-tooltip {
+    background-color: #fff !important; 
+    padding: 6px 10px !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 2px !important;
+  }
+.ui-tooltip-content {
+    color: #f1c40f !important;
+   position: relative;
+  }
+#biography #content #main
+{
+     margin: 3em 0 0 0;  
+    padding: 0;    
+}
+#biography #content #main #summary
+{
+     margin: 160px 0 0 0;  
+    padding: 0;
+    
+}
+#feed
+{
+    text-align: center;
+    width: 100%;
+}
+.story
+{
+margin: 10px auto;   
+        background-color: #fff;
+
+}
+#biography #content #main #summary aside
+{
+    display: inline-block;
+        vertical-align: top
+
+}
+#biography #content #main #summary aside#sections
+{
+   width: 250px;
+    margin-right: 20px;
+}
+#biography #content #main #summary aside#updates
+{
+   width: calc(100% - 290px);
+   
+}
+#biography #content #options
+{
+    background-color: #fff;
+    right: 0;
+    padding: 0;
+    margin-top: 2.5em;
+    position: absolute;
+    text-align: right;
+    white-space: nowrap;
+    overflow-x: auto;
+    z-index: 0;
+    width: 100%;
+}
+#biography #content #options ul
+{
+    background-color: #fff;
+    width: 100%;
+    text-align: right;
+    padding: 12px 0;
+     background-color: #fff;
+
+}
+#biography #content #options ul li:first-child
+{
+    box-shadow: none;
+    padding: 0 1em 0 0;
+}
+#biography #content #options ul li
+{
+-webkit-box-shadow: -1px 0px 0px 0px #ccc;
+-moz-box-shadow:    -1px 0px 0px 0px #ccc;
+box-shadow:         -1px 0px 0px 0px #ccc;    color: #888;
+    cursor: pointer;
+    list-style: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 0;
+    padding: 0.5em 1em;
+    
 }
 #biography #content #cover #profilePic img
 {
-    bottom: -100px;
+    bottom: -97px;
   position: absolute;
+    left: 38px;
     border-radius: 50%;
-    width: 200px;
-    border: #ecf0f1 6px solid;
+    width: 170px;
+    border: #ecf0f1 18px solid;
+    z-index: 1;
 }
 .current
 {
@@ -401,11 +517,11 @@ box-shadow:         0px 0px 3px 0px rgba(46, 204, 113, 1);
  font-size: 20px;
     color: #666;
     margin: 10px 0
+        
 }
 #feed  .story .more {
 text-align: center;
     margin: 0;
-   
     padding: 15px 0;
 }
 #feed  .story .more a{
