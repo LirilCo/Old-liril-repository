@@ -336,13 +336,12 @@ normal #fff*/
 
 }
 #feed  .story{
-    width: 500px;
-    background-color: #fff;
-    border-radius: 3px;
-    margin: 10px auto;
-    padding: 10px;
-    
-    text-align: center;
+    margin: 10px auto;   
+background-color: #fff;
+width: 500px;
+max-width: 90%;
+padding: 10px;
+text-align: center;
 }
 #feed  .story.img #picture{
      max-height: 550px;

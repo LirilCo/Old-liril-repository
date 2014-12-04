@@ -43,6 +43,12 @@ function openModal(a) {
         wheelStep: 5,
         height: 'auto'
     });
+        $("#theater").height($(window).height() - 40);
+
+    $("#picContainer").width($("#bigPic").width());
+    $("#theater .comments").height($("#theater").height() - 40);
+    $("#theater .comments .more").height($("#theater .comments").height() - $("#theater .info").outerHeight(true) - $("#theater .comments .title").outerHeight(true) - $("#theater .comments .options").outerHeight(true));
+    $("#theater").width($("#theater .comments").width() + 40 + $("#theater #picContainer").width());
 }
 
 function closeModal() {
@@ -107,7 +113,7 @@ $(document).keypress(function (e) {
 });
 var $this
 $(window).on("load", function () {
-
+    responsive();
     $(".story").on("click", function () {
         $(".current").removeClass("current");
         $(this).addClass("current")
@@ -121,7 +127,6 @@ $(window).on("load", function () {
             "fgColor": "#fff"
         }
     );
-    var wasPlaying = false;
 
     $(".star").on("click", function () {
         $(this).toggleClass("true")
@@ -135,7 +140,34 @@ $(window).on("load", function () {
         $("#index-trigger").children().toggleClass("openedStore");
         $("#right-menu #dots").children().toggleClass("openedStore");
         $("#right-menu").children().toggleClass("openedStore");
-    });
+        $("#Store #actualStore").height($(window).height() - $("header").height() - 21);
+        $("#Store #actualStore #storeSection").width($(window).width() - $("#Store #actualStore #storeList").width() - 87);
+        $("#Store #actualStore #storeSection").height($("#Store #actualStore").height() - 80);
+        if ($("#profileSettings").hasClass("open")) {
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );
+        }
+        if ($("#Store").hasClass("open")) {
+            $("header").addClass("open");
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#fff"
+                }
+            );
+        } else {
+           $("header").removeClass("open");
+           }
+           if (!$("#profileSettings").hasClass("open") && !$("#Store").hasClass("open")) {
+               $('.knob').trigger(
+                   'configure', {
+                       "fgColor": "#2ecc71"
+                   }
+               );
+            }
+        });
 
     $(".story .pic").on("click", function () {
         openModal($(this))
@@ -156,75 +188,7 @@ $(window).on("load", function () {
         }
     };
 
-    setInterval(function () {
-            $("#picContainer").width($("#bigPic").width());
-
-$("#theater .comments").height($("#theater").height() - 40);
-    $("#theater .comments .more").height($("#theater .comments").height() - $("#theater .info").outerHeight(true) - $("#theater .comments .title").outerHeight(true) - $("#theater .comments .options").outerHeight(true));
-    $("#theater").width($("#theater .comments").width() + 40 + $("#theater #picContainer").width());
-    $("#theater").height($(window).height() - 40);
     
-        $("#sidebar").height($(window).height() - 46);
-        $("#sidebar #container").height(($(window).height() - $("#sidebar #search").outerHeight() - 46));
-        $("#sidebar #chat").height(($(window).height() - $("#sidebar #search").outerHeight() - 46));
-        $("#resizeBottom").resizable("option", "maxHeight", ($(window).height() - $("#sidebar #search").outerHeight() - 51));
-        if ($("#resizeBottom").height() > ($(window).height() - $("#sidebar #search").outerHeight() - 51)) {
-            $("#resizeBottom").css({
-                "height": "50%"
-            })
-        }
-
-        if (parseInt($(window).width() - $("#sidebar").outerWidth()) <= 600) {
-            $("#feed .story").css({
-                "width": "90%",
-                "padding": "10px 0",
-                "marginLeft": "auto",
-                "marginRight": "auto"
-            })
-            $("#feed .story .info").css({
-                "text-align": "center"
-            })
-
-        } else {
-            $("#feed .story").css({
-                "width": "500px",
-                "padding": "10px"
-            })
-            $("#feed .story .info").css({
-                "text-align": "left"
-            })
-        }
-        $("#feed").width($(window).width() - $("#sidebar").outerWidth());
-        $("#sidebar #container #resizeTop").height($("#sidebar").height() - $("#sidebar #container #resizeBottom").height() - 36);
-
-        $("#Store #actualStore").height($(window).height() - $("header").height() - 21);
-        $("#Store #actualStore #storeSection").width($(window).width() - $("#Store #actualStore #storeList").width() - 87);
-        $("#Store #actualStore #storeSection").height($("#Store #actualStore").height() - 80);
-        if ($("#profileSettings").hasClass("open")) {
-            $('.knob').trigger(
-                'configure', {
-                    "fgColor": "#2ecc71"
-                }
-            );
-        }
-        if ($("#Store").hasClass("open")) {
-
-            $("header").addClass("open");
-            $('.knob').trigger(
-                'configure', {
-                    "fgColor": "#fff"
-                }
-            );
-        } else {
-            $("header").removeClass("open");
-        }
-        if (!$("#profileSettings").hasClass("open") && !$("#Store").hasClass("open")) {
-            $('.knob').trigger(
-                'configure', {
-                    "fgColor": "#2ecc71"
-                }
-            );
-        }
 
         if ($("#profileSettings").hasClass("open") && $("#Store").hasClass("open")) {
             $('.knob').trigger(
@@ -233,7 +197,7 @@ $("#theater .comments").height($("#theater").height() - 40);
                 }
             );
         }
-    }, 1);
+    
 
     $("#profileTrigger").on("click", function () {
         $("#right-menu .index-arrow").toggleClass("open");
@@ -243,3 +207,65 @@ $("#theater .comments").height($("#theater").height() - 40);
 
 
 });
+$(window).on("resize", function(){
+    responsive();
+})
+function responsive() {
+    
+    $("#sidebar").height($(window).height() - 46);
+    $("#sidebar #container").height(($(window).height() - $("#sidebar #search").outerHeight() - 46));
+    $("#sidebar #chat").height(($(window).height() - $("#sidebar #search").outerHeight() - 46));
+    $("#resizeBottom").resizable("option", "maxHeight", ($(window).height() - $("#sidebar #search").outerHeight() - 51));
+    if ($("#resizeBottom").height() > ($(window).height() - $("#sidebar #search").outerHeight() - 51)) {
+         $("#resizeBottom").css({
+             "height": "50%"
+         })
+     }
+
+    if (parseInt($(window).width() - $("#sidebar").outerWidth()) <= 600) {
+        $("#feed .story").css({
+
+            "padding": "10px 0"
+    
+        })
+        $("#feed .story .info").css({
+            "text-align": "center"
+        })
+    } else {
+        $("#feed .story").css({
+            "padding": "10px"
+        })
+        $("#feed .story .info").css({
+            "text-align": "left"
+        })
+    }
+    $("#feed").width($(window).width() - $("#sidebar").outerWidth());
+    $("#sidebar #container #resizeTop").height($("#sidebar").height() - $("#sidebar #container #resizeBottom").height() - 36);
+    $("#Store #actualStore").height($(window).height() - $("header").height() - 21);
+    $("#Store #actualStore #storeSection").width($(window).width() - $("#Store #actualStore #storeList").width() - 87);
+    $("#Store #actualStore #storeSection").height($("#Store #actualStore").height() - 80);
+    if ($("#profileSettings").hasClass("open")) {
+        $('.knob').trigger(
+            'configure', {
+                "fgColor": "#2ecc71"
+            }
+        );
+    }
+    if ($("#Store").hasClass("open")) {
+        $("header").addClass("open");
+        $('.knob').trigger(
+            'configure', {
+                "fgColor": "#fff"
+            }
+        );
+    } else {
+       $("header").removeClass("open");
+       }
+       if (!$("#profileSettings").hasClass("open") && !$("#Store").hasClass("open")) {
+           $('.knob').trigger(
+               'configure', {
+                   "fgColor": "#2ecc71"
+               }
+           );
+        }
+ }

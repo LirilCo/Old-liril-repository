@@ -375,6 +375,10 @@ margin: 0 auto;
 {
     color: #777
 }
+#biography #content #cover #profilePic
+{
+    cursor: pointer;
+}
 #biography #content #cover #profilePic div
 {
     position: absolute;
@@ -429,8 +433,10 @@ position: absolute;
 .story
 {
 margin: 10px auto;   
-        background-color: #fff;
-
+background-color: #fff;
+width: 500px;
+max-width: 90%;
+padding: 10px;
 }
 #biography #content #main #summary aside
 {
@@ -855,4 +861,8 @@ right: 0;
 #sidebar ul li img{
    height: 35px;
     
+}
+.hidden
+{
+    display: none;
 }
