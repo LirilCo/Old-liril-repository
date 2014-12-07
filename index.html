@@ -16,14 +16,14 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/video-js.css">
     <link rel="stylesheet" href="css/jquery-ui.min.css">
-    
+
+
     <script src="js/jquery.js">
     </script>
     <script src="js/index/main.js">
     </script>
     <script src="js/jquery.dotdotdot.min.js" type="text/javascript">
     </script>
-    
     
     <script src="js/jquery.slimscroll.min.js">
     </script>
@@ -34,6 +34,7 @@
     </script>
     <script src="js/jquery.knob.js">
     </script>
+
     
     <script>
       $(function ($) {
@@ -2176,18 +2177,23 @@ return value + '%';
     </aside>
     
   </section>
+  <section id="chats">
+    <div class="chats">
+
+
+    </div>
+  </section>
   <script>
     $('#chat').slimscroll({
       wheelStep: 5,
       height: 'auto'
-    }
-                         );
+    });
     
     $('#notifications').slimscroll({
       wheelStep: 5,
       height: 'auto'
-    }
-                                  );
+    });
+  
   </script>
   <script>
     $( "#resizeBottom" ).resizable({
@@ -2201,5 +2207,6 @@ return value + '%';
   <script>
     $(".story .info").height($(this).find(".username").outerHeight())
   </script>
+
   </body>
 </html>

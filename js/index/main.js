@@ -114,6 +114,22 @@ $(document).keypress(function (e) {
 var $this
 $(window).on("load", function () {
     responsive();
+    $("#chat ul li").on("click",function(){
+        newChat($(this))
+    })
+
+  
+    $("#chats .chats ").on("mouseover mouseout", ".chatTitle", function() {
+        $( this ).find(".close").toggleClass( "visible" );
+      });
+    $( ".chatTitle .close" ).on("click",
+      function() {
+        $( this ).closest(".chat").remove();
+      }
+    );
+    $("#chats .chats ").on("click", ".chatTitle .close", function() {
+         $( this ).closest(".chat").remove();
+      });
     $(".story").on("click", function () {
         $(".current").removeClass("current");
         $(this).addClass("current")
@@ -239,6 +255,7 @@ function responsive() {
             "text-align": "left"
         })
     }
+    $("#chats .chats").width($(window).width() - $("#sidebar").outerWidth() -10);
     $("#feed").width($(window).width() - $("#sidebar").outerWidth());
     $("#sidebar #container #resizeTop").height($("#sidebar").height() - $("#sidebar #container #resizeBottom").height() - 36);
     $("#Store #actualStore").height($(window).height() - $("header").height() - 21);
@@ -268,4 +285,7 @@ function responsive() {
                }
            );
         }
+ }
+ function newChat(a){
+    $(".chats").prepend("<div class='chat'><div class='chatTitle button'><p class='user'>"+ a.find("p").text() +"</p><span class='close'></span></div><div id='chatBox'></div></div>");
  }
