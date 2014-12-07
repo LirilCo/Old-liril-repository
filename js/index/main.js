@@ -39,10 +39,11 @@ function openModal(a) {
                 $("#bigPic").css({"height":"auto"})
 
     }
-    $('.more').slimscroll({
-        wheelStep: 5,
-        height: 'auto'
-    });
+      $(".more").mCustomScrollbar({theme: 
+        "minimal-dark", 
+        autoExpandScrollbar: true,
+        scrollInertia: 100});
+      
         $("#theater").height($(window).height() - 40);
 
     $("#picContainer").width($("#bigPic").width());
@@ -67,7 +68,7 @@ function closeModal() {
     })
 }
 $(document).keypress(function (e) {
-
+if(!$("input").is(":focus")){
     if (e.keyCode == 108) {
         $(".current").find('.options .star').toggleClass("true");
     }
@@ -110,6 +111,7 @@ $(document).keypress(function (e) {
     $("html, body").animate({
         scrollTop: $(".current").offset().top - 56
     }, 400);
+    }
 });
 var $this
 $(window).on("load", function () {
@@ -124,9 +126,14 @@ $(window).on("load", function () {
       });
     $( ".chatTitle .close" ).on("click",
       function() {
-        $( this ).closest(".chat").remove();
+        destroyChat($(this));
       }
     );
+    $("#chats .chats ").on("click", ".chatTitle", function() {
+         $( this ).closest(".chat").toggleClass("open");
+       $( this ).parent().find($(".newMessage input")).focus()
+
+      });
     $("#chats .chats ").on("click", ".chatTitle .close", function() {
          $( this ).closest(".chat").remove();
       });
@@ -140,7 +147,7 @@ $(window).on("load", function () {
 
     $('.knob').trigger(
         'configure', {
-            "fgColor": "#fff"
+            "fgColor": "#2ecc71"
         }
     );
 
@@ -200,11 +207,12 @@ $(window).on("load", function () {
     document.onkeydown = function (evt) {
         evt = evt || window.event;
         if (evt.keyCode == 27) {
-            closeModal()
+            closeModal();
+           
         }
     };
 
-    
+     $(".chat").on("click", function(){})
 
         if ($("#profileSettings").hasClass("open") && $("#Store").hasClass("open")) {
             $('.knob').trigger(
@@ -214,7 +222,11 @@ $(window).on("load", function () {
             );
         }
     
-
+    var t;
+$("#chats .chats ").on("mousedown mouseup", ".chat", function(ev) {
+    t = ev.type=="mousedown" ? new Date() : new Date() - t;
+    if(t<350) $(this).find("input").focus();
+});
     $("#profileTrigger").on("click", function () {
         $("#right-menu .index-arrow").toggleClass("open");
         $("#profileSettings").toggleClass("open");
@@ -287,5 +299,9 @@ function responsive() {
         }
  }
  function newChat(a){
-    $(".chats").prepend("<div class='chat'><div class='chatTitle button'><p class='user'>"+ a.find("p").text() +"</p><span class='close'></span></div><div id='chatBox'></div></div>");
+    $(".chats").prepend("<div class='chat open'><div class='chatTitle button'><p class='user'>"+ a.find("p").text() +"</p><span class='close'></span></div><div class='chatBox'><div class='messages'></div><div class='newMessage'><input></input><div class='emoticon'></div></div></div>");
+     $(".chats .chat:first-child .newMessage input").focus()
  }
+function destroyChat(a){
+    a.closest(".chat").remove();
+}
