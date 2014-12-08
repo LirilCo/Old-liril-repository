@@ -204,14 +204,19 @@ $(window).on("load", function () {
     $("#wrapper").on("click", function () {
         closeModal()
     });
-    document.onkeydown = function (evt) {
+   
+document.onkeydown = function (evt) {
         evt = evt || window.event;
         if (evt.keyCode == 27) {
-            closeModal();
-           
-        }
-    };
+            if($("#theater").css("display")== "none"){
+             destroyChat($(document.activeElement))
+        }else{
+                        closeModal();
 
+        }
+            }
+    };
+   
      $(".chat").on("click", function(){})
 
         if ($("#profileSettings").hasClass("open") && $("#Store").hasClass("open")) {
@@ -299,6 +304,7 @@ function responsive() {
         }
  }
  function newChat(a){
+     if(a.hasClass("open")){}
     $(".chats").prepend("<div class='chat open'><div class='chatTitle button'><p class='user'>"+ a.find("p").text() +"</p><span class='close'></span></div><div class='chatBox'><div class='messages'></div><div class='newMessage'><textarea rows='1'/><div class='emoticon'></div></div></div>");
      $(".chats .chat:first-child .newMessage textarea").focus();
      $('textarea').textareaAutoSize();
@@ -306,4 +312,6 @@ function responsive() {
  }
 function destroyChat(a){
     a.closest(".chat").remove();
+         $(".chats .chat:first-child .newMessage textarea").focus();
+
 }
