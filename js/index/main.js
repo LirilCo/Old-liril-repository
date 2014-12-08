@@ -68,7 +68,7 @@ function closeModal() {
     })
 }
 $(document).keypress(function (e) {
-if(!$("input").is(":focus")){
+if(!$("textarea").is(":focus")){
     if (e.keyCode == 108) {
         $(".current").find('.options .star').toggleClass("true");
     }
@@ -131,7 +131,7 @@ $(window).on("load", function () {
     );
     $("#chats .chats ").on("click", ".chatTitle", function() {
          $( this ).closest(".chat").toggleClass("open");
-       $( this ).parent().find($(".newMessage input")).focus()
+       $( this ).parent().find($(".newMessage textarea")).focus()
 
       });
     $("#chats .chats ").on("click", ".chatTitle .close", function() {
@@ -225,7 +225,7 @@ $(window).on("load", function () {
     var t;
 $("#chats .chats ").on("mousedown mouseup", ".chat", function(ev) {
     t = ev.type=="mousedown" ? new Date() : new Date() - t;
-    if(t<350) $(this).find("input").focus();
+    if(t<350) $(this).find("textarea").focus();
 });
     $("#profileTrigger").on("click", function () {
         $("#right-menu .index-arrow").toggleClass("open");
@@ -299,8 +299,10 @@ function responsive() {
         }
  }
  function newChat(a){
-    $(".chats").prepend("<div class='chat open'><div class='chatTitle button'><p class='user'>"+ a.find("p").text() +"</p><span class='close'></span></div><div class='chatBox'><div class='messages'></div><div class='newMessage'><input></input><div class='emoticon'></div></div></div>");
-     $(".chats .chat:first-child .newMessage input").focus()
+    $(".chats").prepend("<div class='chat open'><div class='chatTitle button'><p class='user'>"+ a.find("p").text() +"</p><span class='close'></span></div><div class='chatBox'><div class='messages'></div><div class='newMessage'><textarea rows='1'/><div class='emoticon'></div></div></div>");
+     $(".chats .chat:first-child .newMessage textarea").focus();
+     $('textarea').textareaAutoSize();
+
  }
 function destroyChat(a){
     a.closest(".chat").remove();

@@ -248,12 +248,12 @@ header nav ul li#index .text.open,
 header nav ul li#index span:first-child.open {
     color: #2ecc71;
 }
-input {
+input, textarea {
     background-color: #fff;
     border: none;
     border-radius: 4px;
 }
-input:focus {
+input:focus,textarea:focus {
     outline: 0;
 
 }
@@ -782,7 +782,9 @@ right: 0;
     text-align: left;
     height: 30px;
     line-height: 30px;
-    border-top: none;
+    border-right: 1px solid #2ecc71;
+    border-left: 1px solid #2ecc71;
+    margin-left: -1px;
 }
 #chats .chats .chat.open .chatTitle p{
     width: 170px;
@@ -824,18 +826,28 @@ display: block;
   width: 100%;
    position: absolute;
     bottom: 0;
-    height: 30px;
     text-align: left;
     background-color: #fff;
+    padding: 0;
+    max-height: 80px
 }
-#chats .chats .chat.open .chatBox .newMessage input
+#chats .chats .chat.open .chatBox .newMessage textarea
 {
-  width: 205px;
-    height: 30px;
-    padding: 0 5px;
+     box-sizing: border-box;
+  max-height: 80px;
+  min-height: 28px;
+  width: 100%;
+    padding: 5px 60px 0 5px;
     border-radius: 0;
     color: #000;
-    font-size: 14px;
+    resize: none;
+    font-size: 13px;
+    margin: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    overflow: auto;
+    height: 100%;
+    line-height: 14px
 }
 #chats .chats .chat .chatBox
 {
