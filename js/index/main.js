@@ -226,11 +226,10 @@ document.onkeydown = function (evt) {
                 }
             );
         }
-    
-    var t;
-$("#chats .chats ").on("mousedown mouseup", ".chat", function(ev) {
-    t = ev.type=="mousedown" ? new Date() : new Date() - t;
-    if(t<350) $(this).find("textarea").focus();
+$("#chats .chats ").on("click", ".chat", function(ev) {
+        if(getSelectionText()  == ""){
+        $(this).find("textarea").focus();
+}
 });
     $("#profileTrigger").on("click", function () {
         $("#right-menu .index-arrow").toggleClass("open");
@@ -314,4 +313,13 @@ function destroyChat(a){
     a.closest(".chat").remove();
          $(".chats .chat:first-child .newMessage textarea").focus();
 
+}
+function getSelectionText() {
+    var text = "";
+    if (window.getSelection) {
+        text = window.getSelection().toString();
+    } else if (document.selection && document.selection.type != "Control") {
+        text = document.selection.createRange().text;
+    }
+    return text;
 }
