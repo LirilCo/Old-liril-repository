@@ -113,12 +113,24 @@ if(!$("textarea").is(":focus")){
     }, 400);
     }
 });
+var c = 0
 var $this
 $(window).on("load", function () {
     responsive();
     $("#chat ul li").on("click",function(){
-        newChat($(this))
-    })
+        if($(this).attr('class').split(' ')[2] == null){
+            $(this).addClass( c.toString() );
+            newChat($(this), c);
+            c++
+        }else{
+            $dat =$(".chats .chat."+$(this).attr('class').split(' ')[2])
+            if(! $dat.hasClass("open")){
+                prependClass($dat,"open")  
+            }
+            $(".chats .chat."+$(this).attr('class').split(' ')[2]+" .newMessage textarea").focus();
+        }
+    }
+        )
 
   
     $("#chats .chats ").on("mouseover mouseout", ".chatTitle", function() {
@@ -135,7 +147,7 @@ $(window).on("load", function () {
 
       });
     $("#chats .chats ").on("click", ".chatTitle .close", function() {
-         $( this ).closest(".chat").remove();
+         destroyChat($( this ))
       });
     $(".story").on("click", function () {
         $(".current").removeClass("current");
@@ -302,16 +314,18 @@ function responsive() {
            );
         }
  }
- function newChat(a){
-     if(a.hasClass("open")){}
-    $(".chats").prepend("<div class='chat open'><div class='chatTitle button'><p class='user'>"+ a.find("p").text() +"</p><span class='close'></span></div><div class='chatBox'><div class='messages'></div><div class='newMessage'><textarea rows='1'/><div class='emoticon'></div></div></div>");
-     $(".chats .chat:first-child .newMessage textarea").focus();
-     $('textarea').textareaAutoSize();
+ function newChat(a, b){
+   
+        $(".chats").prepend("<div class='chat open "+b.toString()+"'><div class='chatTitle button'><p class='user'>"+ a.find("p").text() +"</p><span class='close'></span></div><div class='chatBox'><div class='messages'></div><div class='newMessage'><textarea rows='1'/><div class='emoticon'></div></div></div>");
+        $(".chats .chat:first-child .newMessage textarea").focus();
+        $('textarea').textareaAutoSize();
 
- }
+}
 function destroyChat(a){
+    var i = a.closest(".chat").hasClass("open") ? a.closest(".chat").attr('class').split(' ')[2] : a.closest(".chat").attr('class').split(' ')[1]
+    $("#chat ul li."+i).removeClass(i)
     a.closest(".chat").remove();
-         $(".chats .chat:first-child .newMessage textarea").focus();
+    $(".chats .chat:first-child .newMessage textarea").focus();
 
 }
 function getSelectionText() {
@@ -322,4 +336,12 @@ function getSelectionText() {
         text = document.selection.createRange().text;
     }
     return text;
+}
+function prependClass(sel, strClass) {
+    var $el = jQuery(sel);
+
+    /* prepend class */
+    var classes = $el.attr('class');
+    classes = strClass +' ' +classes;
+    $el.attr('class', classes);
 }
