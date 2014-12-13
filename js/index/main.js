@@ -249,8 +249,17 @@ $("#chats .chats ").on("click", ".chat", function(ev) {
 
     });
 
+$("#chats .chats").on("keypress", ".chat .chatBox .newMessage textarea", function (ev) {
 
+ if(event.keyCode == 13 &&  $(this).val() != 0 && !event.shiftKey){
+      ev.preventDefault();
+      var content = this.value;                
+       $(this).closest(".chat").find(".messages").append("<p class='sent'>" + content + "</p>")
+       $(this).val("")
+  }
+ })
 });
+
 $(window).on("resize", function(){
     responsive();
 })
@@ -314,6 +323,7 @@ function responsive() {
            );
         }
  }
+
  function newChat(a, b){
    
         $(".chats").prepend("<div class='chat open "+b.toString()+"'><div class='chatTitle button'><p class='user'>"+ a.find("p").text() +"</p><span class='close'></span></div><div class='chatBox'><div class='messages'></div><div class='newMessage'><textarea rows='1'/><div class='emoticon'></div></div></div>");
@@ -344,4 +354,24 @@ function prependClass(sel, strClass) {
     var classes = $el.attr('class');
     classes = strClass +' ' +classes;
     $el.attr('class', classes);
+}
+function getCaret(el) {
+  if (el.selectionStart) {
+     return el.selectionStart;
+  } else if (document.selection) {
+     el.focus();
+
+   var r = document.selection.createRange();
+   if (r == null) {
+    return 0;
+   }
+
+    var re = el.createTextRange(),
+    rc = re.duplicate();
+    re.moveToBookmark(r.getBookmark());
+    rc.setEndPoint('EndToStart', re);
+
+    return rc.text.length;
+  }  
+  return 0;
 }

@@ -821,6 +821,36 @@ display: block;
     display: block;
     background-color: #ecf0f1
 }
+#chats .chats .chat.open .chatBox .messages 
+{
+   
+    margin: 4px 4px 0 0;
+    color: #fff;
+    padding: 0 4px;
+    display: inline-block;
+    width: auto;
+    max-width: 80%;
+}
+#chats .chats .chat.open .chatBox .messages .sent
+{
+     border-radius: 1em;
+     background-color: #0083ff;
+    font-size: 13px;
+    color: #fff;
+    resize: none;
+    width: auto !important;
+    max-width: 100%;
+    display: inline-block;
+    clear:both;
+    float: right;
+    text-align: left;
+    padding: 0;
+    margin: 5px 0 0 0;
+    white-space: normal;
+    padding: 5px;
+    
+}
+
 #chats .chats .chat.open .chatBox .newMessage
 {
   width: 100%;
