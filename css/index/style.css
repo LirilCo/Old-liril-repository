@@ -823,13 +823,15 @@ display: block;
 }
 #chats .chats .chat.open .chatBox .messages 
 {
-   
-    margin: 4px 4px 0 0;
-    color: #fff;
-    padding: 0 4px;
+   box-sizing: border-box;
+    padding: 04px;
     display: inline-block;
-    width: auto;
-    max-width: 80%;
+    width: 100%;
+    position: absolute;
+    bottom: 28px;
+    height: 237px;
+    overflow-y: auto;
+    left: 0;
 }
 #chats .chats .chat.open .chatBox .messages .sent
 {
@@ -839,7 +841,7 @@ display: block;
     color: #fff;
     resize: none;
     width: auto !important;
-    max-width: 100%;
+    max-width: 80%;
     display: inline-block;
     clear:both;
     float: right;
@@ -848,6 +850,7 @@ display: block;
     margin: 5px 0 0 0;
     white-space: normal;
     padding: 5px;
+    word-wrap: break-word;
     
 }
 

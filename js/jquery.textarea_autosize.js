@@ -4,7 +4,9 @@
  * Licensed under the MIT license
  */
 ;(function ($, window, document, undefined) {
+    
 
+    
   var pluginName = "textareaAutoSize";
   var pluginDataName = "plugin_" + pluginName;
 

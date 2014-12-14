@@ -248,15 +248,23 @@ $("#chats .chats ").on("click", ".chat", function(ev) {
         $("#profileSettings").toggleClass("open");
 
     });
-
 $("#chats .chats").on("keypress", ".chat .chatBox .newMessage textarea", function (ev) {
-
- if(event.keyCode == 13 &&  $(this).val() != 0 && !event.shiftKey){
+    sizeMessages($(this));
+    if(ev.keyCode == 13 &&  $(this).val() != 0 && !ev.shiftKey){
       ev.preventDefault();
       var content = this.value;                
        $(this).closest(".chat").find(".messages").append("<p class='sent'>" + content + "</p>")
        $(this).val("")
+       scrollBottom($(this).closest(".chat").find(".chatBox .messages"))
   }
+ })
+$("#chats .chats").on("keyup", ".chat .chatBox .newMessage textarea", function (ev) {
+    sizeMessages($(this));
+ 
+ })
+$("#chats .chats").on("keydown", ".chat .chatBox .newMessage textarea", function (ev) {
+    sizeMessages($(this));
+ 
  })
 });
 
@@ -374,4 +382,13 @@ function getCaret(el) {
     return rc.text.length;
   }  
   return 0;
+}
+function sizeMessages(a){
+    CBH= a.closest(".chat").find(".chatBox").height()
+    NMH = a.closest(".chat").find(".chatBox .newMessage" ).outerHeight()
+    a.closest(".chat").find(".chatBox .messages").height(CBH - NMH - 8);
+    a.closest(".chat").find(".chatBox .messages").css({bottom: NMH})
+}
+function scrollBottom(d){
+    d.scrollTop(d.prop("scrollHeight"));
 }
