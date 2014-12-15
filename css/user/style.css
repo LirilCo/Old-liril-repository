@@ -15,6 +15,9 @@
 a{
     text-decoration: none;
     }
+a:hover{
+    text-decoration: underline !important;
+    }
 html,
 body {
     height: 100%;
@@ -432,7 +435,7 @@ position: absolute;
 }
 .story
 {
-margin: 10px auto;   
+margin: 10px 0 0 auto;   
 background-color: #fff;
 width: 500px;
 max-width: 90%;
@@ -441,18 +444,52 @@ padding: 10px;
 #biography #content #main #summary aside
 {
     display: inline-block;
-        vertical-align: top
+    vertical-align: top
 
 }
 #biography #content #main #summary aside#sections
 {
-   width: 250px;
+   width: 350px;
     margin-right: 20px;
+    position: absolute;
+    
 }
 #biography #content #main #summary aside#updates
 {
-   width: calc(100% - 290px);
-   
+    box-sizing: border-box;
+   width: 100%;
+   padding-left: 350px;
+}
+#biography #content #main #summary aside#sections section
+{
+    box-sizing: border-box;
+   background-color: #fff;
+    padding: 6px 10px 10px 10px;
+    margin-top: 10px;
+    text-align: center;
+    
+}
+#biography #content #main #summary aside#sections section .title
+{
+    margin: 0;
+    color: #777;
+    text-align: left;
+    font-weight: normal;
+    border-bottom: solid 1px #ccc;
+    margin-bottom: 8px;
+    font-size: 19px;
+    padding-bottom: 5px;
+    
+}
+#biography #content #main #summary aside#sections section .title a
+{
+    color: #555;
+}
+#biography #content #main #summary aside#sections #pics img
+{
+    width: 32%;
+    display:inline-block;
+    cursor: pointer
 }
 #biography #content #options
 {
