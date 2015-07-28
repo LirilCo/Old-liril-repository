@@ -385,11 +385,9 @@ margin: 0 auto;
 #biography #content #cover #profilePic div
 {
     position: absolute;
-  bottom: -247px;
+    bottom: -97px;
     left: 43px;
-    z-index: 1;
-        top: 212px;
-
+    z-index: 1
 }
 #biography #content #cover .line
 {
@@ -691,7 +689,7 @@ display: inline-block;
     text-align: center;
     font-family: "icomoon";
     line-height:50px;
-    font-size: 40px;
+    font-size: 30px;
     cursor: pointer;
     
     

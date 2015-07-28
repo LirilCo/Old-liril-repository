@@ -338,11 +338,6 @@ display: none;
   width: 100%;
 position: fixed;
 bottom: 0;
-  display: block !important
-
-}
-.vjs-default-skin .vjs-progress-holder.opened {
-  display: none !important
 }
 /* Progress Bars */
 .vjs-default-skin .vjs-progress-holder .vjs-play-progress,
@@ -789,6 +784,7 @@ positioning, use another containing element. Otherwise you risk messing up
 control positioning and full window mode. **
 */
 .video-js {
+  background-color: #000;
   position: relative;
   padding: 0;
   /* Start with 10px for base font size so other dimensions can be em based and
@@ -825,9 +821,7 @@ control positioning and full window mode. **
   top: 0;
   left: 0;
   width: 100%;
-      max-height: 100%;
-    box-sizing: border-box;
-
+  height: 100%;
 }
 /* Fix for Firefox 9 fullscreen (only if it is enabled). Not needed when
    checking fullScreenEnabled. */

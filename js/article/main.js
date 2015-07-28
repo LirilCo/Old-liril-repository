@@ -43,17 +43,15 @@ $(document).on("ready",function(){
                 $("#bigPic").css({"height":"auto"})
 
     }
-    $(".more").mCustomScrollbar({theme: 
-        "minimal-dark", 
-        autoExpandScrollbar: true,
-        scrollInertia: 100});
-      
+    $('.more').slimscroll({
+        wheelStep: 5,
+        height: 'auto'
+    });
         $("#theater").height($(window).height() - 40);
 
     $("#picContainer").width($("#bigPic").width());
     $("#theater .comments").height($("#theater").height() - 40);
     $("#theater .comments .more").height($("#theater .comments").height() - $("#theater .info").outerHeight(true) - $("#theater .comments .title").outerHeight(true) - $("#theater .comments .options").outerHeight(true));
-   
     $("#theater").width($("#theater .comments").width() + 40 + $("#theater #picContainer").width());
 }
 

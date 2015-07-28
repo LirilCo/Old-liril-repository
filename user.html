@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
 
     <title>
-        Walter White | liril
+      Liril
     </title>
     <link rel="shortcut icon" type="image/ico" href="resources/icons/favicon.ico"  />
     
@@ -16,15 +16,13 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/video-js.css">
    <link rel="stylesheet" href="css/jquery-ui.min.css">
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-
     
     <script src="js/jquery.js"></script>
     <script src="js/user/main.js"></script>
     <script src="js/jquery.dotdotdot.min.js" type="text/javascript"></script>
 
 
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/jquery.slimscroll.min.js"></script>
     <script src="js/user/modernizr.custom.js"></script>
 <script src="js/jquery-ui.min.js"
 ></script>
@@ -140,11 +138,11 @@
         <nav>
             <ul>
                 <li id="index">
-                    <a href="index.html"><section id="index-trigger">
+                    <a href="courses.html"><section id="index-trigger">
                         <span class="back-arrow button">
               </span>
                         <span id="index-text" class="text button">
-                Inicio
+                Cursos
               </span>
                     </section></a>
 
@@ -214,7 +212,7 @@
                 <div title="Nivel Avanzado (a Moderador)" class="line" style="top: 60%;"></div>
                 <figure id="profilePic">
                     <img src="resources/images/white.jpg" alt="">
-                    <input class="knob button" data-width="195" data-height="195" data-fgColor="#2ecc71" data-bgColor="rgba(0,0,0,0)" data-displayInput=false data-thickness=".06" readonly value="60">
+                    <input class="knob button" data-width="195" data-fgColor="#2ecc71" data-bgColor="rgba(0,0,0,0)" data-displayInput=false data-thickness=".06" readonly value="60">
                     <figcaption>Walter White</figcaption>
                     <section class="hidden">
                         <div class="info">
@@ -239,7 +237,7 @@
             <section id="options">
                 <ul>
                     <li>Resumen</li>
-                    <li><a href="courses.html">Cursos (Alumno)</a></li>
+                    <li>Cursos (Alumno)</li>
                     <li>Cursos (Tutor)</li>
                     <li>Información</li>
                 </ul>
@@ -249,7 +247,7 @@
             <section id="summary">
                 <aside id="sections">
                     <section id="pics">
-                       <h2 class="title"><a href="user/photos.html">Fotos</a> (64)</h2>
+                       <h2 class="title"><a href="#">Fotos</a> (64)</h2>
                         <img src="resources/images/grid/1.jpg" alt="">
                         <img src="resources/images/grid/2.jpg" alt="">
                         <img src="resources/images/grid/3.jpg" alt="">
@@ -984,20 +982,15 @@
        
     </section>
 		<script>
-          $("#notifications").mCustomScrollbar({theme: 
-        "minimal-dark", 
-        autoExpandScrollbar: true,
-        scrollInertia: 100,
-         mouseWheel:{ scrollAmount: 40 }
-
-    });
-      $("#chat").mCustomScrollbar({theme: 
-        "minimal-dark", 
-        autoExpandScrollbar: true,
-        scrollInertia: 100,
-            mouseWheel:{ scrollAmount: 40 }
-
-             });
+        $('#chat').slimscroll({
+             wheelStep: 5,
+  height: 'auto'
+});
+            
+            $('#notifications').slimscroll({
+             wheelStep: 5,
+  height: 'auto'
+});
     </script>
     <script>
         $( "#resizeBottom" ).resizable({ handles: "n",maxHeight: ($(window).height()-$("#sidebar #search").outerHeight() - 51),minHeight: 50 }).bind("resize", function (e, ui) {

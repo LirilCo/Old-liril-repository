@@ -425,33 +425,3 @@ td,
 th {
   padding: 0;
 }
-#root 
-{
-  background-color: #fff;
-  width: 100%;
-  padding: 20px;
-  border-bottom: solid 2px #ccc;
-  box-sizing: border-box;
-}
-#root div, #root span
-{
-display: inline-block;
-color: #2ecc71
-}
-#root div:after
-{
-content: " > ";
-color: #ccc;
-}
-#root div a
-{
-color: #2ecc71
-}
-#root span span
-{
-color: #bbb
-}
-input.knob
-{
-  display: none;
-}
