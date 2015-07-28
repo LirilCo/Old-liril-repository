@@ -137,6 +137,18 @@ header nav ul li#right-menu #profile #profile-pic {
     top: 5px;
     width: 25px;
 }
+header nav ul li#right-menu #customize {
+    left: -40px;
+    margin-right: 12px;
+    position: absolute;
+    top: 5px;
+}
+header nav ul li#right-menu #customize:before {
+    content: "\e60f";
+    font-family: "icomoon";
+    font-size: 28px;
+    margin-right: 2px;
+}
 header nav ul li#right-menu #store {
     left: 0;
     margin-right: 12px;
@@ -252,7 +264,6 @@ input:focus {
     user-select: none;
 }
 #video {
-    margin-top: 6px
 }
 #example_video_1 {
     width: 100%
@@ -267,13 +278,22 @@ input:focus {
     width: 100%;
     z-index: 1;
 }
-#Store #actualStore {
+ #customizationBars{
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+#Store #actualStore, #customizationBars #actualStore {
     background-color: #ecf0f1;
     bottom: 7px;
     position: absolute;
     width: 100%;
 }
-#Store #actualStore #storeSection {
+#Store #actualStore #storeSection, #customizationBars #actualStore #storeSection {
     background-color: #fff;
     display: inline-block;
     float: right;
@@ -281,13 +301,13 @@ input:focus {
     padding: 40px;
     width: 70%;
 }
-#Store #actualStore #storeList {
+#Store  #actualStore #storeList, #customizationBars #actualStore #storeList {
     background-color: #fff;
     display: inline-block;
     height: 100%;
     width: 20%;
 }
-#Store #actualStore #storeList ul li {
+#Store #actualStore #storeList ul li , #customizationBars #actualStore #storeList ul li {
     color: #afafaf;
     cursor: pointer;
     display: block;
@@ -300,13 +320,13 @@ input:focus {
     white-space: nowrap;
     width: 100%;
 }
-#Store #storeHeader {
+#Store #storeHeader, #customizationBars #storeHeader {
     background-color: #2ecc71;
     border-bottom: solid 7px #27ae60;
     height: 41px;
     width: 100%;
 }
-#Store.open {
+#Store.open, #customizationBars.open {
     display: block
 }
 .openedStore {
@@ -315,3 +335,138 @@ input:focus {
 /*sombra #ccc
 normal #fff*/
 
+.vidCustomizationMode
+{
+    width: 50% !important;
+}
+.vidVidCustomizationMode
+{
+        border: solid 2px #27ae60;
+
+}
+#actions
+{
+    width: 50%;
+    float: left;
+    height: 50%;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: -20px;
+    padding-bottom: 20px;
+    border-right: solid 2px #27ae60;
+
+}
+#actions .tabs
+{
+    list-style: none;
+    margin:0;
+    padding: 0;
+    display:table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+}
+#actions .tabs li
+{
+    color: white;
+    font-size: 24px;
+    height: 100%;
+    vertical-align: middle;
+    display:table-cell;
+    text-align:center;
+}
+
+#list
+{
+    width: 50%;
+    float: right;
+    box-sizing: border-box;
+    height: 100%;
+    padding-bottom: 48px;
+    position: relative;
+    overflow-y: scroll; 
+
+}
+
+
+#list .tabs
+{
+    list-style: none;
+    background-color: #2ecc71;
+    border-bottom: solid 2px #27ae60;
+    margin:0;
+    height: 41px;
+    padding: 0;
+    display:table;
+    table-layout: fixed;
+    width: inherit;
+    position: fixed;
+
+}
+#list .tabs li
+{
+    color: white;
+    font-size: 24px;
+    height: 100%;
+    vertical-align: middle;
+    cursor: pointer;
+     display:table-cell;
+    text-align:center;
+}
+#list .tabs li.actual
+{
+    background-color: #27ae60;
+        cursor: default;
+
+}
+#list .widgets
+{
+  list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 48px;
+    box-sizing: border-box;
+}
+#list .widgets li
+{
+    background-color: #fff;
+    cursor: pointer;
+    height: 100px;
+    width: 100%;
+margin-bottom: 2px
+
+}
+#list .widgets li img
+{
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px
+}
+#actions .tabs .trash{
+    font-family: "icomoon";
+    font-size: 150px;
+}
+#actions .tabs .trash:hover{
+    font-family: "icomoon";
+}
+.trash:before {
+    content:"\e618"
+}
+.widgets .widget
+{
+    display: none;
+}
+.widget
+{
+    position: absolute !important;
+    width: 200px; height: 50px; border: 1px red solid;
+    background-color: #ccc;
+}
+.widgetero
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+}
