@@ -16,12 +16,14 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/video-js.css">
     <link rel="stylesheet" href="css/prism.css">
-    
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+
+
     <script src="js/jquery.js"></script>
     <script src="js/article/main.js"></script>
     <script src="js/main.js"></script> <!-- Resource jQuery -->
     <script src="js/prism.js"></script>
-    <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/index/modernizr.custom.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/sticky-kit.min.js"></script>
@@ -144,8 +146,7 @@
                         <span class="back-arrow button">
               </span>
                         <span id="index-text" class="text button">
-                casa
-              </span>
+Inicio              </span>
                     </section></a>
 
                 </li>
@@ -189,23 +190,34 @@
             </ul>
         </nav>
     </header>
-    
+    <div id="root">
+    <div>
+        <a href="user.html">Walter White</a>
+    </div>
+    <div>
+        <a href="user.html">Artículos</a>
+    </div>
+    <span>
+        <span href="#">Novedades en Adobe Photoshop CC</span>
+    </span>
+
+    </div>
     <section id="wrapper" class="theater"></section>
     
     <section id="theater" class="theater">
-    
-        <img id="bigPic" alt="">
+        <section id="picContainer">
+            <img id="bigPic" alt="">
+        </section>
         <aside class="comments">
         <div class="info">
                     <img id="pic" alt="">
                     <p class="username"><a href="#"></a></p>
-                    <p class="time"></p>
         </div>
         <p class="title"></p>
         <p class="more">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet varius lectus, congue rutrum urna. Suspendisse in ultrices enim. In hac habitasse platea dictumst. Praesent aliquet, nisi nec euismod vulputate, odio velit porta erat, ut semper lacus erat ac nulla. Aenean ex libero, volutpat vel sem et, blandit dictum dui. Duis suscipit sed nisi finibus vestibulum. Quisque finibus porttitor nisl, nec consequat metus. Quisque commodo, libero nec volutpat suscipit, quam urna volutpat turpis, quis rhoncus magna dui sit amet lacus. Donec pellentesque aliquam turpis nec commodo. Aliquam lobortis facilisis auctor. Sed libero nisi, scelerisque et porttitor vel, accumsan sed lacus. Pellentesque at tortor pellentesque, vestibulum turpis at, iaculiuisque finibus porttitor nisl, nec consequat metus. Quisque commodo, libero nec volutpat suscipit, quam urna volutpat turpis, quis rhoncus magna dui sit amet lacus. Donec pellentesque aliquam turpis nec commodo. Aliquam lobortis facilisis auctor. Sed libero nisi, scelerisque et porttitor vel, accumsan sed lacus. Pellentesque at tortor pellentesque, vestibulum turpis at, iaculis nibh.
         </p>
-       <div class="options button">
+        <div class="options button">
         <ul>
             <li class="bookmark"></li>
             <li class="star"></li>
@@ -213,7 +225,7 @@
         </ul></div>
         <p id="close"></p>
         </aside>
-
+        
     </section>
     
     <section id="article">
@@ -421,12 +433,7 @@ header>nav>ul>li#controls #play {
 	
            
        </aside>
-        <div class="options ending button">
-        <ul>
-            <li class="star"></li>
-             <li class="bookmark"></li>
-
-        </ul></div>
+        
     </section>
     <aside id="sidebar">
         <section class="story project">

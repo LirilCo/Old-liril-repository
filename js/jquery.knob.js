@@ -109,8 +109,8 @@
                                && Math.max(Math.min(this.$.data('thickness'), 1), 0.01)
                                || 0.35,
                     lineCap: this.$.data('linecap') || 'butt',
-                    width: this.$.data('width') || 200,
-                    height: this.$.data('height') || 200,
+                    width: this.$.data('width') || 350,
+                    height: this.$.data('height') || 350,
                     displayInput: this.$.data('displayinput') == null || this.$.data('displayinput'),
                     displayPrevious: this.$.data('displayprevious'),
                     fgColor: this.$.data('fgcolor') || '#87CEEB',
@@ -596,7 +596,7 @@
                                 if (mwTimerStop)
                                     s.rH(v);
                                 mwTimerRelease = null;
-                            }, 200);
+                            }, 350);
                         }
                     }
                 },
