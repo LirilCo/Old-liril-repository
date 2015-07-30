@@ -1,5 +1,7 @@
 var vidHeight;
-
+var maxz = 0;
+var best = 0;
+var out = false;
 $(document).on("ready",function(){
     $(".indexMenuItem ").prop("title", function(){ 
     return $(this).text();
@@ -16,13 +18,26 @@ $(document).on("ready",function(){
 		$(".indexMenuItem").toggleClass("open");
 
 	});
+	$('.widgetero').mousedown(function(e) {
+				getActual().addClass("selectedWidget");
+
+	})
 
 	$('.widgets li').mousedown(function(e) {
+
 	$(this).find($( ".widgets .widget" )).clone().addClass('widget draggable').appendTo( ".widgetero" );
 	
 
 var dropped = false;
 $('.widgetero .widget').last().draggable({
+	stack:".widgetero .widget",
+	cursor: "move", 
+	snap: ".vidVidCustomizationMode", 
+	snapMode: "inner", 
+	revertDuration: 100,
+	snapTolerance: 10,
+	  distance: 10,
+
 	revert: false,
     start: function(event, ui) {
     	if(!$('.widgetero .widget').last().hasClass("dropped")){  
@@ -41,8 +56,18 @@ $('.widgetero .widget').last().draggable({
 
 })
 	
-	$(document).mouseup(function(e) {
+	
+	
+	
+
+$('.widgetero .widget').last().css({left: e.pageX- $('.widgetero .widget').last().width()/2,top: e.pageY- $('.widgetero .widget').last().height()/2}).trigger(e)
+
+});
+$(document).mouseup(function(e) {
+
 		$('.widgetero .widget').draggable({ 
+			  distance: 0,
+
 		stack:".widgetero .widget",
 		cursor: "move", 
 		snap: ".vidVidCustomizationMode", 
@@ -53,7 +78,6 @@ $('.widgetero .widget').last().draggable({
 
 		$('.vidVidCustomizationMode').droppable({
     		accept: '.widget',
-    		  tolerance: "fit",
     		  
     		drop: function(event, ui)
     		{        
@@ -64,26 +88,42 @@ $('.widgetero .widget').last().draggable({
 		}})
 		$('.trash').droppable({
     		accept: '.widget',
-    		    		  tolerance: "fit",
+    		   tolerance: "fit",
 
     		drop: function(event, ui)
     		{        
-    			ui.draggable.remove()
+    			ui.draggable.remove();
+
 				
 		}})
-})
 		
-	
-
-$('.widgetero .widget').last().css({left: e.pageX- $('.widgetero .widget').last().width()/2,top: e.pageY- $('.widgetero .widget').last().height()/2}).trigger(e)
-$('.widgetero .widget').resizable({
-  handles: "n,ne, e, se, s,sw, w, nw",
-  snap: ".vidVidCustomizationMode", snapMode: "inner", 
-		     snapTolerance: 10
+		$(".selectedWidget").resizable({
+ handles: {
+        'nw': '#nwgrip',
+        'ne': '#negrip',
+        'sw': '#swgrip',
+        'se': '#segrip',
+        'n': '#ngrip',
+        'e': '#egrip',
+        's': '#sgrip',
+        'w': '#wgrip'
+    },
+      snap: ".vidVidCustomizationMode", 
+  snapMode: "inner", 
+snapTolerance: 10
 
 })
-});
+		if(out){
+			getActual().removeClass("selectedWidget");
+			out = false;
+		}else
+		{
+						getActual().addClass("selectedWidget");
 
+		}
+				
+
+})
 	var wasPlaying = false;
 	$("#dots").on("click",function(){
 		$("#Store").toggleClass("open");
@@ -260,3 +300,32 @@ $("#index-trigger").children().addClass("openedStore");
 
 
 	}
+	function getActual (){
+
+		  $(".selectedWidget").removeClass("selectedWidget");
+$('.widgetero .widget').each(function(){
+    var z = parseInt($(this).css('z-index'), 10);
+    if ( z>maxz) {
+    	maxz = z;
+    	best= $(this)
+    }
+
+});
+if(maxz == 0){
+ return $('.widgetero .widget').last()
+}else{
+	maxz = 0;
+		return best
+
+	}
+
+}
+
+$(document).mouseup(function(e){
+	debugger;
+    var clickedOn = $(e.target);
+    if (!clickedOn.parents().andSelf().is('.widget')){
+		$(".selectedWidget").removeClass("selectedWidget");
+		out = true;
+    }
+});

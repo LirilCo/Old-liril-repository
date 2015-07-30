@@ -459,8 +459,10 @@ margin-bottom: 2px
 .widget
 {
     position: absolute !important;
-    width: 200px; height: 50px; border: 1px red solid;
+    width: 200px; 
+    height: 50px; 
     background-color: #ccc;
+    opacity: 0.5;
 }
 .widgetero
 {
@@ -469,4 +471,26 @@ margin-bottom: 2px
     left: 0;
     z-index: 2;
 
+}
+.widget.dropped
+{
+    opacity: 1;
+}
+.selectedWidget
+{
+    border: 1px solid #aaa;
+}
+.ui-resizable-handle
+{
+    width: 6px !important;
+    height: 6px !important;
+    background-color: #888;
+}
+.ui-resizable-handle
+{
+    display:none !important;
+}
+.selectedWidget .ui-resizable-handle
+{
+    display:block !important;
 }
