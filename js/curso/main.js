@@ -32,12 +32,12 @@ var dropped = false;
 $('.widgetero .widget').last().draggable({
 	stack:".widgetero .widget",
 	cursor: "move", 
-	snap: ".vidVidCustomizationMode", 
-	snapMode: "inner", 
+	snap: ".vidVidCustomizationMode, .widget", 
+	snapMode: "both", 
 	revertDuration: 100,
 	snapTolerance: 10,
 	  distance: 10,
-
+containment: "window",
 	revert: false,
     start: function(event, ui) {
     	if(!$('.widgetero .widget').last().hasClass("dropped")){  
@@ -64,14 +64,13 @@ $('.widgetero .widget').last().css({left: e.pageX- $('.widgetero .widget').last(
 
 });
 $(document).mouseup(function(e) {
-
 		$('.widgetero .widget').draggable({ 
 			  distance: 0,
-
+containment: "window",
 		stack:".widgetero .widget",
 		cursor: "move", 
-		snap: ".vidVidCustomizationMode", 
-		snapMode: "inner", 
+		snap: ".vidVidCustomizationMode, .widget", 
+		snapMode: "both", 
 		revert: 'invalid', 
 		revertDuration: 100,
 		snapTolerance: 10})
@@ -98,6 +97,7 @@ $(document).mouseup(function(e) {
 		}})
 		
 		$(".selectedWidget").resizable({
+
  handles: {
         'nw': '#nwgrip',
         'ne': '#negrip',
@@ -108,8 +108,8 @@ $(document).mouseup(function(e) {
         's': '#sgrip',
         'w': '#wgrip'
     },
-      snap: ".vidVidCustomizationMode", 
-  snapMode: "inner", 
+      snap: ".vidVidCustomizationMode, .widget", 
+  snapMode: "both", 
 snapTolerance: 10
 
 })
@@ -322,10 +322,15 @@ if(maxz == 0){
 }
 
 $(document).mouseup(function(e){
-	debugger;
     var clickedOn = $(e.target);
     if (!clickedOn.parents().andSelf().is('.widget')){
 		$(".selectedWidget").removeClass("selectedWidget");
 		out = true;
     }
 });
+
+$('html').keyup(function(e){
+    if(e.keyCode == 46){
+    	$(".selectedWidget").remove()
+    }
+}) 

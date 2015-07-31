@@ -7,7 +7,7 @@
  * @version         1.9.1
  */
 (function ($) {
-	$.extend($.ui.resizable.prototype.options, { snapTolerance: 20, snapMode: 'both' });
+		$.extend($.ui.resizable.prototype.options, { snapTolerance: 20, snapMode: 'both' });
 	
 	$.ui.plugin.add('resizable', 'snap', {
 		start: function () {
@@ -19,10 +19,12 @@
 			inst.coords = [];
 			
 			$(typeof snap == 'string' ? snap : ':data(ui-resizable)').each(function () {
+
 				if (this == inst.element[0] || this == inst.helper[0]) return;
-			
+							if($(this).hasClass("widget")){a = 48}else{a =0}
+
 				var $el = $(this), p = $el.position(), 
-					l = p.left + getLm($el), t = p.top + getTm($el);
+					l = p.left + getLm($el), t = p.top + getTm($el) - a;
 					
 				inst.coords.push({ 
 					l: l, t: t, 
@@ -36,9 +38,9 @@
 				st = inst.options.snapTolerance,
 				md = inst.options.snapMode,
 				l = inst.position.left + inst.lm, _l = l - st,
-				t = inst.position.top + inst.tm, _t = t - st,
+				t = inst.position.top + inst.tm - 48, _t = t - st,
 				r = l + inst.size.width + inst.ow, _r = r + st,
-				b = t + inst.size.height + inst.oh, _b = b + st;
+				b = t + inst.size.height + inst.oh , _b = b + st;
 				
 			$.each(inst.coords, function () {
 				var coords = this,
@@ -97,7 +99,7 @@
 	}
 	
 	function getTm($el) {
-		return parseInt($el.css('margin-top'), 10) || 0;
+		return  48;
 	}
 	
 	// These are patches to the jQuery resizable plugin.
