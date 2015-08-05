@@ -40,7 +40,6 @@ header nav .index-arrow.open:before {
 }
 header nav .index-arrow {
     font-family: "icomoon";
-    padding-left: 5px;
 }
 header nav .index-arrow:before {
     content: "\e605"
@@ -167,6 +166,31 @@ header nav ul li#right-menu #dots {
     padding-left: 35px;
     padding-top: 3px;
 }
+header nav li>a {
+    text-decoration: none;
+        
+}
+#back
+{
+    width: 1em;
+        z-index: 5;
+    position: relative;
+}
+#back .back-arrow.openedStore {
+
+    color: #fff;
+}
+header nav .back-arrow {
+      font-family: "icomoon";
+    font-size: 40px;
+    top: 0;
+    line-height: 0;        
+}
+header nav .back-arrow:before
+{
+  content:"\e635"
+}
+
 header nav ul li#index {
     padding: 0;
     position: relative;
@@ -178,6 +202,7 @@ header nav ul li#index #index-menu .sub {
 header nav ul li#index #index-menu .sub:before {
     content:"\e603"
 }
+
 header nav ul li#index #index-menu.open {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     display: block;
@@ -199,8 +224,16 @@ header nav ul li#index #index-trigger {
 }
 header nav ul li#index #index-trigger .index-arrow {
     position: absolute;
-    top: 6px;
+        top: 8px;
+    left: 12px;
 }
+header nav ul li#index #index-trigger .index-arrow.open
+{
+    top: 6px;
+    left: 5px;
+
+}
+
 header nav ul li#index #index-trigger #index-text {
     left: 35px;
     position: absolute;
@@ -400,7 +433,43 @@ normal #fff*/
      content:"\e618"
 
 }
-#actions .tabs li
+#actions .magnet:before
+{
+     content:"\e626"
+
+}
+#actions .grid:before
+{
+     content:"\e625";
+     margin-right: 25px;
+
+}
+#actions .tabs td input
+{
+    line-height: 1;
+     width: 100%;
+
+}
+#actions .tabs td span
+{
+ 
+    color: #6B6969;
+}
+#actions .tabs td span.wh
+{
+    position: absolute;
+    right: 0;
+    line-height: 1;
+    color: #6B6969;
+}
+#actions .tabs .inputed
+{
+    padding-right: 1em;
+    box-sizing: border-box; 
+
+}
+
+#actions .tabs td
 {
     font-size: 35px;
     height: 100%;
@@ -409,10 +478,13 @@ normal #fff*/
     text-align:center;
       font-family: "icomoon";
         color: #6B6969;
-            border-left: 1px solid #6B6969;
+    border-left: 1px solid #6B6969;
+    cursor: pointer;
+        position: relative;
+
 
 }
-#actions .tabs li:first-child
+#actions .tabs td:first-child
 {
    
             border-left: none;
@@ -514,7 +586,7 @@ margin-bottom: 2px
     top: 0;
     left: 0;
     z-index: 2;
-
+    
 }
 .widget.dropped
 {
@@ -538,4 +610,21 @@ margin-bottom: 2px
 .selectedWidget .ui-resizable-handle
 {
     display:block !important;
+}
+#cover
+{
+    display: none;
+}
+#cover.open
+{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+#controls
+{
+    position: relative;
+    z-index: 2;
 }

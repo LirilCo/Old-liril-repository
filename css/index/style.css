@@ -41,11 +41,9 @@ header nav {
     height: 100%;
     width: 100%;
 }
-
 header nav .back-arrow {
     font-family: "icomoon";
     padding-left: 5px;
-    transform: rotate(90deg);
         
 }
 header nav .index-arrow {
@@ -56,7 +54,11 @@ header nav .index-arrow {
     top: 7px;
 
 }
-header nav .back-arrow:before, header nav .index-arrow:before {
+header nav .back-arrow:before
+{
+  content:"\e635"
+}
+header nav .index-arrow:before {
     content: "\e605"
     
 }
@@ -531,23 +533,23 @@ display: inline-block;
 } 
 .options ul li.bookmark:after
 {
-content: "\e619"
+content: "\f097"
 } 
 .options ul li.bookmark.true:after
 {
-content: "\e61a"
+content: "\f02e"
 } 
 .options ul li.star:after
 {
-content: "\e61b"
+content: "\e60d"
 } 
 .options ul li.star.true:after
 {
-content: "\e61c"
+content: "\e60c"
 } 
 .options ul li.read:after
 {
-content: "\e618"
+content: "\e627"
 } 
 #theater .comments
 {

@@ -38,7 +38,6 @@ header nav {
 header nav .back-arrow {
     font-family: "icomoon";
     padding-left: 5px;
-    transform: rotate(90deg);
         
 }
 header nav .index-arrow {
@@ -49,7 +48,11 @@ header nav .index-arrow {
     top: 7px;
 
 }
-header nav .back-arrow:before, header nav .index-arrow:before {
+header nav .back-arrow:before
+{
+  content:"\e635"
+}
+header nav .index-arrow:before {
     content: "\e605"
     
 }

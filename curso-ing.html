@@ -137,10 +137,22 @@
 <div class="widgetero">
     
 </div>
+<div id="cover" class="open">
+    
+</div>
     <header>
         <nav>
-            <ul>
+            <ul> <li id="back">
+            <a  href="courses.html">
+                <span class="back-arrow button">  
+
+                </span>
+
+            </a>
+            </li>
+            
                 <li id="index">
+                
                     <section id="index-trigger">
                         <span class="index-arrow button">
               </span>
@@ -244,21 +256,22 @@
 
         </aside>
         <aside id="actions">
-            <ul class="tabs">
-                <li class="button actual"></li>
-                <li class="button resize"></li>
-                <li class="button select"></li>   
-                <li class="button cut"></li>
-                <li class="button copy"></li>
-                 <li class="button paste"></li>
-                <li class="button delete"></li> 
-            </ul>
-             <ul class="tabs">
-                <li class="button actual width"></li>
-                <li class="button height"></li>
-                <li class="button grid"></li>   
+            <table class="tabs">
+                <td class="button actual"></td>
+                <td class="button resize"></td>
+                <td class="button select"></td>   
+                <td class="button cut"></td>
+                <td class="button copy"></td>
+                <td class="button paste"></td>
+                <td class="button delete"></td> 
+            </table>
+             <table class="tabs">
+                <td  colspan="2" class="button actual width inputed "><input type="number" min="1" max="100" onchange="handleChange(this);"></td>
+                <td colspan="2" class="button height inputed inputw"><input type="number" min="1" max="100" onkeydown="apply()" onchange="handleChange(this);"></td>
+                <td  colspan="2" class="button grid"><span>Grid</span></td>   
+                <td   class="button magnet"></td>   
               
-            </ul>
+            </table>
         </aside>
         <aside id="list">
             <ul class="tabs">
@@ -351,7 +364,14 @@
     <section id="timeline">
     </section>
     <script>
-
+    function apply(){
+        a = $(".inputw").value
+        $(".selectedWidget").width(a)
+    }
+ function handleChange(input) {
+    if (input.value < 1) input.value = 1;
+    if (input.value > 100) input.value = 100;
+  }
         var player = videojs('example_video_1');
     </script>
     <script>
