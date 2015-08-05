@@ -308,7 +308,7 @@ function jump(s,t){
 function customizationMode(){
 	$(".widgetero .widget").each(function(){
 					$(this).css("width", ($(this).width()-2)/2)
-					$(this).css("height", ($(this).height()+2)/2)
+					$(this).css("height", ($(this).height())/2)
 					$(this).css("left", parseInt($(this).css("left"))/2)
 					$(this).css("top", (parseInt($(this).css("top"))+49)/2)
 			})	
