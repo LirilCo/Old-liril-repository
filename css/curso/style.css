@@ -563,6 +563,8 @@ margin-bottom: 2px
 #actions .tabs .trash:hover{
     font-family: "icomoon";
 }
+#actions section{
+width: 100%;}
 .trash:before {
     content:"\e618"
 }
@@ -573,18 +575,29 @@ margin-bottom: 2px
 .widget
 {
     position: absolute !important;
-    width: 200px; 
-    height: 50px; 
     background-color: #ccc;
     opacity: 0.5;
     border: 1px solid #ccc; 
 
 }
+.widget .content
+{
+   width:100%;
+   height: 100%; 
+
+}
+.widget .content img
+{
+   width:100%;
+   height: 100%; 
+
+}
 .widgetero
 {
     position: absolute;
-    top: 0;
-    left: 0;
+    width: 50%;
+    top: 48px ;
+    left: 0 ;
     z-index: 2;
     
 }
@@ -595,6 +608,11 @@ margin-bottom: 2px
 .selectedWidget
 {
     border: 1px solid #aaa;
+
+}
+.selectedWidget.select
+{
+    border: 1px solid #6D8FE0;
 
 }
 .ui-resizable-handle
@@ -610,6 +628,10 @@ margin-bottom: 2px
 .selectedWidget .ui-resizable-handle
 {
     display:block !important;
+}
+.selectedWidget.select .ui-resizable-handle
+{
+    display:none !important;
 }
 #cover
 {
@@ -627,4 +649,16 @@ margin-bottom: 2px
 {
     position: relative;
     z-index: 2;
+}
+.magnet.on
+{
+    color: #2ecc71 !important;
+}
+.resize.on
+{
+    color: #2ecc71 !important;
+}
+.select.on
+{
+    color: #2ecc71 !important;
 }

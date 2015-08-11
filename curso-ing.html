@@ -29,7 +29,7 @@
     <script src="js/jquery.fittext.js"></script>
     <script src="js/jquery-ui.min.js"></script>
         <script src="js/jquery.ui.resizable.snap.ext.js"></script>
-
+    
     <script>
         $(function ($) {
 
@@ -258,7 +258,7 @@
         <aside id="actions">
             <table class="tabs">
                 <td class="button actual"></td>
-                <td class="button resize"></td>
+                <td class="button resize on"></td>
                 <td class="button select"></td>   
                 <td class="button cut"></td>
                 <td class="button copy"></td>
@@ -268,29 +268,45 @@
              <table class="tabs">
                 <td  colspan="2" class="button actual width inputed "><input type="number" min="1" max="100" onchange="handleChange(this);"></td>
                 <td colspan="2" class="button height inputed inputw"><input type="number" min="1" max="100" onkeydown="apply()" onchange="handleChange(this);"></td>
-                <td  colspan="2" class="button grid"><span>Grid</span></td>   
-                <td   class="button magnet"></td>   
+                <td  colspan="2" class="button grid"><span>Snap</span></td>   
+                <td  class="button magnet on"></td>   
               
             </table>
+            <section>
+                <div class="presets">
+                    
+                </div>
+                <div class="snapping">
+                    
+                </div>
+
+            </section>
         </aside>
         <aside id="list">
             <ul class="tabs">
-                <li class="button actual">Do</li>
-                <li class="button">Re</li>
-                <li class="button">Mi</li>
+                <li class="button">Pointers</li>
+                <li class="button actual">Add-ons</li>
+                <li class="button">Widgets</li>
             </ul>
             <ul class="widgets">
-                <li><div class="widget">
-                    <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
-                    <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
-                    <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
-                    <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
-                    <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
-                    <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
-                    <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
-                    <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
 
-                </div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li>
+                    <div class="widget" style="width: 200px; height: 50px;">
+                     <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
+                        <div class="content">
+                            <img src="resources/images/curso/partitura.jpg" alt="">
+                        </div>
+                    </div>
+                    <img src="resources/images/grid/1.jpg" alt="">
+                </li>
+
                 <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
                 <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
                 <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>

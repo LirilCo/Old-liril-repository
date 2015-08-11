@@ -3,14 +3,24 @@ var maxz = 0;
 var best = 0;
 var out = false;
 var copiedWidget;
+var snapping = true;
 pasted = true;
 type = "none";
+copiedTop = 0;
+select = false;
+copiedLeft = 0;
 $(document).on("ready",function(){
     $(".indexMenuItem ").prop("title", function(){ 
     return $(this).text();
-});
+	});
     			player.play();
 			player.pause();
+
+
+
+			$("#actions section").height($("#actions").height()- $("#actions tabs").height() )
+
+
 
 	$("#index-trigger").on("click",function(){
 		$("#index-menu").toggleClass("open");
@@ -64,20 +74,28 @@ containment: "window",
 	
 	
 
-$('.widgetero .widget').last().css({left: e.pageX- $('.widgetero .widget').last().width()/2,top: e.pageY- $('.widgetero .widget').last().height()/2}).trigger(e)
+$('.widgetero .widget').last().css({
+	left: e.pageX - $('.widgetero .widget').last().width()/2,
+	top: e.pageY- $('.widgetero .widget').last().height()/2}).trigger(e)
 
 });
 $(document).mouseup(function(e) {
 		$('.widgetero .widget').draggable({ 
-			  distance: 0,
-containment: "window",
+		distance: 0,
+		containment: "window",
 		stack:".widgetero .widget",
 		cursor: "move", 
 		snap: ".vidVidCustomizationMode, .widget", 
 		snapMode: "both", 
 		revert: 'invalid', 
 		revertDuration: 100,
-		snapTolerance: 10})
+		snapTolerance: 10});
+
+		if(snapping){
+    		$('.widgetero .widget').draggable("option", "snap", ".vidVidCustomizationMode, .widget" );
+		}else{
+    		$('.widgetero .widget').draggable("option", "snap", false );
+		}
 
 		$('.vidVidCustomizationMode').droppable({
     		accept: '.widget',
@@ -112,11 +130,17 @@ containment: "window",
         's': '#sgrip',
         'w': '#wgrip'
     },
-      snap: ".vidVidCustomizationMode, .widget", 
   snapMode: "both", 
 snapTolerance: 10
 
 })
+
+		if(snapping){
+    		$('.selectedWidget').resizable("option", "snap", ".vidVidCustomizationMode, .widget" );
+		}else{
+    		$('.selectedWidget').resizable("option", "snap", false );
+		}
+
 		if(out){
 			getActual().removeClass("selectedWidget");
 			out = false;
@@ -319,6 +343,8 @@ function customizationMode(){
 	$("#example_video_1").addClass("vidCustomizationMode");
 
 	$(".vidVidCustomizationMode").height( (a*$("#example_video_1").width()-3))
+		$(".widgetero").height( (a*$("#example_video_1").width()+1))
+
 	w = $(".vidVidCustomizationMode").width();
 	h = $(".vidVidCustomizationMode").height();
 
@@ -355,10 +381,13 @@ if(maxz == 0){
 
 $(document).mouseup(function(e){
     var clickedOn = $(e.target);
-    if (!clickedOn.parents().andSelf().is('.widget') && !clickedOn.parents().andSelf().is('input')){
+    if (!clickedOn.parents().andSelf().is('.widget') && !clickedOn.parents().andSelf().is('input') &&!clickedOn.parents().andSelf().is('.resize')&&!clickedOn.parents().andSelf().is('.select')&&!clickedOn.parents().andSelf().is('.magnet')){
     	controls(e)
     	$(".selectedWidget").removeClass("selectedWidget");	
-		out = true;
+		out = true;	
+    }else{
+    	 controls(e)
+
     }
 });
 
@@ -372,6 +401,88 @@ function controls(a){
 	if ($(a.target).parents().andSelf().is(".delete")){
     	$(".selectedWidget").remove()
 	}
-	
+	if ($(a.target).parents().andSelf().is(".select")){
+    	$(".widget").addClass("select")
+    	$(".select").addClass("on");
+    	$(".resize").removeClass("on");
+    	select = true
+	}
+	if ($(a.target).parents().andSelf().is(".resize")){
+    	$(".widget").removeClass("select");
+    	$(".resize").addClass("on");
+    	$(".select").removeClass("on");
+    	    	select = false
+
+
+	}
+	if ($(a.target).parents().andSelf().is(".cut")){
+    	copiedWidget = $(".selectedWidget").html()
+    	copiedTop = parseInt($(".selectedWidget").css("top"), 10)
+    	copiedLeft = parseInt($(".selectedWidget").css("left"), 10)
+    	$(".selectedWidget").remove()
+
+	}
+	if ($(a.target).parents().andSelf().is(".copy")){
+    	copiedWidget = $(".selectedWidget").html()
+    	copiedTop = $(".vidVidCustomizationMode").height()/2-$(".selectedWidget").height()/2 + 48
+    	copiedLeft = $(".vidVidCustomizationMode").width()/2-$(".selectedWidget").width()/2
+	}
+	if ($(a.target).parents().andSelf().is(".paste")){
+		if(copiedWidget != undefined){
+            	if(select){
+
+            		$(".selectedWidget").removeClass("selectedWidget")
+    				$(".widgetero").append('<div style="top: '+ copiedTop +'px;left: '+ copiedLeft +'px; z-index:1000" class="widget select selectedWidget dropped">'+copiedWidget+'</div>')
+            	}else{
+					$(".selectedWidget").removeClass("selectedWidget")
+    				$(".widgetero").append('<div style="top: '+ copiedTop +'px;left: '+ copiedLeft +'px; z-index:1000" class="widget  selectedWidget dropped">'+copiedWidget+'</div>')
+            	}
+            }
+}
+	if ($(a.target).parents().andSelf().is(".magnet")){
+    	$(".magnet").toggleClass("on");
+    	if(snapping){
+    		snapping = false;
+    	}else{
+    		snapping = true;
+    	}
+
+	}
 }
  
+
+  var ctrlDown = false;
+    var ctrlKey = 17
+    $(document).keydown(function(e)
+    {
+        if (e.keyCode == ctrlKey) ctrlDown = true;
+            if (ctrlDown &&  e.keyCode == 67){
+            	copiedWidget = $(".selectedWidget").html()
+    			copiedTop = $(".vidVidCustomizationMode").height()/2-$(".selectedWidget").height()/2 + 48
+    			copiedLeft = $(".vidVidCustomizationMode").width()/2-$(".selectedWidget").width()/2
+            }
+            if (ctrlDown &&  e.keyCode == 88){
+            		copiedWidget = $(".selectedWidget").html()
+    				copiedTop = parseInt($(".selectedWidget").css("top"), 10)
+    				copiedLeft = parseInt($(".selectedWidget").css("left"), 10)
+    				$(".selectedWidget").remove()
+            }
+
+    }).keyup(function(e)
+    {
+            if (ctrlDown &&  e.keyCode == 86){
+            	if(copiedWidget != undefined){
+            	if(select){
+
+            		$(".selectedWidget").removeClass("selectedWidget")
+    				$(".widgetero").append('<div style="top: '+ copiedTop +'px;left: '+ copiedLeft +'px; z-index:1000" class="widget select selectedWidget dropped">'+copiedWidget+'</div>')
+            	}else{
+					$(".selectedWidget").removeClass("selectedWidget")
+    				$(".widgetero").append('<div style="top: '+ copiedTop +'px;left: '+ copiedLeft +'px; z-index:1000" class="widget  selectedWidget dropped">'+copiedWidget+'</div>')
+            	}
+            }
+    }
+}
+    );
+
+    
