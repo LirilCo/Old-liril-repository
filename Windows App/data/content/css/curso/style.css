@@ -1,0 +1,710 @@
+@font-face
+
+{
+    font-family: 'icomoon';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../resources/fonts/icomoon.eot?4v3ev0');
+    src: url('../resources/fonts/icomoon.eot?#iefix4v3ev0') format('embedded-opentype'), url('../resources/fonts/icomoon.woff?4v3ev0') format('woff'), url('../resources/fonts/icomoon.ttf?4v3ev0') format('truetype'), url('../resources/fonts/icomoon.svg?4v3ev0#icomoon') format('svg');
+}
+* {
+    color: #2ecc71;
+    font-family: "Open Sans", sans-serif;
+}
+html,
+body {
+    height: 100%;
+    background-color: #ecf0f1;
+}
+header {
+    background-color: #fff;
+    border-bottom: solid 6px #ccc;
+    font-size: 24px;
+    height: 41px;
+    width: 100%;
+}
+header>nav>ul>li {
+    display: table-cell;
+    list-style-type: none;
+    padding: 0 10px 0 5px;
+    vertical-align: middle;
+}
+header nav {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+header nav .index-arrow.open:before {
+    color: #2ecc71;
+    content: "\e604";
+}
+header nav .index-arrow {
+    font-family: "icomoon";
+}
+header nav .index-arrow:before {
+    content: "\e605"
+}
+header nav ul {
+    display: table-row;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+header nav ul li#controls span {
+    cursor: pointer;
+    position:absolute;
+    top:0;
+}
+header nav ul li#controls #play {
+    font-family: "icomoon";
+    font-size: 40px;
+}
+header nav ul li#controls #play:before {
+     content: "\e603"
+}
+header nav ul li#controls #play.playing:before {
+     content: "\e602"
+}
+header nav ul li.index .text {
+    left: 28px;
+    padding-left: 7px;
+    position: absolute;
+    top: 3px;
+    z-index: 1;
+}
+header nav ul li#right-menu {
+    cursor: pointer;
+    padding-right: 46px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+header nav ul li#right-menu #profileSettings.open {
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    height: 150px;
+    position: absolute;
+    right: 0;
+    top: -3px;
+    width: 80px;
+    z-index: -1;
+}
+header nav ul li#right-menu #dots-icon:before {
+    content: "\e608";
+    font-family: "icomoon";
+    font-size: 16px;
+}
+header nav ul li#right-menu #profileSettings {
+    -moz-transition: height 100ms ease-in-out, box-shadow 100ms ease-in-out, opacity 100ms ease-in-out;
+    -ms-transition: height 100ms ease-in-out, box-shadow 100ms ease-in-out, opacity 100ms ease-in-out;
+    -o-transition: height 100ms ease-in-out, box-shadow 100ms ease-in-out, opacity 100ms ease-in-out;
+    -webkit-transition: height 100ms ease-in-out, box-shadow 100ms ease-in-out, opacity 100ms ease-in-out;
+    background-color: #fff;
+    box-shadow: none;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: -3px;
+    transition: height 100ms ease-in-out, box-shadow 100ms ease-in-out, opacity 100ms ease-in-out;
+    width: 80px;
+    z-index: -1;
+}
+header nav ul li#right-menu #profileTrigger {
+    height: 41px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+    z-index: 1;
+}
+header nav ul li#right-menu .index-arrow {
+    position: absolute;
+    right: 5px;
+    top: 6px;
+}
+header nav ul li#right-menu #profile {
+    position: absolute;
+    right: 30px;
+    top: 3px;
+}
+header nav ul li#right-menu #profile #profile-pic {
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 25px;
+}
+header nav ul li#right-menu #customize {
+    left: -40px;
+    margin-right: 12px;
+    position: absolute;
+    top: 5px;
+}
+header nav ul li#right-menu #customize:before {
+    content: "\e60f";
+    font-family: "icomoon";
+    font-size: 28px;
+    margin-right: 2px;
+}
+header nav ul li#right-menu #store {
+    left: 0;
+    margin-right: 12px;
+    position: absolute;
+    top: 3px;
+}
+header nav ul li#right-menu #store:before {
+    content: "\e600";
+    font-family: "icomoon";
+    font-size: 28px;
+    margin-right: 2px;
+}
+header nav ul li#right-menu #dots {
+    height: 38px;
+    margin-right: 55px;
+    padding-left: 35px;
+    padding-top: 3px;
+}
+header nav li>a {
+    text-decoration: none;
+        
+}
+#back
+{
+    width: 1em;
+        z-index: 5;
+    position: relative;
+}
+#back .back-arrow.openedStore {
+
+    color: #fff;
+}
+header nav .back-arrow {
+      font-family: "icomoon";
+    font-size: 40px;
+    top: 0;
+    line-height: 0;        
+}
+header nav .back-arrow:before
+{
+  content:"\e635"
+}
+
+header nav ul li#index {
+    padding: 0;
+    position: relative;
+    width: 130px;
+}
+header nav ul li#index #index-menu .sub {
+    font-family: "icomoon";
+}
+header nav ul li#index #index-menu .sub:before {
+    content:"\e603"
+}
+
+header nav ul li#index #index-menu.open {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    display: block;
+    height: 130px;
+    left: 0;
+    opacity: 1;
+    padding-top: 41px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+header nav ul li#index #index-trigger {
+    cursor: pointer;
+    height: 41px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+header nav ul li#index #index-trigger .index-arrow {
+    position: absolute;
+        top: 8px;
+    left: 12px;
+}
+header nav ul li#index #index-trigger .index-arrow.open
+{
+    top: 6px;
+    left: 5px;
+
+}
+
+header nav ul li#index #index-trigger #index-text {
+    left: 35px;
+    position: absolute;
+    top: 3px;
+}
+header nav ul li#index #index-menu {
+    -moz-transition: height 100ms ease-in-out, box-shadow 100ms ease-in-out, opacity 100ms ease-in-out;
+    -ms-transition: height 100ms ease-in-out, box-shadow 100ms ease-in-out, opacity 100ms ease-in-out;
+    -o-transition: height 100ms ease-in-out, box-shadow 100ms ease-in-out, opacity 100ms ease-in-out;
+    -webkit-transition: height 100ms ease-in-out, box-shadow 100ms ease-in-out, opacity 100ms ease-in-out;
+    background-color: #fff;
+    height: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: height 100ms ease-in-out, box-shadow 100ms ease-in-out, opacity 100ms ease-in-out;
+    width: 130px;
+}
+header nav ul li#index #index-menu ul li.open {
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    width: 85%;
+}
+header nav ul li#index #index-menu ul li {
+    color: #afafaf;
+    display: none;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+header nav ul li#index #index-menu ul li a {
+    color: #afafaf;
+    text-decoration: none;
+}
+header nav ul li#index .text.open,
+header nav ul li#index span:first-child.open {
+    color: #2ecc71;
+}
+input {
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+input:focus {
+    border-bottom: 2px #ccc solid;
+    outline: 0;
+}
+.button {
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+#video {
+}
+#example_video_1 {
+    width: 100%
+}
+#Store {
+    background-color: #ecf0f1;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+ #customizationBars{
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+#Store #actualStore, #customizationBars #actualStore {
+    background-color: #ecf0f1;
+    bottom: 7px;
+    position: absolute;
+    width: 100%;
+}
+#Store #actualStore #storeSection, #customizationBars #actualStore #storeSection {
+    background-color: #fff;
+    display: inline-block;
+    float: right;
+    height: 100%;
+    padding: 40px;
+    width: 70%;
+}
+#Store  #actualStore #storeList, #customizationBars #actualStore #storeList {
+    background-color: #fff;
+    display: inline-block;
+    height: 100%;
+    width: 20%;
+}
+#Store #actualStore #storeList ul li , #customizationBars #actualStore #storeList ul li {
+    color: #afafaf;
+    cursor: pointer;
+    display: block;
+    font-size: 25px;
+    list-style: none;
+    overflow: hidden;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+#Store #storeHeader, #customizationBars #storeHeader {
+    background-color: #2ecc71;
+    border-bottom: solid 7px #27ae60;
+    height: 41px;
+    width: 100%;
+}
+#Store.open, #customizationBars.open {
+    display: block
+}
+.openedStore {
+    color: #fff
+}
+/*sombra #ccc
+normal #fff*/
+
+.vidCustomizationMode
+{
+    width: 50% !important;
+}
+.vidVidCustomizationMode
+{
+        border: solid 2px #27ae60;
+        margin-top: 1px;
+
+
+}
+#actions
+{
+    width: 50%;
+    float: left;
+    height: 50%;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0px;
+    border-right: solid 2px #27ae60;
+    padding-bottom: 20px;
+
+}
+#actions .tabs
+{
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+    display:table;
+    table-layout: fixed;
+    width: 100%;
+}
+#actions .tabs.dynamic
+{
+        list-style: none;
+    margin: 0 0;
+    padding: 0;
+    position: absolute;
+    top: 140px;
+    bottom: 0px;
+    display: block;
+
+}
+#actions .tabs .resize:before
+{
+     content:"\e623"
+
+}
+
+#actions .tabs .select:before
+{
+     content:"\e624"
+
+}
+#actions .tabs .cut:before
+{
+     content:"\e61d"
+
+}
+#actions .tabs .copy:before
+{
+     content:"\e61b"
+
+}
+#actions .tabs .paste:before
+{
+     content:"\e61c"
+
+}
+#actions .tabs .delete:before
+{
+     content:"\e618"
+
+}
+#actions .magnet:before
+{
+     content:"\e626"
+
+}
+#actions .grid:before
+{
+     content:"\e625";
+     margin-right: 25px;
+
+}
+#actions .tabs td input
+{
+    line-height: 1;
+     width: 100%;
+
+}
+#actions .tabs td span
+{
+ 
+    color: inherit;
+}
+#actions .tabs .grid.open,
+#actions .grid.open:before
+{
+ 
+    color: #2ecc71 ;
+}
+
+#actions .tabs td span.wh
+{
+    position: absolute;
+    right: 0;
+    line-height: 1;
+    color: #6B6969;
+}
+#actions .tabs .inputed
+{
+    padding-right: 1em;
+    box-sizing: border-box; 
+
+}
+
+#actions .tabs td
+{
+    font-size: 35px;
+    height: 100%;
+    vertical-align: middle;
+    display:table-cell;
+    text-align:center;
+      font-family: "icomoon";
+        color: #6B6969;
+    border-left: 1px solid #6B6969;
+    cursor: pointer;
+        position: relative;
+
+
+}
+#actions .tabs td:first-child
+{
+   
+            border-left: none;
+
+}
+#list
+{
+    width: 50%;
+    float: right;
+    box-sizing: border-box;
+    height: 100%;
+    padding-bottom: 48px;
+    position: relative;
+    overflow-y: scroll; 
+
+}
+
+
+#list .tabs
+{
+    list-style: none;
+    background-color: #2ecc71;
+    border-bottom: solid 2px #27ae60;
+    margin:0;
+    height: 41px;
+    padding: 0;
+    display:table;
+    table-layout: fixed;
+    width: inherit;
+    position: fixed;
+
+}
+#list .tabs li
+{
+    color: white;
+    font-size: 24px;
+    height: 100%;
+    vertical-align: middle;
+    cursor: pointer;
+     display:table-cell;
+    text-align:center;
+}
+#list .tabs li.actual
+{
+    background-color: #27ae60;
+        cursor: default;
+
+}
+#list .widgets
+{
+  list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 48px;
+    box-sizing: border-box;
+}
+#list .widgets li
+{
+    background-color: #fff;
+    cursor: pointer;
+    height: 100px;
+    width: 100%;
+margin-bottom: 2px
+
+}
+#list .widgets li img
+{
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px
+}
+#actions .tabs .trash{
+    font-family: "icomoon";
+    font-size: 150px;
+}
+#actions .tabs .trash:hover{
+    font-family: "icomoon";
+}
+.trash:before {
+    content:"\e618"
+}
+.widgets .widget
+{
+    display: none;
+}
+.widget
+{
+    position: absolute !important;
+    width: 200px; 
+    height: 50px; 
+    background-color: #ccc;
+    opacity: 0.5;
+    border: 1px solid #ccc; 
+
+}
+.widgetero
+{
+    position: relative;
+    top: 0 ;
+    left: 0 ;
+    z-index: 2;
+    
+}
+.widget.dropped
+{
+    opacity: 1;
+}
+.selectedWidget
+{
+    border: 1px solid #aaa;
+
+}
+.selectedWidget.select
+{
+    border: 1px solid #6D8FE0;
+
+}
+.ui-resizable-handle
+{
+    width: 6px !important;
+    height: 6px !important;
+    background-color: #888;
+}
+.ui-resizable-handle
+{
+    display:none !important;
+}
+.selectedWidget .ui-resizable-handle
+{
+    display:block !important;
+}
+.selectedWidget.select .ui-resizable-handle
+{
+    display:none !important;
+}
+#cover
+{
+    display: none;
+}
+#cover.open
+{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+#controls
+{
+    position: relative;
+    z-index: 2;
+}
+.magnet.on
+{
+    color: #2ecc71 !important;
+}
+.resize.on
+{
+    color: #2ecc71 !important;
+}
+.select.on
+{
+    color: #2ecc71 !important;
+}
+.panel
+{
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+        background-color: #fff;
+    bottom: 0;
+    display: none;
+
+}
+.panel.top
+{
+    z-index: 2;
+    display: block;
+}
+.panel#grid
+{
+
+}
+.panel#grid>section
+{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+.panel#presets>section
+{
+    display: inline-block;
+    height: 85%;
+    background-color: #fff;
+    cursor: pointer;
+}
+.panel#presets
+{
+    background-color: #eee;
+    overflow-x: scroll;
+    white-space: nowrap;
+}

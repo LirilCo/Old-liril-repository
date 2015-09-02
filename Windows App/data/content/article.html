@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>
+      Liril
+    </title>
+    <link rel="shortcut icon" type="image/ico" href="resources/icons/favicon.ico"  />
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,600,700' rel='stylesheet' type='text/css'>
+      
+     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/article/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/video-js.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/article/main.js"></script>
+    <script src="js/main.js"></script> <!-- Resource jQuery -->
+    <script src="js/prism.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/index/modernizr.custom.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/sticky-kit.min.js"></script>
+
+  
+
+ <script src="js/jquery.knob.js">
+    </script>
+
+   <script>
+        $(function ($) {
+
+            $(".knob").knob({
+                change: function (value) {
+                    //console.log("change : " + value);
+                },
+                release: function (value) {
+                    //console.log(this.$.attr('value'));
+                    console.log("release : " + value);
+                },
+                cancel: function () {
+                    console.log("cancel : ", this);
+                },
+                /*format : function (value) {
+                  return value + '%';
+                  }
+                  ,*/
+                draw: function () {
+
+                    // "tron" case
+                    if (this.$.data('skin') == 'tron') {
+
+                        this.cursorExt = 0.3;
+
+                        var a = this.arc(this.cv) // Arc
+                            ,
+                            pa // Previous arc
+                            , r = 1;
+
+                        this.g.lineWidth = this.lineWidth;
+
+                        if (this.o.displayPrevious) {
+                            pa = this.arc(this.v);
+                            this.g.beginPath();
+                            this.g.strokeStyle = this.pColor;
+                            this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
+                            this.g.stroke();
+                        }
+
+                        this.g.beginPath();
+                        this.g.strokeStyle = r ? this.o.fgColor : this.fgColor;
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+                        this.g.stroke();
+
+                        this.g.lineWidth = 2;
+                        this.g.beginPath();
+                        this.g.strokeStyle = this.o.fgColor;
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                        this.g.stroke();
+
+                        return false;
+                    }
+                }
+            });
+
+            // Example of infinite knob, iPod click wheel
+            var v, up = 0,
+                down = 0,
+                i = 0,
+                $idir = $("div.idir"),
+                $ival = $("div.ival"),
+                incr = function () {
+                    i++;
+                    $idir.show().html("+").fadeOut();
+                    $ival.html(i);
+                },
+                decr = function () {
+                    i--;
+                    $idir.show().html("-").fadeOut();
+                    $ival.html(i);
+                };
+            $("input.infinite").knob({
+                min: 0,
+                max: 20,
+                stopper: false,
+                change: function () {
+                    if (v > this.cv) {
+                        if (up) {
+                            decr();
+                            up = 0;
+                        } else {
+                            up = 1;
+                            down = 0;
+                        }
+                    } else {
+                        if (v < this.cv) {
+                            if (down) {
+                                incr();
+                                down = 0;
+                            } else {
+                                down = 1;
+                                up = 0;
+                            }
+                        }
+                    }
+                    v = this.cv;
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li id="index">
+                    <a href="index.html"><section id="index-trigger">
+                        <span class="back-arrow button">
+              </span>
+                        <span id="index-text" class="text button">
+Inicio              </span>
+                    </section></a>
+
+                </li>
+               
+                <li id="Options">
+                <div class="options first button">
+                    <ul>
+                        <li class="star"></li>
+                         <li class="bookmark"></li>
+
+                    </ul>
+                </div>
+                </li>
+                
+                <li id="right-menu" class="button">
+                    <section id="dots" class="button">
+                        <span id="store" class="button">
+              </span>
+                        <span id="dots-icon" class="button">
+              </span>
+                        <span id="dots-text" class="button">
+                6'000.600
+              </span>
+
+                    </section>
+                    <section id="profileTrigger">
+                    </section>
+                    <div id="profile" class="button">
+                        <img id="profile-pic" src="resources/images/white.jpg" alt="Walter White">
+                        <input class="knob button" data-width="35" data-fgColor="#2ecc71" data-bgColor="rgba(0,0,0,0)" data-displayInput=false data-thickness=".15" readonly value="75">
+                    </div>
+                    <span class="index-arrow button">
+              </span>
+
+                    <section id="profileSettings">
+                    </section>
+                </li>
+
+                <li>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div id="root">
+    <div>
+        <a href="user.html">Walter White</a>
+    </div>
+    <div>
+        <a href="user.html">Artículos</a>
+    </div>
+    <span>
+        <span href="#">Novedades en Adobe Photoshop CC</span>
+    </span>
+
+    </div>
+    <section id="wrapper" class="theater"></section>
+    
+    <section id="theater" class="theater">
+        <section id="picContainer">
+            <img id="bigPic" alt="">
+        </section>
+        <aside class="comments">
+        <div class="info">
+                    <img id="pic" alt="">
+                    <p class="username"><a href="#"></a></p>
+        </div>
+        <p class="title"></p>
+        <p class="more">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet varius lectus, congue rutrum urna. Suspendisse in ultrices enim. In hac habitasse platea dictumst. Praesent aliquet, nisi nec euismod vulputate, odio velit porta erat, ut semper lacus erat ac nulla. Aenean ex libero, volutpat vel sem et, blandit dictum dui. Duis suscipit sed nisi finibus vestibulum. Quisque finibus porttitor nisl, nec consequat metus. Quisque commodo, libero nec volutpat suscipit, quam urna volutpat turpis, quis rhoncus magna dui sit amet lacus. Donec pellentesque aliquam turpis nec commodo. Aliquam lobortis facilisis auctor. Sed libero nisi, scelerisque et porttitor vel, accumsan sed lacus. Pellentesque at tortor pellentesque, vestibulum turpis at, iaculiuisque finibus porttitor nisl, nec consequat metus. Quisque commodo, libero nec volutpat suscipit, quam urna volutpat turpis, quis rhoncus magna dui sit amet lacus. Donec pellentesque aliquam turpis nec commodo. Aliquam lobortis facilisis auctor. Sed libero nisi, scelerisque et porttitor vel, accumsan sed lacus. Pellentesque at tortor pellentesque, vestibulum turpis at, iaculis nibh.
+        </p>
+        <div class="options button">
+        <ul>
+            <li class="bookmark"></li>
+            <li class="star"></li>
+            <a><li class="read"></li></a>
+        </ul></div>
+        <p id="close"></p>
+        </aside>
+        
+    </section>
+    
+    <section id="article">
+       
+        <aside id="title">
+            Novedades en Adobe Photoshop CC
+        </aside>
+        <img src="resources/images/article/avatar.jpg" alt=""> 
+       <aside id="text">
+              
+           
+<p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man. </p>
+          <h2>Lorem </h2>
+
+<p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass. </p>
+<figure class="cd-image-container">
+		<img src="resources/images/article/img-original.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original"></span>
+
+		<div class="cd-resize-img"> <!-- the resizable image on top -->
+			<img src="resources/images/article/img-modified.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified"></span>
+		</div>
+
+		<span class="cd-handle"></span>
+	</figure>
+	
+	
+	<section class="code">
+	    <div class="code-scroll"><div class="code-filler"></div></div>
+	    <pre id="code-1"><code class="language-markup" >&#60!DOCTYPE html&#62
+&#60html lang="en"&#62
+&#60head&#62
+
+&#60meta charset="utf-8" /&#62
+&#60link rel="shortcut icon" href="favicon.png" /&#62
+&#60title&#62File Highlight ▲ Prism plugins&#60/title&#62
+&#60base href="../.." /&#62
+&#60link rel="stylesheet" href="style.css" /&#62
+&#60link rel="stylesheet" href="themes/prism.css" data-noprefix /&#62
+&#60script src="prefixfree.min.js"&#62&#60/script&#62
+
+&#60script&#62var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];&#60/script&#62
+&#60script src="http://www.google-analytics.com/ga.js" async&#62&#60/script&#62
+&#60/head&#62
+&#60body&#62
+
+&#60header&#62
+	&#60div class="intro" data-src="templates/header-plugins.html" data-type="text/html"&#62&#60/div&#62
+
+	&#60h2&#62File Highlight&#60/h2&#62
+	&#60p&#62Fetch external files and highlight them with Prism. Used on the Prism website itself.&#60/p&#62
+&#60/header&#62
+
+&#60section class="language-markup"&#62
+	&#60h1&#62How to use&#60/h1&#62
+	
+	&#60p&#62Use the &#60code&#62data-src&#60/code&#62 attribute on empty &#60code&#62&lt;pre&#62&#60/code&#62 elements, like so:&#60/p&#62
+	
+	&#60pre&#62&#60code&#62&lt;pre data-src="myfile.js"&#62&lt;/pre&#62&#60/code&#62&#60/pre&#62
+	
+	&#60p&#62You don’t need to specify the language, it’s automatically determined by the file extension.
+	If, however, the language cannot be determined from the file extension or the file extension is incorrect, you may specify a language as well (with the usual class name way).&#60/p&#62
+	
+	&#60p&#62Please note that the files are fetched with XMLHttpRequest. This means that if the file is on a different origin, fetching it will fail, unless CORS is enabled on that website.&#60/p&#62
+&#60/section&#62
+
+&#60section&#62
+	&#60h1&#62Examples&#60/h1&#62
+	
+	&#60p&#62The plugin’s JS code:&#60/p&#62
+	&#60pre data-src="plugins/file-highlight/prism-file-highlight.js"&#62&#60/pre&#62
+	
+	&#60p&#62This page:&#60/p&#62
+	&#60pre data-src="plugins/file-highlight/index.html"&#62&#60/pre&#62
+	
+	&#60p&#62File that doesn’t exist:&#60/p&#62
+	&#60pre data-src="foobar.js"&#62&#60/pre&#62
+	
+	&#60p&#62For more examples, browse around the Prism website. Most large code samples are actually files fetched with this plugin.&#60/p&#62
+&#60/section&#62
+
+&#60footer data-src="templates/footer.html" data-type="text/html"&#62&#60/footer&#62
+
+&#60script src="prism.js"&#62&#60/script&#62
+&#60script src="plugins/file-highlight/prism-file-highlight.js"&#62&#60/script&#62
+&#60script src="utopia.js"&#62&#60/script&#62
+&#60script src="components.js"&#62&#60/script&#62
+&#60script src="code.js"&#62&#60/script&#62
+
+
+&#60/body&#62
+&#60/html&#62</code></pre>
+    </section>
+    <section class="code">
+	    <div class="code-scroll"><div class="code-filler"></div></div>
+	    <pre id="code-1"><code class="language-css" >@font-face
+
+{
+    font-family: 'icomoon';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../resources/fonts/icomoon.eot?4v3ev0');
+    src: url('../resources/fonts/icomoon.eot?#iefix4v3ev0') format('embedded-opentype'), url('../resources/fonts/icomoon.woff?4v3ev0') format('woff'), url('../resources/fonts/icomoon.ttf?4v3ev0') format('truetype'), url('../resources/fonts/icomoon.svg?4v3ev0#icomoon') format('svg');
+}
+
+* {
+    color: #2ecc71;
+    font-family: "Open Sans", sans-serif;
+}
+a{
+    text-decoration: none;
+    }
+html,
+body {
+    height: 100%;
+}
+header {
+    background-color: #fff;
+    border-bottom: solid 6px #ccc;
+    font-size: 24px;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+header #Options{
+    float: right;
+    margin-right: 250px;
+    height: 46px;
+    padding: 0;
+}
+header #Options .options li{
+    width: 50%;
+    margin: 0;
+    line-height: 32px;
+    top: 0;
+    font-size: 35px;
+}
+header.open #Options .options li{
+   
+    color: #fff;
+
+}
+header>nav>ul>li {
+    display: table-cell;
+    list-style-type: none;
+    padding: 0 10px 0 5px;
+    vertical-align: middle;
+}
+header nav {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+header nav .back-arrow {
+    font-family: "icomoon";
+    padding-left: 5px;
+    transform: rotate(90deg);
+        
+}
+header nav .index-arrow {
+    font-family: "icomoon";
+    padding-left: 5px; 
+    position: absolute;
+    right: 4px;
+    top: 7px;
+
+}
+header nav .back-arrow:before, header nav .index-arrow:before {
+    content: "\e605"
+    
+}
+header nav .index-arrow.open:before {
+    color: #2ecc71;
+    content: "\e604";
+}
+header nav ul {
+    display: table-row;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+header>nav>ul>li#controls span {
+    cursor: pointer;
+    position:absolute;
+    top:0;
+}
+header>nav>ul>li#controls #play {
+    font-family: "icomoon";
+    font-size: 40px;
+}</code></pre>
+    </section>
+    
+<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
+<h2>Samuel L. Jackson</h2>
+<p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing. </p>
+    <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
+    <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
+    <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
+
+	
+           
+       </aside>
+        
+    </section>
+    <aside id="sidebar">
+        <section class="story project">
+            <div class="info">
+                    <img src="resources/images/white.jpg" alt="">
+                    <p class="username"><a href="#">Walter White</a> </p>
+                    <p class="time">Ayer a las 3:30 pm</p>
+                    
+            </div>
+            <p class="title">Lorem ipsum!</p>
+            <img class="pic" src="resources/images/grid/3.jpg" alt="" class="big">
+            <div class="options button">
+            <ul>
+                <li class="bookmark"></li>
+                <li class="star"></li>
+                <a href=""><li class="read"></li></a>
+            </ul>
+        </div>
+
+        </section>
+        
+        <section class="story news">
+            <div class="info">
+                    <img src="resources/images/white.jpg" alt="">
+                    <p class="username"><a href="#">Walter White</a></p>
+                    <p class="time">24 de Octubre a las 0:30 am</p>
+            </div>
+            <p class="title">Novedades en Adobe Photoshop CC</p>
+            <img class="pic" src="resources/images/photoshop.jpg" alt="" class="big">
+        <div class="options button">
+            <ul>
+                <li class="bookmark"></li>
+                <li class="star"></li>
+                <a href="article.html"><li class="read"></li></a>
+            </ul>
+        </div>
+           
+        </section>
+        <section class="story news">
+            
+            <p class="title">Nuevos conceptos de diseño por <a href="#">Walter White</a></p>
+            <img class="pic" src="resources/images/grid/2.jpg" alt="" class="big">
+        <div class="options button">
+            <ul>
+                <li class="bookmark"></li>
+                <li class="star"></li>
+                <a href=""><li class="read"></li></a>   
+             </ul>
+        </div>
+           
+        </section>
+        
+    </aside>
+    <section id="Store" class="button">
+            
+        <aside id="actualStore" class="button">
+            <aside id="storeList" class="button">
+                <ul>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                    <a>
+                        <li class="button">Sección</li>
+                    </a>
+                </ul>
+            </aside>
+            <aside id="storeSection">
+                
+            </aside>
+        </aside>
+       
+    </section>
+		<script>
+    $('.code-scroll').on('scroll', function () {
+        $(this).siblings("pre").scrollLeft($(this).scrollLeft());
+    });
+    $('.code pre').on('scroll', function () {
+        $(this).siblings(".code-scroll").scrollLeft($(this).scrollLeft());
+        
+    });
+
+    $(".code-scroll").stick_in_parent({recalc_every: 1 })
+
+    </script>
+</body>
+</html>
