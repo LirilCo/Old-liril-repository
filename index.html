@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/video-js.css">
     <link rel="stylesheet" href="css/jquery-ui.min.css">
-<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
 
     <script src="js/jquery.js">
     </script>
@@ -31,7 +31,48 @@
     </script>
     <script src="js/jquery.knob.js">
     </script>
-
+<script type="text/javascript">
+  $(function () {
+      $.widget("ui.tooltip", $.ui.tooltip, {
+          options: {
+              content: function () {
+                  return $(this).prop('title');
+              }
+          }
+      });
+      
+$('#target').tooltip({
+    items: 'a.target',
+    open: function(event, ui)
+    {
+        if (typeof(event.originalEvent) === 'undefined')
+        {
+            return false;
+        }
+        
+        var $id = $(ui.tooltip).attr('id');
+        
+        // close any lingering tooltips
+        $('div.ui-tooltip').not('#' + $id).remove();
+        
+        // ajax function to pull in data and add it to the tooltip goes here
+    },
+    close: function(event, ui)
+    {
+        ui.tooltip.hover(function()
+        {
+            $(this).stop(true).fadeTo(400, 1); 
+        },
+        function()
+        {
+            $(this).fadeOut('400', function()
+            {
+                $(this).remove();
+            });
+        });
+    }
+});  });
+</script>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/jquery.textarea_autosize.js"></script>
     <script>
@@ -167,6 +208,7 @@ return value + '%';
           </li>
           
           <li>
+          <input class="buscar" type="text" placeholder="Busca aquí cursos, personas o cualquier cosa">
           </li>
           <li id="right-menu" class="button">
             <section id="dots" class="button">
@@ -239,8 +281,26 @@ return value + '%';
     <section class="story project img">
       <div class="info">
         <img src="resources/images/white.jpg" alt="">
-        <p class="username">
-          <a href="user.html">
+        <p id="target" class="username">
+          <a class="target" href="user.html" title="         
+              <div class='tool'>
+                <img src='resources/images/white.jpg'>
+                <div class='datos'>
+                  <ul class='actions'>
+                    <li class='chatear' title='Chatear'>C</li>
+                    <li class='agregar' title='Agregar'>A</li>
+                    <li class='juzgar' title='Juzgar'>J</li>
+                  </ul>                  
+                  <p class='username'>Walter White</p>
+                  <p class='rol'>Moderador <b style='color:#fff;'>+60</b></p>
+
+                </div>
+                <div class='insignia' style='top: 9px;' title='Curso completado (Javascript)'></div>
+                <div class='insignia' style='top: 20px;'title='Proyecto completado (eBay)'></div>
+                <div class='insignia' style='top: 0;' title='Nivel avanzado (a moderador)'> </div>
+
+              </div>">
+
             Walter White
           </a>
           hizo un commit a 
