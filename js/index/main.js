@@ -68,7 +68,7 @@ function closeModal() {
     })
 }
 $(document).keypress(function (e) {
-if(!$("textarea").is(":focus") && !$("input").is(":focus")){
+if(!$("textarea").is(":focus")){
     if (e.keyCode == 108) {
         $(".current").find('.options .star').toggleClass("true");
     }
@@ -125,13 +125,11 @@ $(window).on("load", function () {
         }else{
             $dat =$(".chats .chat."+$(this).attr('class').split(' ')[2])
             if(! $dat.hasClass("open")){
-                prependClass($dat,"open");  
+                prependClass($dat,"open")  
             }
             $(".chats .chat."+$(this).attr('class').split(' ')[2]+" .newMessage textarea").focus();
         }
     }
-
-
         )
 
   
@@ -207,9 +205,7 @@ $(window).on("load", function () {
         });
 
     $(".story .pic").on("click", function () {
-        openModal($(this));
-                $('#target').tooltip()
-
+        openModal($(this))
     });
 
     $("#close").on("click", function () {

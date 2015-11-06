@@ -372,17 +372,15 @@ margin: 0 auto;
 }
 #biography #content #cover #rol
 {
-        position: absolute;
+    position: absolute;
     bottom: 0;
-    right: 0;
-    padding: 9px 9px;
-    color: #FFFFFF;
-    font-size: 20px;
-    background: #2ECC71;
+    right: 1em;
+    color: #777;
+    font-size: 20px
 }
 #biography #content #cover #rol b
 {
-    color: #fff
+    color: #777
 }
 #biography #content #cover #profilePic
 {
@@ -432,7 +430,7 @@ position: absolute;
 }
 #biography #content #main #summary
 {
-     margin: 120px 0 0 0;  
+     margin: 160px 0 0 0;  
     padding: 0;
     
 }
@@ -504,6 +502,7 @@ padding: 10px;
     background-color: #fff;
     right: 0;
     padding: 0;
+    margin-top: 2.5em;
     position: absolute;
     text-align: right;
     white-space: nowrap;
@@ -545,7 +544,7 @@ box-shadow:         -1px 0px 0px 0px #ccc;    color: #888;
     left: 38px;
     border-radius: 50%;
     width: 170px;
-    border: #fff 18px solid;
+    border: #ecf0f1 18px solid;
     z-index: 1;
 }
 .current
