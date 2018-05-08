@@ -214,7 +214,7 @@ if(!$("#Store").hasClass("open") && !$("#customizationBars").hasClass("open") ){
 					$(this).css("width", ($(this).width()*2)+2)
 					$(this).css("height", $(this).height()*2)
 					$(this).css("left", parseInt($(this).css("left"))*2)
-					$(this).css("top", (parseInt($(this).css("top"))*2)-49)
+					$(this).css("top", (parseInt($(this).css("top"))*2))
 
 			})	
 				
@@ -334,7 +334,7 @@ function customizationMode(){
 					$(this).css("width", ($(this).width()-2)/2)
 					$(this).css("height", ($(this).height())/2)
 					$(this).css("left", parseInt($(this).css("left"))/2)
-					$(this).css("top", (parseInt($(this).css("top"))+49)/2)
+					$(this).css("top", (parseInt($(this).css("top")))/2)
 			})	
 	$("#example_video_1").children().first().addClass("vidVidCustomizationMode");
 	a = $("#example_video_1").height()/$("#example_video_1").width()
