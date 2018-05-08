@@ -18,12 +18,19 @@ $(document).on("ready",function(){
         }
         if ($("#Store").hasClass("open")) {
             $("header").addClass("open");
+            if ($("#profileSettings").hasClass("open")) {
             $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );}
+            else{
+                 $('.knob').trigger(
                 'configure', {
                     "fgColor": "#fff"
                 }
             );
-        } else {
+            }} else {
            $("header").removeClass("open");
            }
            if (!$("#profileSettings").hasClass("open") && !$("#Store").hasClass("open")) {
@@ -36,11 +43,54 @@ $(document).on("ready",function(){
         });
 
 
-	$("#profileTrigger").on("click",function(){
-		$("#right-menu .index-arrow").toggleClass("open");
-		$("#profileSettings").toggleClass("open");
-		
-	});
+	$("#profileTrigger").on("click", function () {
+        $("#right-menu .index-arrow").toggleClass("open");
+        $("#profileSettings").toggleClass("open");
+
+
+        if ($("#profileSettings").hasClass("open")) {
+            if($("#profileSettings").hasClass("openedStore")){
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );
+        }
+        else{
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );
+        }
+    }
+        else{
+            if($("#profileSettings").hasClass("openedStore")){
+
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#fff"
+                }
+            );
+        }
+        else{
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );
+        }
+        }
+
+      
+
+
+
+
+
+
+
+    });
 	
 	
 });

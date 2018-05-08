@@ -88,11 +88,19 @@ $(window).on("load", function () {
         if ($("#Store").hasClass("open")) {
 
             $("header").addClass("open");
+            if ($("#profileSettings").hasClass("open")) {
             $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );}
+            else{
+                 $('.knob').trigger(
                 'configure', {
                     "fgColor": "#fff"
                 }
             );
+            }
         } else {
             $("header").removeClass("open");
         }
@@ -134,9 +142,45 @@ $(window).on("load", function () {
         }
     };
 
-    $("#profileTrigger").on("click", function () {
+     $("#profileTrigger").on("click", function () {
         $("#right-menu .index-arrow").toggleClass("open");
         $("#profileSettings").toggleClass("open");
+
+
+        if ($("#profileSettings").hasClass("open")) {
+            if($("#profileSettings").hasClass("openedStore")){
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );
+        }
+        else{
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );
+        }
+    }
+        else{
+            if($("#profileSettings").hasClass("openedStore")){
+
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#fff"
+                }
+            );
+        }
+        else{
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );
+        }
+        }
+
 
     });
 

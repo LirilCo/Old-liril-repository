@@ -189,11 +189,19 @@ $(window).on("load", function () {
         }
         if ($("#Store").hasClass("open")) {
             $("header").addClass("open");
+            if ($("#profileSettings").hasClass("open")) {
             $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );}
+            else{
+                 $('.knob').trigger(
                 'configure', {
                     "fgColor": "#fff"
                 }
             );
+            }
         } else {
            $("header").removeClass("open");
            }
@@ -250,6 +258,49 @@ $("#chats .chats ").on("click", ".chat", function(ev) {
     $("#profileTrigger").on("click", function () {
         $("#right-menu .index-arrow").toggleClass("open");
         $("#profileSettings").toggleClass("open");
+
+
+        if ($("#profileSettings").hasClass("open")) {
+            if($("#profileSettings").hasClass("openedStore")){
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );
+        }
+        else{
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );
+        }
+    }
+        else{
+            if($("#profileSettings").hasClass("openedStore")){
+
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#fff"
+                }
+            );
+        }
+        else{
+            $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#2ecc71"
+                }
+            );
+        }
+        }
+
+      
+
+
+
+
+
+
 
     });
 $("#chats .chats").on("keypress", ".chat .chatBox .newMessage textarea", function (ev) {

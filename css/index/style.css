@@ -323,6 +323,12 @@ header.open {
     width: 100%;
     z-index: 3;
 }
+header.open nav ul li input{
+    background-color: #2ecc71;
+    border-bottom: solid 1px #fff;
+    color:#fff;
+    z-index: 3;
+}
 #Store.open {
     display: block
 }
