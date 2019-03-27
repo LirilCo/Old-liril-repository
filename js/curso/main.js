@@ -9,6 +9,7 @@ type = "none";
 copiedTop = 0;
 select = false;
 copiedLeft = 0;
+
 $(document).on("ready",function(){
     $(".indexMenuItem ").prop("title", function(){ 
     return $(this).text();
