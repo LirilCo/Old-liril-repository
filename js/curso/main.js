@@ -161,14 +161,21 @@ snapTolerance: 10
 			$("#index-trigger").children().removeClass("openedStore");
 		$("#right-menu #dots").children().removeClass("openedStore");
 		$("#right-menu").children().removeClass("openedStore");
+		$("#right-menu").children().removeClass("store");
 		$(".back-arrow").removeClass("openedStore");
 		$("#cover").addClass("open");
+
+		}
+		if(!$("#Store").hasClass("open") && $("#customizationBars").hasClass("open")){
+			$("#right-menu").children().addClass("openedStore");
+		$("#right-menu").children().removeClass("store");
 
 		}
 		if(!$("#customizationBars").hasClass("open")){
 			if(!player.paused() && $("#Store").hasClass("open")){
 			player.pause();
 			wasPlaying = true;
+
 		}
 		if(player.paused() && !$("#Store").hasClass("open") && !$("#customizationBars").hasClass("open") && wasPlaying === true){
 			player.play();
@@ -180,6 +187,7 @@ snapTolerance: 10
 			$("#index-trigger").children().addClass("openedStore");
 			$("#right-menu #dots").children().addClass("openedStore");
 			$("#right-menu").children().addClass("openedStore");
+			$("#right-menu").children().addClass("store");
 			$(".back-arrow").addClass("openedStore");
 			$("#cover").removeClass("open");
 

@@ -40,7 +40,8 @@ The control icons are from a custom font. Each icon corresponds to a character
   padding: 0;
   /* background-color-with-alpha */
 
-  background-color: #aaa
+  background-color: #aaa;
+  z-index: 3;
 }
 .vjs-default-skin .vjs-slider:focus {
   /* box-shadow */

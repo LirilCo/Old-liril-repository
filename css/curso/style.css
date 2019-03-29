@@ -141,12 +141,16 @@ header nav ul li#right-menu #customize {
     margin-right: 12px;
     position: absolute;
     top: 5px;
+    display:block;
 }
 header nav ul li#right-menu #customize:before {
     content: "\e60f";
     font-family: "icomoon";
     font-size: 28px;
     margin-right: 2px;
+}
+header nav ul li#right-menu #customize.openedStore.store {
+    display:none;
 }
 header nav ul li#right-menu #store {
     left: 0;

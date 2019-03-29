@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/curso/style.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/video-js.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
 
     <script src="js/jquery.js">
     </script>
@@ -23,10 +24,11 @@
     </script>
     <script src="js/curso/main.js">
     </script>
-
     <script src="js/jquery.knob.js">
     </script>
-
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.ui.resizable.snap.ext.js"></script>
     <script>
         $(function ($) {
 
@@ -131,10 +133,22 @@
 </head>
 
 <body>
-
+<div class="widgetero">
+    
+</div>
+<div id="cover" class="open">
+    
+</div>
     <header>
         <nav>
             <ul>
+            <li id="back">
+            <a  href="courses.html">
+                <span class="back-arrow button">  
+
+                </span>
+
+            </a>
                 <li id="index">
                     <section id="index-trigger">
                         <span class="index-arrow button">
@@ -248,6 +262,7 @@
                 <li>
                 </li>
                 <li id="right-menu" class="button">
+                    <span id="customize" class="button"></span>
                     <section id="dots" class="button">
                         <span id="store" class="button">
               </span>
@@ -276,6 +291,76 @@
             </ul>
         </nav>
     </header>
+     <section id="customizationBars" class="button">
+        <aside id="storeHeader" class="button">
+
+        </aside>
+        <aside id="actions">
+            <table class="tabs">
+                <td class="button actual"></td>
+                <td class="button resize on"></td>
+                <td class="button select"></td>   
+                <td class="button cut"></td>
+                <td class="button copy"></td>
+                <td class="button paste"></td>
+                <td class="button delete"></td> 
+            </table>
+             <table class="tabs">
+                <td  colspan="2" class="button actual width inputed "><input type="number" min="1" max="100" onchange="handleChange(this);"></td>
+                <td colspan="2" class="button height inputed inputw"><input type="number" min="1" max="100" onkeydown="apply()" onchange="handleChange(this);"></td>
+                <td  colspan="2" class="button grid"><span>Snap</span></td>   
+                <td  class="button magnet on"></td>   
+              
+            </table>
+            <section>
+                <div class="presets">
+                    
+                </div>
+                <div class="snapping">
+                    
+                </div>
+
+            </section>
+        </aside>
+        <aside id="list">
+            <ul class="tabs">
+                <li class="button">Pointers</li>
+                <li class="button actual">Add-ons</li>
+                <li class="button">Widgets</li>
+            </ul>
+            <ul class="widgets">
+
+                <li>
+                    <div class="widget" style="width: 200px; height: 50px;">
+                     <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
+                     <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
+                        <div class="content">
+                            <img src="resources/images/curso/partitura.jpg" alt="">
+                        </div>
+                    </div>
+                    <img src="resources/images/grid/1.jpg" alt="">
+                </li>
+
+                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+            </ul>
+        </aside>
+    </section>
     <section id="Store" class="button">
         <aside id="storeHeader" class="button">
 
@@ -334,6 +419,17 @@
     </section>
     <section id="timeline">
     </section>
+     <script>
+    function apply(){
+        a = $(".inputw").value
+        $(".selectedWidget").width(a)
+    }
+ function handleChange(input) {
+    if (input.value < 1) input.value = 1;
+    if (input.value > 100) input.value = 100;
+  }
+        var player = videojs('example_video_1');
+    </script>
     <script>
         var player = videojs('example_video_1');
     </script>
