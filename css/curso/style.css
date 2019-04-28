@@ -581,8 +581,7 @@ width: 100%;}
     position: absolute !important;
     background-color: #ccc;
     opacity: 0.5;
-    border: 1px solid #ccc; 
-
+    box-sizing: border-box;
 }
 .widget .content
 {
@@ -600,7 +599,7 @@ width: 100%;}
 {
     position: absolute;
     width: 50%;
-    top: 48px ;
+    top: 47px ;
     left: 0 ;
     z-index: 2;
     

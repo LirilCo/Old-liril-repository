@@ -77,7 +77,7 @@ containment: "window",
 
 $('.widgetero .widget').last().css({
 	left: e.pageX - $('.widgetero .widget').last().width()/2,
-	top: e.pageY- $('.widgetero .widget').last().height()/2}).trigger(e)
+	top: e.pageY- $('.widgetero .widget').last().height()*1.5}).trigger(e)
 
 });
 $(document).mouseup(function(e) {
@@ -218,13 +218,12 @@ snapTolerance: 10
 
 		}		
 		
-if(!$("#Store").hasClass("open") && !$("#customizationBars").hasClass("open") ){
-				$(".widgetero .widget").each(function(){
-					$(this).css("width", ($(this).width()*2)+2)
-					$(this).css("height", $(this).height()*2)
-					$(this).css("left", parseInt($(this).css("left"))*2)
-					$(this).css("top", (parseInt($(this).css("top"))*2))
-
+		if(!$("#Store").hasClass("open") && !$("#customizationBars").hasClass("open") ){
+			$(".widgetero .widget").each(function(){
+				$(this).css("width", ($(this).width()*2)+4)
+				$(this).css("height", ($(this).height())*2)
+				$(this).css("left", parseInt($(this).css("left"))*2)
+				$(this).css("top", (parseInt($(this).css("top"))*2)-2)
 			})	
 				
 			$("#index-trigger").children().removeClass("openedStore");
@@ -232,13 +231,12 @@ if(!$("#Store").hasClass("open") && !$("#customizationBars").hasClass("open") ){
 			$("#right-menu").children().removeClass("openedStore");
 			$(".back-arrow").removeClass("openedStore");
 			$("#cover").addClass("open");
-				$("#example_video_1").removeClass("vidCustomizationMode");
-$("#example_video_1").children().first().removeClass("vidVidCustomizationMode");
-	$("#example_video_1").children().first().height( "100%")
-		$(".vjs-progress-holder").removeClass("opened");
-
+			$("#example_video_1").removeClass("vidCustomizationMode");
+			$("#example_video_1").children().first().removeClass("vidVidCustomizationMode");
+			$("#example_video_1").children().first().height( "100%")
+			$(".vjs-progress-holder").removeClass("opened");
 		}
-		if($("#customizationBars").hasClass("open")){
+	if($("#customizationBars").hasClass("open")){
 		customizationMode();
 	}
 	});
@@ -340,10 +338,10 @@ function jump(s,t){
 }
 function customizationMode(){
 	$(".widgetero .widget").each(function(){
-					$(this).css("width", ($(this).width()-2)/2)
-					$(this).css("height", ($(this).height())/2)
+					$(this).css("width", (($(this).width())/2)-2)
+					$(this).css("height", (($(this).height()))/2)
 					$(this).css("left", parseInt($(this).css("left"))/2)
-					$(this).css("top", (parseInt($(this).css("top")))/2)
+					$(this).css("top", ((parseInt($(this).css("top")))/2)+1)
 			})	
 	$("#example_video_1").children().first().addClass("vidVidCustomizationMode");
 	a = $("#example_video_1").height()/$("#example_video_1").width()
@@ -433,7 +431,7 @@ function controls(a){
 	}
 	if ($(a.target).parents().andSelf().is(".copy")){
     	copiedWidget = $(".selectedWidget").html()
-    	copiedTop = $(".vidVidCustomizationMode").height()/2-$(".selectedWidget").height()/2 + 48
+    	copiedTop = $(".vidVidCustomizationMode").height()/2-$(".selectedWidget").height()/2 + 47
     	copiedLeft = $(".vidVidCustomizationMode").width()/2-$(".selectedWidget").width()/2
 	}
 	if ($(a.target).parents().andSelf().is(".paste")){
