@@ -77,7 +77,7 @@ containment: "window",
 
 $('.widgetero .widget').last().css({
 	left: e.pageX - $('.widgetero .widget').last().width()/2,
-	top: e.pageY- $('.widgetero .widget').last().height()*1.5}).trigger(e)
+	top: e.pageY -($('.widgetero .widget').last().height()/2)-46}).trigger(e)
 
 });
 $(document).mouseup(function(e) {
