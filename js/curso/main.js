@@ -218,7 +218,9 @@ snapTolerance: 10
 			
 		}
 		if($("#Store").hasClass("open") && $("#customizationBars").hasClass("open")){
+			
 			$(".widgetero .active").each(function(){
+				
 				$(this).addClass("widget")
 				$(this).removeClass("active")
 				
@@ -231,6 +233,12 @@ snapTolerance: 10
 		
 		if(!$("#Store").hasClass("open") && !$("#customizationBars").hasClass("open") ){
 			$(".widgetero .widget").each(function(){
+				$(".widgetero .active").each(function(){
+				
+				$(this).draggable("disable")
+				
+			})	
+				
 				$(this).css("width", ($(this).width()*2)-0)
 				$(this).css("height", ($(this).height())*2)
 				$(this).css("left", parseInt($(this).css("left"))*2)
@@ -351,8 +359,9 @@ function jump(s,t){
 }
 function customizationMode(){
 	$(".widgetero .active").each(function(){
+				$(this).draggable("enable")
 				$(this).addClass("widget")
-				$(this).removeClass("active ") 
+				$(this).removeClass("active") 
 				
 			})	
 	$(".widgetero .widget").each(function(){
