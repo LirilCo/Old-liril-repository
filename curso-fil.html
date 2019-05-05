@@ -28,26 +28,26 @@
     </script>
     <script src="js/jquery.fittext.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-        <script src="js/jquery.ui.resizable.snap.ext.js"></script>
+    <script src="js/jquery.ui.resizable.snap.ext.js"></script>
     <script>
-        $(function ($) {
+        $(function($) {
 
             $(".knob").knob({
-                change: function (value) {
+                change: function(value) {
                     //console.log("change : " + value);
                 },
-                release: function (value) {
+                release: function(value) {
                     //console.log(this.$.attr('value'));
                     console.log("release : " + value);
                 },
-                cancel: function () {
+                cancel: function() {
                     console.log("cancel : ", this);
                 },
                 /*format : function (value) {
                   return value + '%';
                   }
                   ,*/
-                draw: function () {
+                draw: function() {
 
                     // "tron" case
                     if (this.$.data('skin') == 'tron') {
@@ -91,20 +91,20 @@
                 i = 0,
                 $idir = $("div.idir"),
                 $ival = $("div.ival"),
-                incr = function () {
+                incr = function() {
                     i++;
                     $idir.show().html("+").fadeOut();
                     $ival.html(i);
                 },
-                decr = function () {
-                    i                    $idir.show().html("-").fadeOut();
+                decr = function() {
+                    i $idir.show().html("-").fadeOut();
                     $ival.html(i);
                 };
             $("input.infinite").knob({
                 min: 0,
                 max: 20,
                 stopper: false,
-                change: function () {
+                change: function() {
                     if (v > this.cv) {
                         if (up) {
                             decr();
@@ -132,165 +132,163 @@
 </head>
 
 <body>
-<div class="widgetero">
-    
-</div>
-<div id="cover" class="open">
-    
-</div>
+    <div class="widgetero">
+
+    </div>
+   
     <header>
         <nav>
             <ul>
-            <li id="back">
-            <a  href="courses.html">
-                <span class="back-arrow button">  
+                <li id="back">
+                    <a href="courses.html">
+                        <span class="back-arrow button">  
 
                 </span>
 
-            </a>
-                <li id="index">
-                    <section id="index-trigger">
-                        <span class="index-arrow button">
+                    </a>
+                    <li id="index">
+                        <section id="index-trigger">
+                            <span class="index-arrow button">
               </span>
-                        <span id="index-text" class="text button">
+                            <span id="index-text" class="text button">
                 Índice
               </span>
-                    </section>
+                        </section>
 
-                    <section id="index-menu" class="button">
-                        <ul>
-                           <a>
-                                <li id="0" class="indexMenuItem animated fadeOutUp button" title="Introducción">
-                                    Introducción
-                                </li>
-                            </a>
-                            <a>
-                                <li id="1" class="indexMenuItem animated fadeOutUp button" title="Suma">
-                                    ¿Qué es?
-                                </li>
-                            </a>
-                            <a>
-                                <li id="2" class="indexMenuItem animated fadeOutUp button" title="Resta">
-                                    División
-                                </li>
-                            </a>
-                            <a>
-                                <li id="3" class="indexMenuItem animated fadeOutUp button" title="División">
-                                    Sofistas
-                                </li>
-                            </a>
-                             <a>
-                                <li id="4" class="indexMenuItem animated fadeOutUp button" title="Introducción">
-                                    <b>Hombre</b>
-                                </li>
-                            </a>
-                            <a>
-                                <li id="5" class="indexMenuItem animated fadeOutUp button sub" title="Suma">
-                                    En Sócrates
-                                </li>
-                            </a>
-                            <a>
-                                <li id="6" class="indexMenuItem animated fadeOutUp button sub" title="Resta">
-                                    En Platón
-                                </li>
-                            </a>
-                            <a>
-                                <li id="7" class="indexMenuItem animated fadeOutUp button sub" title="División">
-                                    En Aristóteles
-                                </li>
-                            </a>
-                            <a>
-                                <li id="8" class="indexMenuItem animated fadeOutUp button" title="Suma">
-                                   <b>Alma</b>
-                                </li>
-                            </a>
-                            <a>
-                                <li id="9" class="indexMenuItem animated fadeOutUp button sub" title="Resta">
-                                    En Sócrates
-                                </li>
-                            </a>
-                            <a>
-                                <li id="10" class="indexMenuItem animated fadeOutUp button sub" title="División">
-                                    En Platón
-                                </li>
-                            </a>
-                             <a>
-                                <li id="11" class="indexMenuItem animated fadeOutUp button sub" title="Introducción">
-                                    En Aristóteles
-                                </li>
-                            </a>
-                            <a>
-                                <li id="12" class="indexMenuItem animated fadeOutUp button" title="Suma">
-                                    <b>Mundo</b>
-                                </li>
-                            </a>
-                            <a>
-                                <li id="13" class="indexMenuItem animated fadeOutUp button sub" title="Resta">
-                                    Antiguo
-                                </li>
-                            </a>
-                            <a>
-                                <li id="14" class="indexMenuItem animated fadeOutUp button sub" title="División">
-                                    Moderno
-                                </li>
-                            </a>
-                            <a>
-                                <li id="15" class="indexMenuItem animated fadeOutUp button" title="Suma">
-                                    Dios
-                                </li>
-                            </a>
-                            <a>
-                                <li id="16" class="indexMenuItem animated fadeOutUp button" title="Resta">
-                                    Luis Gallego
-                                </li>
-                            </a>
-                        </ul>
-                    </section>
-                </li>
-                <li id="controls">
-                    <span id="play">
-                        
+                        <section id="index-menu" class="button">
+                            <ul>
+                                <a>
+                                    <li id="0" class="indexMenuItem animated fadeOutUp button" title="Introducción">
+                                        Introducción
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="1" class="indexMenuItem animated fadeOutUp button" title="Suma">
+                                        ¿Qué es?
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="2" class="indexMenuItem animated fadeOutUp button" title="Resta">
+                                        División
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="3" class="indexMenuItem animated fadeOutUp button" title="División">
+                                        Sofistas
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="4" class="indexMenuItem animated fadeOutUp button" title="Introducción">
+                                        <b>Hombre</b>
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="5" class="indexMenuItem animated fadeOutUp button sub" title="Suma">
+                                        En Sócrates
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="6" class="indexMenuItem animated fadeOutUp button sub" title="Resta">
+                                        En Platón
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="7" class="indexMenuItem animated fadeOutUp button sub" title="División">
+                                        En Aristóteles
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="8" class="indexMenuItem animated fadeOutUp button" title="Suma">
+                                        <b>Alma</b>
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="9" class="indexMenuItem animated fadeOutUp button sub" title="Resta">
+                                        En Sócrates
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="10" class="indexMenuItem animated fadeOutUp button sub" title="División">
+                                        En Platón
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="11" class="indexMenuItem animated fadeOutUp button sub" title="Introducción">
+                                        En Aristóteles
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="12" class="indexMenuItem animated fadeOutUp button" title="Suma">
+                                        <b>Mundo</b>
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="13" class="indexMenuItem animated fadeOutUp button sub" title="Resta">
+                                        Antiguo
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="14" class="indexMenuItem animated fadeOutUp button sub" title="División">
+                                        Moderno
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="15" class="indexMenuItem animated fadeOutUp button" title="Suma">
+                                        Dios
+                                    </li>
+                                </a>
+                                <a>
+                                    <li id="16" class="indexMenuItem animated fadeOutUp button" title="Resta">
+                                        Luis Gallego
+                                    </li>
+                                </a>
+                            </ul>
+                        </section>
+                    </li>
+                    <li id="controls">
+                        <span id="play">
+
                     </span>
-                    <span id="volume">
-                        
+                        <span id="volume">
+
                     </span>
-                    <span id="closedCaptions">
-                        
+                        <span id="closedCaptions">
+
                     </span>
-                </li>
-                <li>
-                </li>
-                <li id="right-menu" class="button">
-                    <span id="customize" class="button"></span>
-                    <section id="dots" class="button">
-                        <span id="store" class="button">
+                    </li>
+                    <li>
+                    </li>
+                    <li id="right-menu" class="button">
+                        <span id="customize" class="button"></span>
+                        <section id="dots" class="button">
+                            <span id="store" class="button">
               </span>
-                        <span id="dots-icon" class="button">
+                            <span id="dots-icon" class="button">
               </span>
-                        <span id="dots-text" class="button">
+                            <span id="dots-text" class="button">
                 6'000.600
               </span>
 
-                    </section>
-                    <section id="profileTrigger">
-                    </section>
-                    <div id="profile" class="button">
-                        <img id="profile-pic" src="resources/images/white.jpg" alt="Walter White">
-                        <input class="knob button" data-width="35" data-fgColor="#fff" data-bgColor="rgba(0,0,0,0)" data-displayInput=false data-thickness=".15" readonly value="75">
-                    </div>
-                    <span class="index-arrow button">
+                        </section>
+                        <section id="profileTrigger">
+                        </section>
+                        <div id="profile" class="button">
+                            <img id="profile-pic" src="resources/images/white.jpg" alt="Walter White">
+                            <input class="knob button" data-width="35" data-fgColor="#fff" data-bgColor="rgba(0,0,0,0)" data-displayInput=false data-thickness=".15" readonly value="75">
+                        </div>
+                        <span class="index-arrow button">
               </span>
 
-                    <section id="profileSettings">
-                    </section>
-                </li>
+                        <section id="profileSettings">
+                        </section>
+                    </li>
 
-                <li>
-                </li>
+                    <li>
+                    </li>
             </ul>
         </nav>
     </header>
-     <section id="customizationBars" class="button">
+    <section id="customizationBars" class="button">
         <aside id="storeHeader" class="button">
 
         </aside>
@@ -298,25 +296,29 @@
             <table class="tabs">
                 <td class="button actual"></td>
                 <td class="button resize on"></td>
-                <td class="button select"></td>   
+                <td class="button select"></td>
                 <td class="button cut"></td>
                 <td class="button copy"></td>
                 <td class="button paste"></td>
-                <td class="button delete"></td> 
+                <td class="button delete"></td>
             </table>
-             <table class="tabs">
-                <td  colspan="2" class="button actual width inputed "><input type="number" min="1" max="100" onchange="handleChange(this);"></td>
-                <td colspan="2" class="button height inputed inputw"><input type="number" min="1" max="100" onkeydown="apply()" onchange="handleChange(this);"></td>
-                <td  colspan="2" class="button grid"><span>Snap</span></td>   
-                <td  class="button magnet on"></td>   
-              
+            <table class="tabs">
+                <td colspan="2" class="button actual width inputed ">
+                    <input type="number" min="1" max="100" onchange="handleChange(this);">
+                </td>
+                <td colspan="2" class="button height inputed inputw">
+                    <input type="number" min="1" max="100" onkeydown="apply()" onchange="handleChange(this);">
+                </td>
+                <td colspan="2" class="button grid"><span>Snap</span></td>
+                <td class="button magnet on"></td>
+
             </table>
             <section>
                 <div class="presets">
-                    
+
                 </div>
                 <div class="snapping">
-                    
+
                 </div>
 
             </section>
@@ -331,16 +333,43 @@
 
                 <li>
                     <div class="widget" style="height:200px; width: 100px">
-                     <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
                         <div class="content">
-                            <aside style="height: 100%;width: 100%; background-color:#3498db;"></aside>
+                            <div style="position: absolute; top: 0;left: 0;width: 100%;height:100%; display: block;z-index: 5;"></div>
+                            <table style="height: 100%;width: 100%;margin: 0;text-align:center; color:black">
+                                <caption></caption>
+                                <tr>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                    <td>+</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>/</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>,</td>
+                                    <td>=</td>
+                                    <td>*</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                     <img src="resources/images/grid/1.jpg" alt="">
@@ -348,14 +377,14 @@
 
                 <li>
                     <div class="widget" style="height:50px; width: 100px">
-                     <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
                         <div class="content">
                             <aside style="height: 100%;width: 100%; background-color:#9b59b6
                             ;"></aside>
@@ -365,14 +394,14 @@
                 </li>
                 <li>
                     <div class="widget" style="height:90px; width: 150px">
-                     <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
                         <div class="content">
                             <aside style="height: 100%;width: 100%; background-color:#1abc9c
                             ;"></aside>
@@ -382,14 +411,14 @@
                 </li>
                 <li>
                     <div class="widget" style="height:150px; width: 30px">
-                     <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
                         <div class="content">
                             <aside style="height: 100%;width: 100%; background-color:#34495e
                             ;"></aside>
@@ -399,14 +428,14 @@
                 </li>
                 <li>
                     <div class="widget" style="height:34px; width: 10px">
-                     <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
                         <div class="content">
                             <aside style="height: 100%;width: 100%; background-color:#f1c40f
                             ;"></aside>
@@ -416,14 +445,14 @@
                 </li>
                 <li>
                     <div class="widget" style="height:20px; width: 100px">
-                     <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
                         <div class="content">
                             <aside style="height: 100%;width: 100%; background-color:#e67e22
                             ;"></aside>
@@ -433,14 +462,14 @@
                 </li>
                 <li>
                     <div class="widget" style="height:80px; width: 70px">
-                     <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
                         <div class="content">
                             <aside style="height: 100%;width: 100%; background-color:#e74c3c
                             ;"></aside>
@@ -450,14 +479,14 @@
                 </li>
                 <li>
                     <div class="widget" style="height:120px; width: 20px">
-                     <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
                         <div class="content">
                             <aside style="height: 100%;width: 100%; background-color:#ecf0f1
                             ;"></aside>
@@ -467,14 +496,14 @@
                 </li>
                 <li>
                     <div class="widget" style="height:20px; width: 20px">
-                     <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
-                     <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-se" id="segrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-n" id="ngrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-s" id="sgrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-e" id="egrip"></div>
+                        <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
                         <div class="content">
                             <aside style="height: 100%;width: 100%; background-color:#95a5a6
                             ;"></aside>
@@ -482,9 +511,12 @@
                     </div>
                     <img src="resources/images/grid/1.jpg" alt="">
                 </li>
-                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
-                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
-                <li><div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li>
+                    <div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li>
+                    <div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
+                <li>
+                    <div class="widget"></div><img src="resources/images/grid/1.jpg" alt=""></li>
             </ul>
         </aside>
     </section>
@@ -546,38 +578,39 @@
     </section>
     <section id="timeline">
     </section>
-     <script>
-    function apply(){
-        a = $(".inputw").value
-        $(".selectedWidget").width(a)
-    }
- function handleChange(input) {
-    if (input.value < 1) input.value = 1;
-    if (input.value > 100) input.value = 100;
-  }
+    <script>
+        function apply() {
+            a = $(".inputw").value
+            $(".selectedWidget").width(a)
+        }
+
+        function handleChange(input) {
+            if (input.value < 1) input.value = 1;
+            if (input.value > 100) input.value = 100;
+        }
         var player = videojs('example_video_1');
     </script>
     <script>
         var player = videojs('example_video_1');
     </script>
     <script>
-    jump("#0",0);
-	jump("#1",10);
-	jump("#2",23);
-	jump("#3",30);
-    jump("#4",48);
-	jump("#5",48);
-	jump("#6",59);
-	jump("#7",83);
-    jump("#8",98);
-    jump("#9",98);
-	jump("#10",107);
-	jump("#11",113);
-	jump("#12",135);
-    jump("#13",135);
-    jump("#14",147);
-	jump("#15",166);
-	jump("#16",222);
+        jump("#0", 0);
+        jump("#1", 10);
+        jump("#2", 23);
+        jump("#3", 30);
+        jump("#4", 48);
+        jump("#5", 48);
+        jump("#6", 59);
+        jump("#7", 83);
+        jump("#8", 98);
+        jump("#9", 98);
+        jump("#10", 107);
+        jump("#11", 113);
+        jump("#12", 135);
+        jump("#13", 135);
+        jump("#14", 147);
+        jump("#15", 166);
+        jump("#16", 222);
     </script>
 </body>
 

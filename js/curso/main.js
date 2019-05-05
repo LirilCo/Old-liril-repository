@@ -34,12 +34,13 @@ $(document).on("ready",function(){
 	});
 	
 	$('.widgetero').mousedown(function(e) {
+		if($("#customizationBars").hasClass("open")){
 				getActual().addClass("selectedWidget");
-
+		}		
 	})
 
 	$('.widgets li').mousedown(function(e) {
-
+if($("#customizationBars").hasClass("open")){
 	$(this).find($( ".widgets .widget" )).clone().addClass('widget draggable').appendTo( ".widgetero" );
 	
 
@@ -55,17 +56,18 @@ $('.widgetero .widget').last().draggable({
 containment: "window",
 	revert: false,
     start: function(event, ui) {
-    	if(!$('.widgetero .widget').last().hasClass("dropped")){  
+    	if(!$('.widgetero .widget').last().hasClass("dropped")){ 
     		ui.helper.data('dropped', false);
     	}else{
-    		revert: true
+    		
     	}
       
     },
     stop: function(event, ui)
     {
 		if(!ui.helper.data('dropped')){
-			$(this).remove()
+			if($("#customizationBars").hasClass("open")){
+			$(this).remove()}
 		}      
     }
 
@@ -78,9 +80,11 @@ containment: "window",
 $('.widgetero .widget').last().css({
 	left: e.pageX - $('.widgetero .widget').last().width()/2,
 	top: e.pageY -($('.widgetero .widget').last().height()/2)-46}).trigger(e)
-
+}
 });
+
 $(document).mouseup(function(e) {
+	if($("#customizationBars").hasClass("open")){
 		$('.widgetero .widget').draggable({ 
 		distance: 0,
 		containment: "window",
@@ -152,7 +156,7 @@ snapTolerance: 10
 
 		}
 				
-
+}
 })
 	var wasPlaying = false;
 	$("#dots").on("click",function(){
@@ -214,16 +218,25 @@ snapTolerance: 10
 			
 		}
 		if($("#Store").hasClass("open") && $("#customizationBars").hasClass("open")){
+			$(".widgetero .active").each(function(){
+				$(this).addClass("widget")
+				$(this).removeClass("active")
+				
+			})	
+			
+				
 			$("#customizationBars").addClass("open")
 
 		}		
 		
 		if(!$("#Store").hasClass("open") && !$("#customizationBars").hasClass("open") ){
 			$(".widgetero .widget").each(function(){
-				$(this).css("width", ($(this).width()*2)+4)
+				$(this).css("width", ($(this).width()*2)-0)
 				$(this).css("height", ($(this).height())*2)
 				$(this).css("left", parseInt($(this).css("left"))*2)
 				$(this).css("top", (parseInt($(this).css("top"))*2)-2)
+				$(this).addClass("active")
+				$(this).removeClass("widget draggable ui-draggable ui-draggable-handle ui-resizable")
 			})	
 				
 			$("#index-trigger").children().removeClass("openedStore");
@@ -337,8 +350,13 @@ function jump(s,t){
 	});
 }
 function customizationMode(){
+	$(".widgetero .active").each(function(){
+				$(this).addClass("widget")
+				$(this).removeClass("active ") 
+				
+			})	
 	$(".widgetero .widget").each(function(){
-					$(this).css("width", (($(this).width())/2)-2)
+					$(this).css("width", (($(this).width())/2)+0)
 					$(this).css("height", (($(this).height()))/2)
 					$(this).css("left", parseInt($(this).css("left"))/2)
 					$(this).css("top", ((parseInt($(this).css("top")))/2)+1)
