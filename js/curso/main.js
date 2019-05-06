@@ -234,6 +234,7 @@ snapTolerance: 10
 		if(!$("#Store").hasClass("open") && !$("#customizationBars").hasClass("open") ){
 			$(".widgetero .widget").each(function(){
 				$(this).draggable("disable")
+				$(this).find(".coverDiv").remove()
 				$(this).css("width", ($(this).width()*2)-0)
 				$(this).css("height", ($(this).height())*2)
 				$(this).css("left", parseInt($(this).css("left"))*2)
@@ -355,6 +356,7 @@ function jump(s,t){
 function customizationMode(){
 	$(".widgetero .active").each(function(){
 				$(this).draggable("enable")
+				$(this).append(' <div class="coverDiv" style="position: absolute; top: 0;left: 0;width: 100%;height:100%; display: block;z-index: 5;"></div>')
 				$(this).addClass("widget")
 				$(this).removeClass("active") 
 				
