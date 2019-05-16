@@ -113,7 +113,7 @@ header nav ul li#right-menu #profileSettings.open {
     width: 80px;
     z-index: -1;
 }
-header nav ul li#right-menu #dots-icon:before {
+header nav ul li#right-menu #dots-icon:before, .dots-icon:before {
     content: "\e608";
     font-family: "icomoon";
     font-size: 16px;
@@ -1040,12 +1040,84 @@ display: inline-block;
     margin-top:47px;
 }
 .ui-accordion .ui-accordion-content{
-    padding-top: 0 !important;
-    padding-left:7px !important;
-    padding-right: 7px !important;
-    padding-bottom:0 !important;
+    padding: 0 4px !important;
 }
 .ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr, .ui-corner-left, .ui-corner-tl 
 {
     border-radius: 0 !important;
+}
+.ui-accordion-header{
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    outline: none !important;
+    margin: 0 !important;
+    font-weight: normal !important;
+}
+.ui-accordion{
+    margin: 0 !important;
+    
+}
+.curso{
+    height: 9px;
+    line-height: 0.57
+}
+.acordeon .acordeon .data{
+    padding: 5px !important;
+    display: inline-block;
+}
+.data table{
+    height: 50px;
+    width: 100%;
+
+}
+table .static{
+    width:15%;
+
+}
+table .description{
+    box-sizing: content-box;
+    padding: 0 6px;
+    text-align: left;
+    width:50%;
+}
+table .dots{
+    border-left: 1px solid #ccc;
+    box-sizing: content-box;
+    padding: 0 6px;
+    text-align: left;
+    width:17.5%;
+}table .achievements{
+    border-left: 1px solid #ccc;
+    box-sizing: content-box;
+    padding-left: 6px;
+    text-align: left;
+    width:17.5%;
+}
+table .static{
+    padding-right: 6px;
+    border-right: 1px solid #ccc;
+    box-sizing: content-box;
+}
+.static img{
+    height:50px;
+    vertical-align: middle;
+   
+}
+.area, .curso{
+    color: #666 !important
+}
+.data table tr th p{
+    height: 100%;
+    overflow-y: scroll; 
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+}
+.value{
+    font-weight: normal;
+    font-size: 22px
+}
+.dots-icon{
+    font-weight: normal;
+    vertical-align: middle
 }
