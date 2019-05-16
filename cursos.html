@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+    
+    <title>
+      Inicio
+    </title>
+    <link rel="shortcut icon" type="image/ico" href="resources/icons/favicon.ico"  />
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/cursos/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/video-js.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+
+    <script src="js/jquery.js">
+    </script>
+    <script src="js/index/main.js">
+    </script>
+    <script src="js/jquery.dotdotdot.min.js" type="text/javascript">
+    </script>
+        <script src="js/index/modernizr.custom.js">
+    </script>
+    <script src="js/jquery-ui.min.js"
+    >
+    </script>
+    <script src="js/jquery.knob.js">
+    </script>
+     <script src="js/jquery-ui.accordion.multiple.js">
+    </script>
+<script type="text/javascript">
+  $(function () {
+      $.widget("ui.tooltip", $.ui.tooltip, {
+          options: {
+              content: function () {
+                  return $(this).prop('title');
+              }
+          }
+      });
+      
+$('#target').tooltip({
+    items: 'a.target',
+    open: function(event, ui)
+    {
+        if (typeof(event.originalEvent) === 'undefined')
+        {
+            return false;
+        }
+        
+        var $id = $(ui.tooltip).attr('id');
+        
+        // close any lingering tooltips
+        $('div.ui-tooltip').not('#' + $id).remove();
+        
+        // ajax function to pull in data and add it to the tooltip goes here
+    },
+    close: function(event, ui)
+    {
+        ui.tooltip.hover(function()
+        {
+            $(this).stop(true).fadeTo(400, 1); 
+        },
+        function()
+        {
+            $(this).fadeOut('400', function()
+            {
+                $(this).remove();
+            });
+        });
+    }
+});  });
+</script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/jquery.textarea_autosize.js"></script>
+    <script>
+      $(function ($) {
+        
+        $(".knob").knob({
+          change: function (value) {
+            //console.log("change : " + value);
+          }
+          ,
+          release: function (value) {
+            //console.log(this.$.attr('value'));
+            console.log("release : " + value);
+          }
+          ,
+          cancel: function () {
+            console.log("cancel : ", this);
+          }
+          ,
+          /*format : function (value) {
+return value + '%';
+}
+,*/
+          draw: function () {
+            
+            // "tron" case
+            if (this.$.data('skin') == 'tron') {
+              
+              this.cursorExt = 0.3;
+              
+              var a = this.arc(this.cv) // Arc
+                  ,
+                  pa // Previous arc
+                  , r = 1;
+              
+              this.g.lineWidth = this.lineWidth;
+              
+              if (this.o.displayPrevious) {
+                pa = this.arc(this.v);
+                this.g.beginPath();
+                this.g.strokeStyle = this.pColor;
+                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
+                this.g.stroke();
+              }
+              
+              this.g.beginPath();
+              this.g.strokeStyle = r ? this.o.fgColor : this.fgColor;
+              this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+              this.g.stroke();
+              
+              this.g.lineWidth = 2;
+              this.g.beginPath();
+              this.g.strokeStyle = this.o.fgColor;
+              this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+              this.g.stroke();
+              
+              return false;
+            }
+          }
+        }
+                       );
+        
+        // Example of infinite knob, iPod click wheel
+        var v, up = 0,
+            down = 0,
+            i = 0,
+            $idir = $("div.idir"),
+            $ival = $("div.ival"),
+            incr = function () {
+              i++;
+              $idir.show().html("+").fadeOut();
+              $ival.html(i);
+            }
+            ,
+            decr = function () {
+              i--;
+              $idir.show().html("-").fadeOut();
+              $ival.html(i);
+            }
+            ;
+        $("input.infinite").knob({
+          min: 0,
+          max: 20,
+          stopper: false,
+          change: function () {
+            if (v > this.cv) {
+              if (up) {
+                decr();
+                up = 0;
+              }
+              else {
+                up = 1;
+                down = 0;
+              }
+            }
+            else {
+              if (v < this.cv) {
+                if (down) {
+                  incr();
+                  down = 0;
+                }
+                else {
+                  down = 1;
+                  up = 0;
+                }
+              }
+            }
+            v = this.cv;
+          }
+        }
+                                );
+      }
+       );
+    </script>
+  </head>
+  
+  <body>
+    
+    <header>
+      <nav>
+        <ul>
+          <li id="index">
+            <a href="courses.html">
+              <section id="index-trigger">
+                <span class="back-arrow button">
+                </span>
+                <span id="index-text" class="text button">
+                  Cursos
+                </span>
+              </section>
+            </a>
+            
+          </li>
+          
+          <li>
+          <input class="buscar" type="text" placeholder="Busca aquí cursos, personas o cualquier cosa">
+          </li>
+          <li id="right-menu" class="button">
+            <section id="dots" class="button">
+              <span id="store" class="button">
+              </span>
+                      <span id="dots-icon" class="button">
+                      </span>
+                      <span id="dots-text" class="button">
+                        6'000.600
+                      </span>
+                      
+                  </section>
+                  <section id="profileTrigger">
+                  </section>
+                  <div id="profile" class="button">
+                    <img id="profile-pic" src="resources/images/white.jpg" alt="Walter White">
+                    <input class="knob button" data-width="35" data-fgColor="#2ecc71" data-bgColor="rgba(0,0,0,0)" data-displayInput=false data-thickness=".15" readonly value="75">
+                  </div>
+                  <span class="index-arrow button">
+                  </span>
+                  
+                  <section id="profileSettings">
+                  </section>
+              </li>
+              
+              <li>
+              </li>
+          </ul>
+      </nav>
+  </header>
+  <section id="wrapper" class="theater">
+  </section>
+  
+  <section id="theater" class="theater">
+    <section id="picContainer">
+      <img id="bigPic" alt="">
+    </section>
+    <aside class="comments">
+      <div class="info">
+        <img id="pic" alt="">
+        <p class="username">
+          <a href="#">
+          </a>
+        </p>
+      </div>
+      <p class="title">
+      </p>
+      <p class="more">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet varius lectus, congue rutrum urna. Suspendisse in ultrices enim. In hac habitasse platea dictumst. Praesent aliquet, nisi nec euismod vulputate, odio velit porta erat, ut semper lacus erat ac nulla. Aenean ex libero, volutpat vel sem et, blandit dictum dui. Duis suscipit sed nisi finibus vestibulum. Quisque finibus porttitor nisl, nec consequat metus. Quisque commodo, libero nec volutpat suscipit, quam urna volutpat turpis, quis rhoncus magna dui sit amet lacus. Donec pellentesque aliquam turpis nec commodo. Aliquam lobortis facilisis auctor. Sed libero nisi, scelerisque et porttitor vel, accumsan sed lacus. Pellentesque at tortor pellentesque, vestibulum turpis at, iaculiuisque finibus porttitor nisl, nec consequat metus. Quisque commodo, libero nec volutpat suscipit, quam urna volutpat turpis, quis rhoncus magna dui sit amet lacus. Donec pellentesque aliquam turpis nec commodo. Aliquam lobortis facilisis auctor. Sed libero nisi, scelerisque et porttitor vel, accumsan sed lacus. Pellentesque at tortor pellentesque, vestibulum turpis at, iaculis nibh.
+      </p>
+      <div class="options button">
+        <ul>
+          <li class="bookmark">
+          </li>
+          <li class="star">
+          </li>
+          <a>
+            <li class="read">
+            </li>
+          </a>
+          </ul>
+          </div>
+          <p id="close">
+          </p>
+      </aside>
+      
+  </section>
+
+  <section id="acordeon">
+    <ul class="acordeon">
+      <h3>Section 1</h3>
+      <div>
+          <p>
+           Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+           ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+           amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+           odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+           </p>
+      </div>
+      <h3>Section 2</h3>
+      <div>
+         <ul class="acordeon">
+      <h3>Section 1</h3>
+      <div>
+          <p>
+           Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+           ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+           amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+           odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+           </p>
+      </div>
+      <h3>Section 2</h3>
+      <div>
+        <p>
+        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+        velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+        suscipit faucibus urna.
+        </p>
+      </div>
+    </ul>
+      </div>
+    </ul>
+  </section>
+  
+ 
+  <section id="Store" class="button">
+    
+    <aside id="actualStore" class="button">
+      <aside id="storeList" class="button">
+        <ul>
+          <a>
+            <li class="button">
+              Sección
+            </li>
+          </a>
+          <a>
+            <li class="button">
+              Sección
+            </li>
+          </a>
+          <a>
+            <li class="button">
+              Sección
+            </li>
+          </a>
+          <a>
+            <li class="button">
+              Sección
+            </li>
+          </a>
+          <a>
+            <li class="button">
+              Sección
+            </li>
+          </a>
+          <a>
+            <li class="button">
+              Sección
+            </li>
+          </a>
+          <a>
+            <li class="button">
+              Sección
+            </li>
+          </a>
+          <a>
+            <li class="button">
+              Sección
+            </li>
+          </a>
+        </ul>
+      </aside>
+      <aside id="storeSection">
+        
+      </aside>
+    </aside>
+    
+  </section>
+
+  
+  <script type="text/javascript">
+    $(".acordeon").accordion({  active: false,
+  collapsible: true, multiple:true });
+  </script>
+
+  <script>
+   
+    
+     $("#notifications").mCustomScrollbar({theme: 
+        "minimal-dark", 
+        autoExpandScrollbar: true,
+        scrollInertia: 100,
+         mouseWheel:{ scrollAmount: 40 }
+
+    });
+      $("#chat").mCustomScrollbar({theme: 
+        "minimal-dark", 
+        autoExpandScrollbar: true,
+        scrollInertia: 100,
+            mouseWheel:{ scrollAmount: 40 }
+
+             });
+      
+    
+  </script>
+  <script>
+    $( "#resizeBottom" ).resizable({
+      handles: "n",maxHeight: ($(window).height()-$("#sidebar #search").outerHeight() - 51),minHeight: 50 }
+                                  ).bind("resize", function (e, ui) {
+      $(this).css("top", "auto");
+    }
+                                        );
+    
+  </script>
+  <script>
+    $(".story .info").height($(this).find(".username").outerHeight())
+    
+  </script>
+
+  </body>
+</html>
