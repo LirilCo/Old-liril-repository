@@ -1086,6 +1086,7 @@ table .dots{
     padding: 0 6px;
     text-align: left;
     width:17.5%;
+    position: relative;
 }table .achievements{
     border-left: 1px solid #ccc;
     box-sizing: content-box;
@@ -1115,9 +1116,20 @@ table .static{
 }
 .value{
     font-weight: normal;
-    font-size: 22px
+    font-size: 22px;
+    margin-left: 21px;
 }
 .dots-icon{
     font-weight: normal;
-    vertical-align: middle
+    vertical-align: middle;
+    position: absolute;
+    top: 16px
+}
+.curso a{
+    position: absolute;
+    right: 5px;
+    color:#2ecc71 !important;
+}
+.curso a:hover{
+    color:rgb(136, 214, 169) !important;
 }

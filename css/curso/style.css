@@ -656,6 +656,7 @@ iframe
 .selectedWidget .ui-resizable-handle
 {
     display:block !important;
+    z-index: 1000000;
 }
 .selectedWidget.select .ui-resizable-handle
 {
