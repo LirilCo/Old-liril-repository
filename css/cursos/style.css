@@ -1133,3 +1133,23 @@ table .static{
 .curso a:hover{
     color:rgb(136, 214, 169) !important;
 }
+.static-tooltip{
+    max-width: 100% !important;
+    left: 0 !important;
+    margin: 22px 22px;
+
+}
+.static-tooltip img{
+    max-width: 100% !important;
+    border: 1px solid #2ecc71 !important;
+    box-sizing: border-box;
+}
+
+body .ui-tooltip{
+    border: 1px solid #bbb !important;
+    padding: 5px 5px 0 5px;
+}
+.achievements img{
+    height: 50px;
+    vertical-align: middle;
+}

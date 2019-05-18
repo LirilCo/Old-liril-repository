@@ -271,14 +271,18 @@ return value + '%';
                     <div class="data">
                         <table>
                             <tr>
-                              <th class="static"><img src="resources/images/cursos/Static.jpg"></th>
+                              <th class="static"><img  title="<img src='resources/images/cursos/Static.jpg'/>" src="resources/images/cursos/Static.jpg"></th>
                               <th class="description"><p>Desde que el ser humano , allende los tiempos, caminó erguido, se han ido introduciendo cambios cada vez más avanzados y complejos a lo largo de su evolución. Los más drásticos obedecían al propio transcurrir natural de los acontecimientos (p.ej. la encefalización); sin embargo y, poco a poco, el hombre empezó a dominar el fuego, a construir herramientas como el bifaz, a dividirse el trabajo, a enterrar a sus muertos, a utilizar un lenguaje o a organizarse en algo similar a clanes. Lo que sí es cierto es que en algún momento de los albores de la humanidad, ésta se planteó que formaba parte de un mundo físico que no se sabía de dónde había salido y tomó conciencia de su propia existencia. Ese mundo exterior que le proporcionaba alojamiento o comida y el porqué estaba allí, le produjo al hombre primitivo perplejidad y curiosidad.</p></th> 
                               <th class="dots"> <span class="dots-icon">
                       </span>
                         <span class="value">
                         6.000
                       </span></th>
-                              <th class="achievements">Achievements</th>
+                              <th class="achievements">
+                                <img title="Noobie" src="resources/images/achievements/Award.png">
+                                <img title="Filosófilo" src="resources/images/achievements/Medal.png">
+                              </th>
+                              
                             </tr>
                         </table>
                     </div>
@@ -351,6 +355,10 @@ return value + '%';
     </section>
 
     <script type="text/javascript">
+      $(document).ready(function(){
+        $( ".static img" ).tooltip({tooltipClass: "static-tooltip" });
+      });
+      
         $(".acordeon").accordion({
             active: false,
             collapsible: true,
@@ -362,7 +370,7 @@ return value + '%';
             event.preventDefault();
             window.location.href = $(this).attr("href");
         });
-        $( ".static img" ).tooltip({ content: '<img src='+ $(this).attr('src') +'/>' });
+        
     </script>
 
     <script>
