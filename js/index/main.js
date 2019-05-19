@@ -67,6 +67,21 @@ function closeModal() {
         "display": "none"
     })
 }
+$(document).on("ready",function(){
+
+    $("html").click(function() {
+        $(".wrapper").removeClass("visible")
+        $(".back-arrow").removeClass("open");
+        $("#right-menu .index-arrow").removeClass("open");
+        $("#profileSettings").removeClass("open");
+
+});
+
+$('#profileSettings').click(function(i){
+    i.stopPropagation()
+   
+}); 
+});
 $(document).keypress(function (e) {
 if(!$("textarea").is(":focus") && !$("input").is(":focus")){
     if (e.keyCode == 108) {
@@ -180,38 +195,33 @@ $(window).on("load", function () {
         $("#Store #actualStore").height($(window).height() - $("header").height() - 21);
         $("#Store #actualStore #storeSection").width($(window).width() - $("#Store #actualStore #storeList").width() - 87);
         $("#Store #actualStore #storeSection").height($("#Store #actualStore").height() - 80);
-        if ($("#profileSettings").hasClass("open")) {
+        
             $('.knob').trigger(
-                'configure', {
-                    "fgColor": "#2ecc71"
-                }
-            );
-        }
-        if ($("#Store").hasClass("open")) {
-            $("header").addClass("open");
-            if ($("#profileSettings").hasClass("open")) {
-            $('.knob').trigger(
-                'configure', {
-                    "fgColor": "#2ecc71"
-                }
-            );}
-            else{
-                 $('.knob').trigger(
                 'configure', {
                     "fgColor": "#fff"
                 }
             );
-            }
+        
+        if ($("#Store").hasClass("open")) {
+            $("header").addClass("open");
+           
+                 $('.knob').trigger(
+                'configure', {
+                    "fgColor": "#fff"
+                
+            
+            })
         } else {
            $("header").removeClass("open");
-           }
-           if (!$("#profileSettings").hasClass("open") && !$("#Store").hasClass("open")) {
-               $('.knob').trigger(
+           $('.knob').trigger(
                    'configure', {
                        "fgColor": "#2ecc71"
                    }
                );
-            }
+           }
+          
+               
+            
         });
 
     $(".story .pic").on("click", function () {
@@ -255,7 +265,9 @@ $("#chats .chats ").on("click", ".chat", function(ev) {
         $(this).find("textarea").focus();
 }
 });
-    $("#profileTrigger").on("click", function () {
+    $("#profileTrigger").on("click", function (e) {
+        $(".back-arrow").toggleClass("open");
+        $(".wrapper").toggleClass("visible")
         $("#right-menu .index-arrow").toggleClass("open");
         $("#profileSettings").toggleClass("open");
 
@@ -297,7 +309,7 @@ $("#chats .chats ").on("click", ".chat", function(ev) {
       
 
 
-
+e.stopPropagation() 
 
 
 

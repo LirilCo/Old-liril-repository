@@ -205,6 +205,10 @@ header nav ul li#index {
     width: 130px;
     z-index: 4
 }
+header nav ul li#index #index-menu{
+    display: none;
+    
+}
 header nav ul li#index #index-menu .sub {
     font-family: "icomoon";
 }

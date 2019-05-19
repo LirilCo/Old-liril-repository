@@ -1,5 +1,15 @@
 $(document).on("ready",function(){
-		
+	$("html").click(function() {
+        $(".wrapper").removeClass("visible")
+        $(".back-arrow").removeClass("open");
+        $("#right-menu .index-arrow").removeClass("open");
+        $("#profileSettings").removeClass("open");
+});
+
+$('#profileSettings').click(function(i){
+    i.stopPropagation()
+   
+}); 
 	var wasPlaying = false;
 	$("#dots").on("click", function () {
         $("#Store").toggleClass("open");
@@ -44,6 +54,10 @@ $(document).on("ready",function(){
 
 
 	$("#profileTrigger").on("click", function () {
+        $(".back-arrow").toggleClass("open");
+        $("#right-menu .index-arrow").toggleClass("open");
+        $("#profileSettings").toggleClass("open");
+        $(".wrapper").toggleClass("visible")
         $("#right-menu .index-arrow").toggleClass("open");
         $("#profileSettings").toggleClass("open");
 

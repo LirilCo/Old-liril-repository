@@ -143,6 +143,10 @@ $(window).on("load", function () {
     };
 
      $("#profileTrigger").on("click", function () {
+        $(".back-arrow").toggleClass("open");
+        $("#right-menu .index-arrow").toggleClass("open");
+        $("#profileSettings").toggleClass("open");
+        $(".wrapper").toggleClass("visible")
         $("#right-menu .index-arrow").toggleClass("open");
         $("#profileSettings").toggleClass("open");
 
@@ -185,6 +189,21 @@ $(window).on("load", function () {
     });
 
 
+});
+$(document).on("ready",function(){
+
+    $("html").click(function() {
+        $(".wrapper").removeClass("visible")
+        $(".back-arrow").removeClass("open");
+        $("#right-menu .index-arrow").removeClass("open");
+        $("#profileSettings").removeClass("open");
+
+});
+
+$('#profileSettings').click(function(i){
+    i.stopPropagation()
+   
+}); 
 });
 $(window).on("resize", function(){
     responsive();

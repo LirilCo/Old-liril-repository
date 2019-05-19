@@ -28,7 +28,7 @@ header {
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 2;
+    z-index: 3;
 }
 header>nav>ul>li {
     display: table-cell;
@@ -52,7 +52,7 @@ header nav .index-arrow {
     position: absolute;
     right: 4px;
     top: 7px;
-
+    z-index: 4;
 }
 header nav .back-arrow:before
 {
@@ -111,7 +111,7 @@ header nav ul li#right-menu #profileSettings.open {
     right: 0;
     top: -3px;
     width: 80px;
-    z-index: -1;
+    z-index: 3;
 }
 header nav ul li#right-menu #dots-icon:before {
     content: "\e608";
@@ -139,7 +139,7 @@ header nav ul li#right-menu #profileTrigger {
     right: 0;
     top: 0;
     width: 80px;
-    z-index: 1;
+    z-index: 5;
 }
 header nav ul li#right-menu .back-arrow {
     position: absolute;
@@ -150,6 +150,7 @@ header nav ul li#right-menu #profile {
     position: absolute;
     right: 30px;
     top: 3px;
+    z-index: 4;
 }
 header nav ul li#right-menu #profile #profile-pic {
     border-radius: 50%;
@@ -1035,4 +1036,16 @@ display: inline-block;
 .agregar.sent
 {
     color: blue;
+}
+.wrapper{
+    display: none;
+}
+.wrapper.visible{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2
 }
