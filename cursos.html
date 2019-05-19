@@ -356,7 +356,12 @@ return value + '%';
 
     <script type="text/javascript">
       $(document).ready(function(){
-        $( ".static img" ).tooltip({tooltipClass: "static-tooltip" });
+        $( ".static img" ).tooltip({tooltipClass: "static-tooltip"});
+        $( ".achievements img" ).tooltip({tooltipClass: "achievements-tooltip", track: true,
+        position: {
+        my: "center bottom-6",
+        at: "center top"} });
+
       });
       
         $(".acordeon").accordion({
@@ -374,7 +379,7 @@ return value + '%';
     </script>
 
     <script>
-        $("#notifications").mCustomScrollbar({
+        $(".achievements").mCustomScrollbar({
             theme: "minimal-dark",
             autoExpandScrollbar: true,
             scrollInertia: 100,
